@@ -8,7 +8,8 @@ const DoMore = () => {
         <div className='w-full bg-white flex font-sans'>
 
             <div>
-                <h1 className="text-2xl lg:text-4xl font-bold justify-center flex my-8 lg:my-16">Do more of what you do best</h1>
+                <h1 className="text-2xl lg:text-4xl font-bold text-center pt-8 lg:pt-16">Do more of what you do best</h1>
+                <p className='text-xl lg:text-2xl text-center pt-4 lg:pt-8'>With scheduling hassles and interruptions gone, your day is cleared for accomplishment.</p>
                 <div className='mx-16'>
                     <div class="hero min-h-screen">
                         <div class="hero-content flex-col lg:flex-row-reverse">
