@@ -16,7 +16,7 @@ export default function LogoCarousel() {
                 <h2 className="text-3xl font-bold text-center text-secondary leading-relaxed">Simplified scheduling for more than</h2>
                 <h2 className="text-3xl font-bold text-center text-secondary"><span className="text-primary">100000 </span>users worldwide </h2>
             </div>
-            <Marquee speed={100} gradient={false}>
+            <Marquee speed={70} gradient={false}>
                 <img className="h-[40px] mx-5" src={logo} alt="" />
                 <img className="h-[40px] mx-5" src={logo2} alt="" />
                 <img className="h-[40px] mx-5" src={logo3} alt="" />
