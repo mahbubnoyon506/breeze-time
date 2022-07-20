@@ -1,8 +1,14 @@
 import React from 'react';
+import { IoIosArrowForward } from 'react-icons/io';
+import { GiOnTarget } from 'react-icons/gi';
+import { AiOutlineThunderbolt } from 'react-icons/ai';
+import { RiCustomerService2Line } from 'react-icons/ri';
+import { AiOutlineLineChart } from 'react-icons/ai';
+import { HiOutlineDesktopComputer } from 'react-icons/hi';
 
 const Solutions = () => {
     return (
-        <div className='w-full bg-base-100 flex justify-center items-center'>
+        <div className='w-full bg-blue-50 flex justify-center items-center font-sans'>
             <div className='my-12 md:my-32 container'>
                 <div>
                     <h2 className='text-center mb-2 md:mb-8 text-md uppercase font-semibold text-primary tracking-wide'>Solutions</h2>
@@ -13,47 +19,45 @@ const Solutions = () => {
                 <div className='w-full'>
                     <div className="mx-8 px-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 items-center justify-center gap-x-4 gap-y-8">
                         <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full ">
-                            <img
-                                className="w-8"
-                                src="https://images.ctfassets.net/k0lk9kiuza3o/6eeiV8vQ5r4wapPkjxwmVs/b70237791206b5580e72d77d0fbb60ff/icon-customers.svg"
-                                alt=""
-                            />
+                            <GiOnTarget className='text-4xl text-primary' />
                             <div className="card-title my-4">Sales</div>
-                            <p className="">
+                            <p className="text-gray-600 font-normal leading-7">
                                 Spend more time selling, and less time on admin. Shorten your sales cycle by letting prospects schedule while they’re in peak buying mode.
                             </p>
+                            <p className='text-lg text-primary mt-2 md:mt-6 flex items-center'>
+                                Learn more <IoIosArrowForward className='ml-2 w-4' />
+                            </p>
                         </div>
                         <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full">
-                            <img
-                                className="w-8"
-                                src="https://images.ctfassets.net/k0lk9kiuza3o/2ISl5s3a5RId9XpeuTJBxV/52a26ea61be5da23f0c2a83e73c2a9e6/Icon-Education.svg"
-                                alt=""
-                            />
+                            <AiOutlineThunderbolt className='text-4xl text-primary' />
                             <div className="card-title my-4">Marketing</div>
-                            <p>
+                            <p className='text-gray-600 font-normal leading-7'>
                                 Convert interested prospects into scheduled meetings and demos faster. Skip steps that cause customer friction.
                             </p>
-                        </div>
-                        <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full">
-                            <img
-                                className="w-8"
-                                src="https://images.ctfassets.net/k0lk9kiuza3o/6765yY5ajTUxB9MIz4nToI/00f0de305b8ac2ff4ad0ef7941a75a28/collective.svg"
-                                alt=""
-                            />
-                            <div className="card-title my-4">Customer Success</div>
-                            <p>
-                                Offer exceptional support: Your clients will be delighted with one-click scheduling and increased responsiveness.
+                            <p className='text-lg text-primary mt-2 md:mt-6 flex items-center'>
+                                Learn more <IoIosArrowForward className='ml-2 w-4' />
                             </p>
                         </div>
                         <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full">
-                            <img
-                                className="w-8"
-                                src="https://images.ctfassets.net/k0lk9kiuza3o/35pgmxHTHZfJMr4HwHGibz/ee1cb916d14a7971fbaa8aa24766cf25/round_robin.svg"
-                                alt=""
-                            />
+
+                            <RiCustomerService2Line className='text-4xl text-primary' />
+                            <div className="card-title my-4">Customer Success</div>
+                            <p className='text-gray-600 font-normal leading-7'>
+                                Offer exceptional support: Your clients will be delighted with one-click scheduling and increased responsiveness.
+                            </p>
+                            <p className='text-lg text-primary mt-2 md:mt-6 flex items-center'>
+                                Learn more <IoIosArrowForward className='ml-2 w-4' />
+                            </p>
+                        </div>
+                        <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full">
+
+                            <AiOutlineLineChart className='text-4xl text-primary' />
                             <div className="card-title my-4">Revenue Operations</div>
-                            <p>
+                            <p className='text-gray-600 font-normal leading-7'>
                                 Streamline meeting and activity data. Calendly’s native integrations with Salesforce and HubSpot ensure up-to-date reporting.
+                            </p>
+                            <p className='text-lg text-primary mt-2 md:mt-6 flex items-center'>
+                                Learn more <IoIosArrowForward className='ml-2 w-4' />
                             </p>
                         </div>
                         <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full">
@@ -63,19 +67,22 @@ const Solutions = () => {
                                 alt=""
                             />
                             <div className="card-title my-4">Recruiting</div>
-                            <p>
+                            <p className='text-gray-600 font-normal leading-7'>
                                 Simplify recruitment by smoothing every aspect of the interview scheduling process, including automated follow-ups.
+                            </p>
+                            <p className='text-lg text-primary mt-2 md:mt-6 flex items-center'>
+                                Learn more <IoIosArrowForward className='ml-2 w-4' />
                             </p>
                         </div>
                         <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full">
-                            <img
-                                className="w-8"
-                                src="https://images.ctfassets.net/k0lk9kiuza3o/35pgmxHTHZfJMr4HwHGibz/ee1cb916d14a7971fbaa8aa24766cf25/round_robin.svg"
-                                alt=""
-                            />
+
+                            <HiOutlineDesktopComputer className='text-4xl text-primary' />
                             <div className="card-title my-4">Information Technology</div>
-                            <p>
+                            <p className='text-gray-600 font-normal leading-7'>
                                 Increase scheduling productivity across your org while maintaining full security and control over users.
+                            </p>
+                            <p className='text-lg text-primary mt-2 md:mt-6 flex items-center'>
+                                Learn more <IoIosArrowForward className='ml-2 w-4' />
                             </p>
                         </div>
                     </div>
