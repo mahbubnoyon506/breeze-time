@@ -1,11 +1,13 @@
-import React from 'react';
-
+import React from "react";
+import GetStarted from "./GetStarted";
+import Scheduling from "./Scheduling";
 const Home = () => {
-    return (
-        <div>
-            <h2 className='text-4xl text-primary text-center'>This is our home page</h2>
-        </div>
-    );
+  return (
+    <div>
+      <GetStarted></GetStarted>
+      <Scheduling></Scheduling>
+    </div>
+  );
 };
 
 export default Home;
