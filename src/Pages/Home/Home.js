@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../../Components/Navbar";
 import Banner from "./Banner";
 import GetStarted from "./GetStarted";
 import LogoCarousel from "./LogoCarousel";
@@ -9,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-        <LogoCarousel></LogoCarousel>
+      <LogoCarousel></LogoCarousel>
       <GetStarted></GetStarted>
       <Scheduling></Scheduling>
       <Solutions></Solutions>
