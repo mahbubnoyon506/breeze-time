@@ -12,6 +12,7 @@ const Home = () => {
       <GetStarted></GetStarted>
       <Scheduling></Scheduling>
       <Solutions></Solutions>
+      <DoMore></DoMore>
     </div>
   );
 };
