@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/projectlogo.png";
+import logo from "../assets/breezeTime.png";
 const Navbar = () => {
   return (
-    <div class="navbar bg-base-100">
-      <div class="navbar-start">
+    <div class="navbar bg-base-100 px-16 py-5">
+      <div class="navbar-start ">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost lg:hidden">
             <svg
@@ -146,7 +146,7 @@ const Navbar = () => {
         <Link className="text-lg text-bold px-5 uppercase" to="">
           Login
         </Link>
-        <a class="btn bg-sky-500 border-none rounded">Get started</a>
+        <a class="btn text-white bg-sky-500 border-none rounded  hover:text-black hover:bg-transparent">Get started</a>
       </div>
     </div>
   );
