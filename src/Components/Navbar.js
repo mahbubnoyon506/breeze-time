@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/projectlogo.png";
+import logo from "../assets/breezeTime.png";
 const Navbar = () => {
   return (
-    <div class="navbar bg-base-100">
-      <div class="navbar-start">
+    <div class="navbar bg-base-100 lg:px-16 py-5 sm:px-0">
+      <div class="navbar-start ">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost lg:hidden">
             <svg
@@ -82,7 +82,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/">
-          <img src={logo} className="w-1/2" alt="" />
+          <img src={logo} className="lg:w-1/2 sm:w-full" alt="" />
         </Link>
       </div>
       <div class="navbar-center hidden lg:flex">
@@ -143,10 +143,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div class="navbar-end">
-        <Link className="text-lg text-bold px-5 uppercase" to="">
+        <Link className="text-lg text-bold uppercase lg:px-5 sm:px-5 " to="">
           Login
         </Link>
-        <a class="btn bg-sky-500 border-none rounded">Get started</a>
       </div>
     </div>
   );
