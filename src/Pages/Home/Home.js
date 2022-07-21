@@ -4,6 +4,8 @@ import GetStarted from "./GetStarted";
 import LogoCarousel from "./LogoCarousel";
 import Scheduling from "./Scheduling";
 import Solutions from "./Solutions";
+import DoMore from "./DoMore";
+
 const Home = () => {
   return (
     <div>
