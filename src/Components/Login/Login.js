@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import logo from '../../assets/breezeTime.png'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [sidebar, setsidebar] = useState();
     return (
-        <div className="h-full bg-gradient-to-tl from-green-400 to-indigo-900 w-full py-16 px-4">
+        <div className="h-full bg-gradient-to-tl from-green-400 to-indigo-900 w-full pb-16 px-4">
             <div className="flex flex-col items-center justify-center">
-                <img src={logo} alt="Site Logo" />
                 <div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
 
-                    <p tabIndex={0} role="heading" aria-label="Login to your account" className="text-2xl font-extrabold leading-6 text-gray-800">
-                        Login to your account
+                    <p className="text-3xl my-4 mb-12 text-center font-extrabold leading-6 text-gray-800">
+                        Login
                     </p>
 
                     <div>
@@ -43,10 +42,9 @@ const Login = () => {
                     </div>
                     <p className="text-sm mt-4 font-medium leading-none text-gray-500">
                         Dont have account?{" "}
-                        <span tabIndex={0} role="link" aria-label="Sign up here" className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
-                            {" "}
+                        <Link to={'/signup'} className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
                             Sign up here
-                        </span>
+                        </Link>
                     </p>
                     <button aria-label="Continue with google" role="button" className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10">
                         <svg width={19} height={20} viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
