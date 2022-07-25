@@ -143,7 +143,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div class="navbar-end">
-        <Link className="text-lg text-bold px-5 uppercase" to="">
+        <Link className="text-lg text-bold px-5 uppercase" to="/login">
           Login
         </Link>
         <a class="btn bg-sky-500 border-none rounded">Get started</a>
