@@ -143,7 +143,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div class="navbar-end">
-        <Link className="text-lg text-bold uppercase lg:px-5 sm:px-5 " to="">
+        <Link className="text-lg text-bold px-5 uppercase" to="/login">
           Login
         </Link>
       </div>
