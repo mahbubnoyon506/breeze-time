@@ -88,7 +88,7 @@ const Navbar = () => {
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
           <li>
-            <a>Teams</a>
+            <Link to='/teams'>Teams</Link>
           </li>
           <li>
             <a>Enterprise</a>
