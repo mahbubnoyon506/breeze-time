@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 const Pricing = () => {
     return (
-        <div className="mx-16">
+        <div className="lg:mx-16 md:mx-8 sm:mx-3 ">
       <h1 className="text-2xl lg:text-4xl font-bold justify-center flex my-8 lg:my-16">
         Monthly Pricing  
       </h1>
 
       <div className="cards ">
-        <div className="card grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+        <div className="card grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 ">
           {" "}
           <div class="card w-96 bg-base-200 mx-auto hover:rounded-lg hover:bg-sky-400 ">
             <div class="card-body">
