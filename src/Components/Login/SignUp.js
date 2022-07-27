@@ -94,7 +94,7 @@ const SignUp = () => {
                         </div>
                         <p className="text-sm mt-4 font-medium leading-none text-gray-500">
                             Already have account?{" "}
-                            <Link to={'/signup'} className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
+                            <Link to={'/login'} className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
                                 Login here
                             </Link>
                         </p>
