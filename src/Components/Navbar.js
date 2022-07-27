@@ -27,7 +27,7 @@ const Navbar = () => {
             class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Teams</a>
+              <Link to='/teams'>Teams</Link>
             </li>
             <li>
               <a>Enterprise</a>
@@ -55,7 +55,7 @@ const Navbar = () => {
               </ul>
             </li>
             <li>
-              <a>Pricing</a>
+              <Link to='/pricing'>Pricing</Link>
             </li>
             <li tabindex="0">
               <a class="justify-between">
@@ -116,7 +116,7 @@ const Navbar = () => {
             </ul>
           </li>
           <li>
-            <a>Pricing</a>
+            <Link to='/pricing'>Pricing</Link>
           </li>
           <li tabindex="1">
             <a>

@@ -13,7 +13,7 @@ const Teams = () => {
             <div class="text-center text-lg px-5 lg:text-left md:my-5">
               <h1 class="text-5xl font-bold">Schedule for your teams</h1>
               <p class="py-6 ">The fastest and easiest way to schedule any meeting or other collaboration.</p>
-              <Link to='/login'><button className='btn bg-orange-600 border-none text-white rounded-lg hover:bg-orange-500 '>try it for free</button></Link>
+              <Link to='/setmeet'><button className='btn bg-orange-600 border-none text-white rounded-lg hover:bg-orange-500 '>try it for free</button></Link>
             </div>
   
           </div>
