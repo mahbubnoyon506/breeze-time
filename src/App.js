@@ -9,16 +9,22 @@ import TimeZone from './Components/TimeZone';
 import EventType from './Pages/Schadule/EventType';
 import DashHome from './Pages/Dashboard/DashHome';
 import OneToOneSchedule from './Pages/Schadule/OneToOneSchedule';
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Teams from './Pages/Teams/Teams';
+import Pricing from './Pages/Pricing/Pricing';
 
 
 function App() {
+
+
   return (
     <div>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
+        <Route path='/teams' element={<Teams></Teams>}></Route>
+        <Route path='/pricing' element={<Pricing></Pricing>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
         <Route path='/eventType' element={<EventType />}></Route>
@@ -31,7 +37,7 @@ function App() {
         <Route path='/timeZone' element={<TimeZone />}></Route>
       </Routes>
       <Footer />
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }
