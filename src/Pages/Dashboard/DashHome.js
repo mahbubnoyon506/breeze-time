@@ -23,6 +23,7 @@ const DashHome = () => {
             setIsLoading(false)
         })()
     }, [])
+
     if (isLoading) {
         return <Loader></Loader>
     }

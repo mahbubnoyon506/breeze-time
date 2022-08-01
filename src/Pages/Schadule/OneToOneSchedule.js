@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 const OneToOneSchedule = () => {
     const [value, onChange] = useState(new Date());
-    const { register, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         const eventValue = {
             eventName: data.eventname,
@@ -19,7 +19,8 @@ const OneToOneSchedule = () => {
             .then(function (response) {
                 console.log(response)
             })
-         toast.success('Event created Successfully ')
+        toast.success('Event created Successfully ')
+        reset();
     };
 
 
@@ -37,7 +38,7 @@ const OneToOneSchedule = () => {
                         </label>
 
                         <input {...register("eventname", { required: true })} type="text" placeholder="Type here" class="input input-bordered w-full" />
-
+                        {errors.eventname && <p className='text-error text-xs'>Event type is required.</p> }
                         <label class="label">
                             <span class="label-text">Event Options</span>
                         </label>
@@ -47,17 +48,19 @@ const OneToOneSchedule = () => {
                             <option>Phone Call</option>
                             <option>Google Meet</option>
                         </select>
+                        {errors.event && <p>Event type is required.</p> }
                         <label class="label">
                             <span class="label-text">Type Event Description</span>
                         </label>
-                        <textarea {...register("description", { required: true })} class="textarea textarea-bordered h-24" placeholder="Description"></textarea>
+                        <textarea {...register("description", { required: 'Description is required.' })} class="textarea textarea-bordered h-24" placeholder="Description"></textarea>
+                        <p className='text-error text-xs'>{errors.description?.message}</p>
                         <label class="label">
                             <span class="label-text">Select Date</span>
                         </label>
                         <DateTimePicker onChange={onChange} value={value} disableClock={true} />
+                        
                         <div className='flex justify-end'>
-
-                        <input className='btn btn-outline  my-5 btn-primary w-32' type="submit" value="Create Event" />
+                            <input className='btn btn-outline  my-5 btn-primary w-32' type="submit" value="Create Event" />
                         </div>
                     </div>
                 </form>
