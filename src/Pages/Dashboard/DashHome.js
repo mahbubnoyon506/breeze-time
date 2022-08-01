@@ -10,8 +10,12 @@ import DeleteModal from './DeleteModal';
 
 const DashHome = () => {
     const [events, setEvents] = useState([]);
-    const [deleteEvent, setDeleteEvent] = useState(null)
-    const [isLoading, setIsLoading] = useState(true)
+    const [deleteEvent, setDeleteEvent] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+
+    
+
 
     useEffect(() => {
         (async () => {
