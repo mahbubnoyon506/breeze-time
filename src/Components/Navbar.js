@@ -22,7 +22,7 @@ const Navbar = () => {
 
   const dashboardMenu =
     <>
-      <Link className="uppercase mx-3" to="/dash-home">Home</Link>
+      <Link className="uppercase mx-3" to="/dash-home">Dashboard</Link>
       <Link onClick={logout} className="uppercase" to="/">Sign Out</Link>
     </>
 

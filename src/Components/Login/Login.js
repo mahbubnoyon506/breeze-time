@@ -1,20 +1,49 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import Loader from '../Loader';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [show, setShow] = useState(false);
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [
+        signInWithEmailAndPassword,
+        createUser,
+        createLoading,
+        createError,
+    ] = useSignInWithEmailAndPassword(auth);
 
-    const onSubmit = data => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
+
+    const onSubmit = async data => {
         console.log(data)
+        await signInWithEmailAndPassword(data.email, data.password)
     };
     const handleGoogleSignIn = () => {
         signInWithGoogle();
+    }
+
+    useEffect(() => {
+        if (createUser || user) {
+            toast.success('Login successd...')
+            navigate(from, { replace: true })
+        }
+    }, [user, createUser, navigate, from])
+
+    if (createLoading || loading) {
+        return <Loader></Loader>
+
+    };
+    if (createError || error) {
+        toast.error(error.message)
     }
 
     return (
