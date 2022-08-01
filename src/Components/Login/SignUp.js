@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 import Loader from '../Loader';
@@ -12,14 +12,11 @@ const SignUp = () => {
     const [passShow, setPassShow] = useState(false);
     const [confirmPassShow, setConfirmPassShow] = useState(false);
 
-    const [
-        createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
 
     const onSubmit = async data => {
         console.log(data)
@@ -27,6 +24,12 @@ const SignUp = () => {
 
     };
 
+    useEffect(() => {
+        if (user) {
+            toast.success('Login successd...')
+            navigate(from, { replace: true })
+        }
+    }, [user, navigate, from])
     if (loading) {
         return <Loader></Loader>
 
@@ -34,10 +37,7 @@ const SignUp = () => {
     if (error) {
         toast.error(error.message)
     }
-    if (user) {
-        toast.success('Login successd...')
-        navigate('/')
-    }
+
     return (
         <div className="h-full bg-gradient-to-tl from-green-400 to-indigo-900 w-full pb-16 px-4">
             <div className="flex flex-col items-center justify-center">

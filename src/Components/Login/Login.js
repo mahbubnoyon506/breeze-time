@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -20,6 +20,8 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
 
     const onSubmit = async data => {
         console.log(data)
@@ -29,16 +31,19 @@ const Login = () => {
         signInWithGoogle();
     }
 
+    useEffect(() => {
+        if (createUser || user) {
+            toast.success('Login successd...')
+            navigate(from, { replace: true })
+        }
+    }, [user, createUser, navigate, from])
+
     if (createLoading || loading) {
         return <Loader></Loader>
 
     };
     if (createError || error) {
         toast.error(error.message)
-    }
-    if (createUser || user) {
-        toast.success('Login successd...')
-        navigate('/')
     }
 
     return (
