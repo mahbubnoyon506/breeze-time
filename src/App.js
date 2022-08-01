@@ -13,6 +13,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Teams from './Pages/Teams/Teams';
 import Pricing from './Pages/Pricing/Pricing';
+import RequireAuth from './Components/RequireAuth';
 
 
 function App() {
@@ -27,11 +28,17 @@ function App() {
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
-        <Route path='/eventType' element={<EventType />}></Route>
+
         {/* dashboard routes */}
-        <Route path='/dash-home' element={<DashHome></DashHome>}></Route>
-        <Route path='/eventtype' element={<EventType></EventType>}></Route>
-        <Route path='/one-to-one' element={<OneToOneSchedule></OneToOneSchedule>}></Route>
+        <Route path='/dash-home' element={
+          <RequireAuth><DashHome /></RequireAuth>
+        }></Route>
+        <Route path='/eventtype' element={
+          <RequireAuth><EventType /></RequireAuth>
+        }></Route>
+        <Route path='/one-to-one' element={
+          <RequireAuth><OneToOneSchedule /></RequireAuth>
+        }></Route>
 
         {/* timezone route just for checking */}
         <Route path='/timeZone' element={<TimeZone />}></Route>
