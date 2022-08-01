@@ -29,14 +29,14 @@ const Login = () => {
         signInWithGoogle();
     }
 
-    if (loading) {
+    if (createLoading || loading) {
         return <Loader></Loader>
 
     };
-    if (error) {
+    if (createError || error) {
         toast.error(error.message)
     }
-    if (user) {
+    if (createUser || user) {
         toast.success('Login successd...')
         navigate('/')
     }
