@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import {toast } from 'react-toastify';
 
-const DeleteModal = ({deleteEvent, setDeleteEvent}) => {
+const DeleteModal = ({deleteEvent}) => {
      const {_id, eventName, dateTime} = deleteEvent;
 
      const handleDelete = () => {
@@ -10,7 +10,7 @@ const DeleteModal = ({deleteEvent, setDeleteEvent}) => {
         .then(function(response){
             return response;
         })
-        toast.success('Event deleted !!')
+        toast.success('Event deleted !!');
      }
      
     return (

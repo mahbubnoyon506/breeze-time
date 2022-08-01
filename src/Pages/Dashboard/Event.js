@@ -21,7 +21,7 @@ const Event = ({event, setDeleteEvent}) => {
                     </div>
                     <p>Description: {description}</p>
                     <div class="card-actions justify-between">
-                        <Link to='' class="btn btn-xs btn-outline btn-primary">Open video</Link>
+                        <Link to='' class="btn btn-xs btn-outline btn-primary">Start Meeting</Link>
                         <label onClick={setDeleteEvent(event)} for="event-delete" class="btn btn-xs btn-outline btn-primary">Delete Event</label>
                     </div>
                 </div>
