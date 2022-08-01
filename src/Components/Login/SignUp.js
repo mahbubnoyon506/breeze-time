@@ -1,16 +1,43 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
+import Loader from '../Loader';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [passShow, setPassShow] = useState(false);
     const [confirmPassShow, setConfirmPassShow] = useState(false);
 
-    const onSubmit = data => {
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const navigate = useNavigate();
+
+    const onSubmit = async data => {
         console.log(data)
+        await createUserWithEmailAndPassword(data.email, data.password)
+
     };
+
+    if (loading) {
+        return <Loader></Loader>
+
+    };
+    if (error) {
+        toast.error(error.message)
+    }
+    if (user) {
+        toast.success('Login successd...')
+        navigate('/')
+    }
     return (
         <div className="h-full bg-gradient-to-tl from-green-400 to-indigo-900 w-full pb-16 px-4">
             <div className="flex flex-col items-center justify-center">
@@ -23,8 +50,8 @@ const SignUp = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div>
                             <lable className="text-sm font-medium leading-none text-gray-800 relative">Name</lable>
-                            <input {...register("email", { required: true })} aria-label="enter email adress" type="email" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
-                            {errors.email && <small className='text-red-500'>Email is required!!</small>}
+                            <input {...register("userName")} aria-label="enter email adress" type="text" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                            {/* {errors.email && <small className='text-red-500'>Email is required!!</small>} */}
                         </div>
                         <div className='mt-6'>
                             <lable className="text-sm font-medium leading-none text-gray-800 relative">Email <span className='text-red-500 absolute top-0 '>&#10035;</span></lable>
@@ -66,11 +93,11 @@ const SignUp = () => {
                                 {
                                     confirmPassShow === false ?
                                         <>
-                                            <input {...register("password", { required: true })} aria-label="enter Password" type='password' className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                                            <input {...register("confirmPassword", { required: true })} aria-label="enter Password Again" type='password' className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
                                         </>
                                         :
                                         <>
-                                            <input {...register("password", { required: true })} aria-label="enter Password" type="text" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+                                            <input {...register("confirmPassword", { required: true })} aria-label="enter Password" type="password" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
                                         </>
                                 }
                                 <div onClick={() => setConfirmPassShow(!confirmPassShow)} className="absolute right-0 mt-2 mr-3 cursor-pointer">
