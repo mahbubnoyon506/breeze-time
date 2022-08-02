@@ -23,13 +23,14 @@ const Pricing = () => {
               <span>Unlimited users</span>
              </div>
 
+
              <div className='flex flex-row items-center'>
              <img
                 className=" w-8"
                 src="https://img.icons8.com/fluency/344/checked.png"
                 alt=""
               /> 
-              <span>Unlimited users</span>
+              <span>Email reminders</span>
              </div>
 
              <div className='flex flex-row items-center'>
@@ -38,7 +39,7 @@ const Pricing = () => {
                 src="https://img.icons8.com/fluency/344/checked.png"
                 alt=""
               /> 
-              <span>Unlimited users</span>
+              <span>Unlimited Event Create</span>
              </div>
 
              <div className='flex flex-row items-center'>
@@ -47,16 +48,7 @@ const Pricing = () => {
                 src="https://img.icons8.com/fluency/344/checked.png"
                 alt=""
               /> 
-              <span>Unlimited users</span>
-             </div>
-
-             <div className='flex flex-row items-center'>
-             <img
-                className=" w-8"
-                src="https://img.icons8.com/fluency/344/checked.png"
-                alt=""
-              /> 
-              <span>Unlimited users</span>
+              <span>Unlimited Meetings</span>
              </div>
              <Link to='' className='m-auto'><button className=' my-3 btn bg-transparent border-black text-black rounded-lg hover:bg-orange-500 hover:border-orange-500 hover:text-white'>Get started</button></Link>
               <p className='m-auto'>
@@ -74,7 +66,7 @@ const Pricing = () => {
                 src="https://img.icons8.com/fluency/344/checked.png"
                 alt=""
               /> 
-              <span>Unlimited users</span>
+              <span>SMS Reminders</span>
              </div>
 
              <div className='flex flex-row items-center'>
@@ -83,7 +75,7 @@ const Pricing = () => {
                 src="https://img.icons8.com/fluency/344/checked.png"
                 alt=""
               /> 
-              <span>Unlimited users</span>
+              <span>Payments w/ Square, Stripe & PayPal</span>
              </div>
 
              <div className='flex flex-row items-center'>
@@ -92,25 +84,9 @@ const Pricing = () => {
                 src="https://img.icons8.com/fluency/344/checked.png"
                 alt=""
               /> 
-              <span>Unlimited users</span>
+              <span>Two way calender sync</span>
              </div>
 
-             <div className='flex flex-row items-center'>
-             <img
-                className=" w-8"
-                src="https://img.icons8.com/fluency/344/checked.png"
-                alt=""
-              /> 
-              <span>Unlimited users</span>
-             </div>
-             <div className='flex flex-row items-center'>
-             <img
-                className=" w-8"
-                src="https://img.icons8.com/fluency/344/checked.png"
-                alt=""
-              /> 
-              <span>Unlimited users</span>
-             </div>
 
              <Link to='' className='m-auto'><button className=' my-3 btn bg-transparent border-black text-black rounded-lg hover:bg-orange-500 hover:border-orange-500 hover:text-white'>Get started</button></Link>
               <p className='m-auto'>
@@ -128,7 +104,9 @@ const Pricing = () => {
                 src="https://img.icons8.com/fluency/344/checked.png"
                 alt=""
               /> 
-              <span>Unlimited users</span>
+              <span>SMS reminders
+
+</span>
              </div>
 
              <div className='flex flex-row items-center'>
@@ -137,7 +115,7 @@ const Pricing = () => {
                 src="https://img.icons8.com/fluency/344/checked.png"
                 alt=""
               /> 
-              <span>Unlimited users</span>
+              <span>Two-way calendar sync</span>
              </div>
 
              <div className='flex flex-row items-center'>
@@ -146,25 +124,10 @@ const Pricing = () => {
                 src="https://img.icons8.com/fluency/344/checked.png"
                 alt=""
               /> 
-              <span>Unlimited users</span>
+              <span>Payments w/ Square, Stripe & PayPal</span>
              </div>
 
-             <div className='flex flex-row items-center'>
-             <img
-                className=" w-8"
-                src="https://img.icons8.com/fluency/344/checked.png"
-                alt=""
-              /> 
-              <span>Unlimited users</span>
-             </div>
-             <div className='flex flex-row items-center'>
-             <img
-                className=" w-8"
-                src="https://img.icons8.com/fluency/344/checked.png"
-                alt=""
-              /> 
-              <span>Unlimited users</span>
-             </div>
+             
 
              <Link to='' className='m-auto'><button className=' my-3 btn bg-transparent border-black text-black rounded-lg hover:bg-orange-500 hover:border-orange-500 hover:text-white'>Get started</button></Link>
               <p className='m-auto'>

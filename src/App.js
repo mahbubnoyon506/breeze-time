@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Teams from './Pages/Teams/Teams';
 import Pricing from './Pages/Pricing/Pricing';
 import RequireAuth from './Components/RequireAuth';
+import Enterprise from './Pages/Enterprise';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path='/teams' element={<Teams></Teams>}></Route>
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
+        <Route path='/enterprise' element={<Enterprise></Enterprise>}/>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
 
