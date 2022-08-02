@@ -5,17 +5,16 @@ import axios from 'axios';
 import Loader from '../../Components/Loader';
 import Event from './Event';
 import DeleteModal from './DeleteModal';
+import UpdateEvent from './UpdateEvent';
+
 
 
 
 const DashHome = () => {
     const [events, setEvents] = useState([]);
     const [deleteEvent, setDeleteEvent] = useState(null);
+    const [updateEvent, setUpdateEvent] = useState(null)
     const [isLoading, setIsLoading] = useState(true);
-
-
-    
-
 
     useEffect(() => {
         (async () => {
@@ -46,12 +45,16 @@ const DashHome = () => {
             <div className='mt-5 grid grid-cols-3 gap-5'>
                 {
                     events.map(event =>
-                    <Event key={event._id} event={event} setDeleteEvent={setDeleteEvent}></Event>
+                    <Event key={event._id} event={event} setDeleteEvent={setDeleteEvent} setUpdateEvent={setUpdateEvent}></Event>
                     )
                 }
             </div>
             {
                 events && <DeleteModal deleteEvent={deleteEvent}></DeleteModal>
+            }
+
+            {
+                events && <UpdateEvent updateEvent={updateEvent} setUpdateEvent={setUpdateEvent}></UpdateEvent>
             }
         </div>
     );

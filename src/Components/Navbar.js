@@ -5,7 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import logo from "../assets/breezeTime.png";
 import auth from "../firebase.init";
 const Navbar = () => {
-
+  
   const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
