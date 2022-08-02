@@ -5,7 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import logo from "../assets/breezeTime.png";
 import auth from "../firebase.init";
 const Navbar = () => {
-
+  
   const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
@@ -22,7 +22,7 @@ const Navbar = () => {
 
   const dashboardMenu =
     <>
-      <Link className="uppercase mx-3" to="/dash-home">Home</Link>
+      <Link className="uppercase mx-3" to="/dash-home">Dashboard</Link>
       <Link onClick={logout} className="uppercase" to="/">Sign Out</Link>
     </>
 
