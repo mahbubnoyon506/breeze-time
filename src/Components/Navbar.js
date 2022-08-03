@@ -1,30 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { signOut } from 'firebase/auth';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import logo from "../assets/breezeTime.png";
 import auth from "../firebase.init";
 const Navbar = () => {
-  
   const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
   };
 
-  const mainMenuItem =
+  const mainMenuItem = (
     <>
-      <li><Link to='/teams'>Teams</Link></li>
-      <li><Link to='/enterprise'>Enterprise</Link></li>
-      <li><Link to='/pricing'>Pricing</Link></li>
-      <li><Link to='#'>About</Link></li>
-      <li><Link to='#'>Contact</Link></li>
+      <li>
+        <Link to="/teams">Teams</Link>
+      </li>
+      <li>
+        <Link to="/enterprise">Enterprise</Link>
+      </li>
+      <li>
+        <Link to="/pricing">Pricing</Link>
+      </li>
+      <li>
+        <Link to="#">About</Link>
+      </li>
+      <li>
+        <Link to="#">Contact</Link>
+      </li>
     </>
+  );
 
-  const dashboardMenu =
+  const dashboardMenu = (
     <>
-      <Link className="uppercase mx-3" to="/dash-home">Dashboard</Link>
-      <Link onClick={logout} className="uppercase" to="/">Sign Out</Link>
+      <Link className="uppercase mx-3" to="/dashboard">
+        Dashboard
+      </Link>
+      <Link onClick={logout} className="uppercase" to="/">
+        Sign Out
+      </Link>
     </>
+  );
 
   return (
     <>
@@ -59,17 +74,16 @@ const Navbar = () => {
           </Link>
         </div>
         <div class="navbar-center hidden lg:flex">
-          <ul class="menu menu-horizontal p-0">
-            {mainMenuItem}
-          </ul>
+          <ul class="menu menu-horizontal p-0">{mainMenuItem}</ul>
         </div>
         <div class="navbar-end">
-          {
-            user ? dashboardMenu :
-              <Link className="text-lg text-bold px-5 uppercase" to="/login">
-                Login
-              </Link>
-          }
+          {user ? (
+            dashboardMenu
+          ) : (
+            <Link className="text-lg text-bold px-5 uppercase" to="/login">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </>
