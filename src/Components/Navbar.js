@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import logo from "../assets/breezeTime.png";
+=======
+import { signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import logo from "../assets/projectlogo.png";
+>>>>>>> 7423db5e084576936f41edc9f79a7a3fa44bf236
 import auth from "../firebase.init";
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -43,7 +49,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div class="navbar bg-base-100 lg:px-16 py-5 sm:px-0">
+      <div class="navbar bg-slate-50 lg:px-16 py-5 sm:px-0">
         <div class="navbar-start ">
           <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
