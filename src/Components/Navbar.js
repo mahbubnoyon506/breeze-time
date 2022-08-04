@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import logo from "../assets/breezeTime.png";
+import logo from "../assets/projectlogo.png";
 import auth from "../firebase.init";
 const Navbar = () => {
   
@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div class="navbar bg-base-100 lg:px-16 py-5 sm:px-0">
+      <div class="navbar bg-slate-50 lg:px-16 py-5 sm:px-0">
         <div class="navbar-start ">
           <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
