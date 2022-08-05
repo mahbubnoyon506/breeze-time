@@ -7,15 +7,12 @@ import { toast } from 'react-toastify';
 
 const OneToOneSchedule = () => {
   const [value, onChange] = useState(new Date());
-  // const [events, setEvents] = useState([]);
-
-  const { register, handleSubmit } = useForm();
-
-  //     useEffect(() => {
-  //         const url = 'http://localhost:5000/events';
-  //         axios.get(url).then(data => setEvents(data)).catch(err => console.log(err))
-  // }, [])
-
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm();
   const onSubmit = (data) => {
     const eventValue = {
       eventName: data.eventname,
@@ -24,11 +21,12 @@ const OneToOneSchedule = () => {
       dateTime: value,
     };
     axios
-      .post('http://localhost:5000/events', eventValue)
+      .post('https://floating-basin-72615.herokuapp.com/events', eventValue)
       .then(function (response) {
         console.log(response);
       });
     toast.success('Event created Successfully ');
+    reset();
   };
 
   return (
@@ -44,23 +42,25 @@ const OneToOneSchedule = () => {
       </div>
       <div className="border-2 mx-20 p-5">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div class="form-control w-full ">
-            <label class="label">
-              <span class="label-text">Event Name</span>
+          <div className="form-control w-full ">
+            <label className="label">
+              <span className="label-text">Event Name</span>
             </label>
 
             <input
               {...register('eventname', { required: true })}
               type="text"
               placeholder="Type here"
-              class="input input-bordered w-full"
+              className="input input-bordered w-full"
             />
-
-            <label class="label">
-              <span class="label-text">Event Options</span>
+            {errors.eventname && (
+              <p className="text-error text-xs">Event type is required.</p>
+            )}
+            <label className="label">
+              <span className="label-text">Event Options</span>
             </label>
             <select
-              class="select select-bordered"
+              className="select select-bordered"
               {...register('event', { required: true })}
             >
               <option disabled selected>
@@ -70,22 +70,27 @@ const OneToOneSchedule = () => {
               <option>Phone Call</option>
               <option>Google Meet</option>
             </select>
-            <label class="label">
-              <span class="label-text">Type Event Description</span>
+            {errors.event && <p>Event type is required.</p>}
+            <label className="label">
+              <span className="label-text">Type Event Description</span>
             </label>
             <textarea
-              {...register('description', { required: true })}
-              class="textarea textarea-bordered h-24"
+              {...register('description', {
+                required: 'Description is required.',
+              })}
+              className="textarea textarea-bordered h-24"
               placeholder="Description"
             ></textarea>
-            <label class="label">
-              <span class="label-text">Select Date</span>
+            <p className="text-error text-xs">{errors.description?.message}</p>
+            <label className="label">
+              <span className="label-text">Select Date</span>
             </label>
             <DateTimePicker
               onChange={onChange}
               value={value}
               disableClock={true}
             />
+
             <div className="flex justify-end">
               <input
                 className="btn btn-outline  my-5 btn-primary w-32"
@@ -95,9 +100,6 @@ const OneToOneSchedule = () => {
             </div>
           </div>
         </form>
-        {/* <button className="btn btn-outline  my-5 btn-primary w-full">
-          Join Meeting
-        </button> */}
       </div>
     </div>
   );

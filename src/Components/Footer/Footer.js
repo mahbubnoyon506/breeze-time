@@ -1,11 +1,11 @@
 import React from 'react';
-import BreezeTime from '../../assets/breezeTime.png';
+import BreezeTime from '../../assets/projectlogo.png';
 
 const Footer = () => {
   const date = new Date();
 
   return (
-    <div className="flex  flex-col-reverse md:flex-row justify-center items-center">
+    <div className="flex  flex-col-reverse md:flex-row justify-center items-center bg-slate-50">
       {/* section 1 */}
       <div className="p-10">
         <img src={BreezeTime} alt="" />
@@ -14,7 +14,7 @@ const Footer = () => {
           more.
         </p>
 
-        <div class="grid grid-flow-col p-2">
+        <div className="grid grid-flow-col p-2">
           <a href>
             <svg
               xmlns="http://www.w3.org/2000/svg"
