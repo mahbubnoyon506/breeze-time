@@ -6,7 +6,7 @@ const Event = ({event, setDeleteEvent, setUpdateEvent}) => {
     
     return (
         <div>
-            <div class="card w-96 bg-base-100 shadow-xl">
+            <div class="card w-96 bg-base-100 hover:bg-accent-focus shadow-xl ">
                 <div class="card-body">
                     <div className='flex justify-between pb-5'>
                         <h2 class="card-title ">

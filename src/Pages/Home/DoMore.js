@@ -1,7 +1,7 @@
 import React from 'react';
-import doMore1 from '../../assets/doMore1.png';
-import doMore2 from '../../assets/doMore2.png';
-import doMore3 from '../../assets/doMore3.png';
+import doMore1 from '../../assets/doMore1.jpg';
+import doMore2 from '../../assets/doMore2.jpg';
+import doMore3 from '../../assets/doMore3.jpg';
 
 const DoMore = () => {
     return (
@@ -9,12 +9,12 @@ const DoMore = () => {
 
             <div className='text-center'>
                 <h1 className="text-2xl lg:text-4xl font-bold text-center pt-8 lg:pt-16">Do more of what you do best</h1>
-                <p className='mx-6 lg:text-2xl text-center px-6 pt-4 lg:pt-8'>With scheduling hassles and interruptions gone, your day is cleared for accomplishment.</p>
+                <p className='mx-6 lg:text-2xl text-center px-6 pt-4 lg:pt-8 mb-10'>With scheduling hassles and interruptions gone, your day is cleared for accomplishment.</p>
                 <div className='w-4/5 mx-auto'>
-                    <div class="hero min-h-screen">
+                    <div class="hero">
                         <div class="hero-content flex-col lg:flex-row-reverse">
                             <div>
-                                <img className="w-4/5 mx-auto lg:w-full" src={doMore1} alt="Do More" />
+                                <img className="w-4/5 mx-auto lg:w-3/4" src={doMore1} alt="Do More" />
                             </div>
                             <div className='lg:mr-40'>
                                 <h1 class="text-primary pb-6">WORKFLOW MANAGEMENT</h1>
@@ -25,10 +25,10 @@ const DoMore = () => {
                     </div>
                 </div>
                 <div className='w-4/5 mx-auto'>
-                    <div class="hero min-h-screen">
+                    <div class="hero my-6">
                         <div class="hero-content flex-col lg:flex-row">
                             <div>
-                                <img className="w-4/5 mx-auto lg:w-full" src={doMore2} alt="Do More" />
+                                <img className="w-4/5 mx-auto lg:w-3/4" src={doMore2} alt="Do More" />
                             </div>
                             <div className='lg:ml-40'>
                                 <h1 class="text-primary pb-6">ON-DEMAND SCHEDULING</h1>
@@ -39,10 +39,10 @@ const DoMore = () => {
                     </div>
                 </div>
                 <div className='w-4/5 mx-auto'>
-                    <div class="hero min-h-screen">
+                    <div class="hero">
                         <div class="hero-content flex-col lg:flex-row-reverse">
                             <div>
-                                <img className="w-4/5 mx-auto lg:w-full" src={doMore3} alt="Do More" />
+                                <img className="w-4/5 mx-auto lg:w-3/4" src={doMore3} alt="Do More" />
                             </div>
                             <div className='lg:mr-40'>
                                 <h1 class="text-primary pb-6">THE COURTEOUS APPROACH</h1>
