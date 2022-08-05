@@ -4,7 +4,7 @@ import DateTimePicker from 'react-datetime-picker';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-const UpdateEvent = ({ updateEvent, setUpdateEvent }) => {
+const UpdateEvent = ({ updateEvent}) => {
     const {_id} = updateEvent
     const [value, onChange] = useState(new Date());
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -15,13 +15,12 @@ const UpdateEvent = ({ updateEvent, setUpdateEvent }) => {
             description: data.description,
             dateTime: value
         }
-        axios.put(`http://localhost:5000/event/${_id}`, eventValue)
+        axios.put(`https://floating-basin-72615.herokuapp.com/event/${_id}`, eventValue)
             .then(function (response) {
                 console.log(response)
             })
         toast.success('Event updated Successfully ')
         reset();
-        setUpdateEvent('')
     };
 
     return (
@@ -48,7 +47,7 @@ const UpdateEvent = ({ updateEvent, setUpdateEvent }) => {
                                     <option>Phone Call</option>
                                     <option>Google Meet</option>
                                 </select>
-                                {errors.event && <p>Event type is required.</p>}
+                               
                                 <label class="label">
                                     <span class="label-text">Type Event Description</span>
                                 </label>

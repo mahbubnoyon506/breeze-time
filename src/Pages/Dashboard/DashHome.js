@@ -16,7 +16,7 @@ const DashHome = () => {
   useEffect(() => {
     (async () => {
       const { data } = await axios
-        .get("http://localhost:5000/events")
+        .get("https://floating-basin-72615.herokuapp.com/events")
         .then(function (response) {
           return response;
         });
