@@ -11,6 +11,7 @@ const DeleteModal = ({deleteEvent}) => {
             return response;
         })
         toast.success('Event deleted !!');
+
      }
      
     return (
