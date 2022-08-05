@@ -1,6 +1,6 @@
 import React from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
-import { GiOnTarget } from 'react-icons/gi';
+import { GiOnTarget, GiHumanPyramid } from 'react-icons/gi';
 import { AiOutlineThunderbolt } from 'react-icons/ai';
 import { RiCustomerService2Line } from 'react-icons/ri';
 import { AiOutlineLineChart } from 'react-icons/ai';
@@ -61,11 +61,7 @@ const Solutions = () => {
                             </p>
                         </div>
                         <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full">
-                            <img
-                                className="w-8"
-                                src="https://images.ctfassets.net/k0lk9kiuza3o/35pgmxHTHZfJMr4HwHGibz/ee1cb916d14a7971fbaa8aa24766cf25/round_robin.svg"
-                                alt=""
-                            />
+                            <GiHumanPyramid className='text-4xl text-primary'/>
                             <div className="card-title my-4">Recruiting</div>
                             <p className='text-gray-600 font-normal leading-7'>
                                 Simplify recruitment by smoothing every aspect of the interview scheduling process, including automated follow-ups.
