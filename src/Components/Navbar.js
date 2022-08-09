@@ -13,6 +13,9 @@ const Navbar = () => {
   const mainMenuItem = (
     <>
       <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
         <Link to="/teams">Teams</Link>
       </li>
       <li>

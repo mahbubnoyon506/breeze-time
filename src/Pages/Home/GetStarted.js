@@ -9,8 +9,8 @@ const GetStarted = () => {
       </h1>
       <div className="cards">
         <div className="card grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
-          <div class="card w-96 bg-accent-focus mx-auto">
-            <div class="card-body">
+          <div class="card w-96 bg-accent-focus mx-auto" data-aos="fade-right">
+            <div class="card-body" >
               <div className="flex items-center">
                 <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
                 <h1 className="card-title my-4"> Create simple rules</h1>
@@ -21,8 +21,8 @@ const GetStarted = () => {
               </p>
             </div>
           </div>
-          <div class="card w-96 bg-accent-focus mx-auto">
-            <div class="card-body">
+          <div class="card w-96 bg-accent-focus mx-auto" data-aos="zoom-in">
+            <div class="card-body" >
               <div className="flex items-center">
                 <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
                 <h1 className="card-title my-4"> Create simple rules</h1>
@@ -34,8 +34,8 @@ const GetStarted = () => {
               </p>
             </div>
           </div>
-          <div class="card w-96 bg-accent-focus  mx-auto">
-            <div class="card-body">
+          <div class="card w-96 bg-accent-focus mx-auto" data-aos="fade-left">
+            <div class="card-body" >
               <div className="flex items-center">
                 <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
                 <h1 className="card-title my-4"> Create simple rules</h1>
