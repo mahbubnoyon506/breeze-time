@@ -13,10 +13,10 @@ const DoMore = () => {
                 <div className='w-4/5 mx-auto'>
                     <div class="hero">
                         <div class="hero-content flex-col lg:flex-row-reverse">
-                            <div>
+                            <div data-aos="fade-left">
                                 <img className="w-4/5 mx-auto lg:w-3/4" src={doMore1} alt="Do More" />
                             </div>
-                            <div className='lg:mr-40'>
+                            <div className='lg:mr-40' data-aos="fade-right">
                                 <h1 class="text-primary pb-6">WORKFLOW MANAGEMENT</h1>
                                 <h1 class="text-4xl font-bold">Automate reminders and follow-ups</h1>
                                 <p class="py-10">BreezeTime puts your entire meeting workflow on autopilot, sending everything from reminder emails to thank you notes, so you can focus on the work only you can do. It's like getting an assistant, even if you're a business of one.</p>
@@ -27,10 +27,10 @@ const DoMore = () => {
                 <div className='w-4/5 mx-auto'>
                     <div class="hero my-6">
                         <div class="hero-content flex-col lg:flex-row">
-                            <div>
+                            <div data-aos="fade-right">
                                 <img className="w-4/5 mx-auto lg:w-3/4" src={doMore2} alt="Do More" />
                             </div>
-                            <div className='lg:ml-40'>
+                            <div className='lg:ml-40' data-aos="fade-left">
                                 <h1 class="text-primary pb-6">ON-DEMAND SCHEDULING</h1>
                                 <h1 class="text-4xl font-bold">Make more connections and reduce cancellations</h1>
                                 <p class="py-10">Prospects can schedule meetings in just a few clicks - whenever the moment is right. And cancellations go down because rescheduling is easy, fast, and on their terms.</p>
@@ -41,10 +41,10 @@ const DoMore = () => {
                 <div className='w-4/5 mx-auto'>
                     <div class="hero">
                         <div class="hero-content flex-col lg:flex-row-reverse">
-                            <div>
+                            <div data-aos="fade-left">
                                 <img className="w-4/5 mx-auto lg:w-3/4" src={doMore3} alt="Do More" />
                             </div>
-                            <div className='lg:mr-40'>
+                            <div className='lg:mr-40' data-aos="fade-right">
                                 <h1 class="text-primary pb-6">THE COURTEOUS APPROACH</h1>
                                 <h1 class="text-4xl font-bold">Delight invitees with modern scheduling</h1>
                                 <p class="py-10">Time is a precious commodity. BreezeTime is the courteous way to book meetings and other appointments, because scheduling with just a few clicks makes the most of everyone's time.</p>

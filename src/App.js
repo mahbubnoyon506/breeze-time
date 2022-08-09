@@ -20,8 +20,15 @@ import EventsTypes from "./Pages/Dashboard/EventTypes";
 import ScheduledEvents from "./Pages/Dashboard/ScheduledEvents";
 import WorkFlows from "./Pages/Dashboard/WorkFlows";
 import RoutingForms from "./Pages/Dashboard/RoutingForms";
+import Aos from "aos";
+import { useEffect } from "react";
 
 function App() {
+  useEffect( () => {
+    Aos.init({
+      duration: 1500,
+    });
+  }, [])
   return (
     <div>
       <Navbar></Navbar>
