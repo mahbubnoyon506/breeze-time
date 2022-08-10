@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 import Loader from '../Loader';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -13,6 +14,12 @@ const SignUp = () => {
     const [confirmPassShow, setConfirmPassShow] = useState(false);
 
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
+
+
+// for jwt
+const [token] = useToken(user);
+// for jwt
+
 
     const navigate = useNavigate();
     const location = useLocation();
