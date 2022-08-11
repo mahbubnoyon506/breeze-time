@@ -20,6 +20,10 @@ import EventsTypes from "./Pages/Dashboard/EventTypes";
 import ScheduledEvents from "./Pages/Dashboard/ScheduledEvents";
 import WorkFlows from "./Pages/Dashboard/WorkFlows";
 import RoutingForms from "./Pages/Dashboard/RoutingForms";
+import AdminDashHome from "./Pages/Dashboard/AdminDashHome";
+import AdminDashboard from "./Pages/Dashboard/AdminDashboard";
+import ManageUser from "./Pages/Dashboard/ManageUser";
+import ManageEvent from "./Pages/Dashboard/ManageEvent";
 
 function App() {
   return (
@@ -66,6 +70,23 @@ function App() {
             element={<RoutingForms></RoutingForms>}
           ></Route>
         </Route>
+
+        {/* admin route  */}
+        <Route
+          path="/adminDashboard"
+          element={
+            <RequireAuth>
+              <AdminDashboard />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<AdminDashHome></AdminDashHome>}></Route>
+
+          <Route path="manageUser" element={<ManageUser></ManageUser>}></Route>
+          <Route path="manageEvent" element={<ManageEvent></ManageEvent>}></Route>
+        </Route>
+        {/* admin route  */}
+
         <Route
           path="/eventtype"
           element={
@@ -82,6 +103,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+
 
         {/* timezone route just for checking */}
         <Route path="/timeZone" element={<TimeZone />}></Route>

@@ -8,6 +8,7 @@ const Navbar = () => {
   const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken'); //for jwt//
   };
 
   const mainMenuItem = (
@@ -37,6 +38,16 @@ const Navbar = () => {
     <>
       <Link className="uppercase mx-3" to="/dashboard">
         Dashboard
+      </Link>
+      <Link onClick={logout} className="uppercase" to="/">
+        Sign Out
+      </Link>
+    </>
+  );
+  const adminDashboardMenu = (
+    <>
+      <Link className="uppercase mx-3" to="/adminDashboard">
+        Admin
       </Link>
       <Link onClick={logout} className="uppercase" to="/">
         Sign Out
@@ -82,6 +93,15 @@ const Navbar = () => {
         <div class="navbar-end">
           {user ? (
             dashboardMenu
+          ) : (
+            <Link className="text-lg text-bold px-5 uppercase" to="/login">
+              Login
+            </Link>
+          )}
+        </div>
+        <div class="navbar-end">
+          {user ? (
+            adminDashboardMenu
           ) : (
             <Link className="text-lg text-bold px-5 uppercase" to="/login">
               Login

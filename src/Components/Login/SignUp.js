@@ -18,6 +18,10 @@ const SignUp = () => {
 
 // for jwt
 const [token] = useToken(user);
+
+if (token) {
+    navigate('/adminDashboard')
+}
 // for jwt
 
 
