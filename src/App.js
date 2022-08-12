@@ -21,9 +21,13 @@ import ScheduledEvents from "./Pages/Dashboard/ScheduledEvents";
 import WorkFlows from "./Pages/Dashboard/WorkFlows";
 import RoutingForms from "./Pages/Dashboard/RoutingForms";
 import AdminDashHome from "./Pages/Dashboard/AdminDashHome";
-import AdminDashboard from "./Pages/Dashboard/AdminDashboard/AdminDashboard";
-import ManageUser from "./Pages/Dashboard/AdminDashboard/ManageUser";
-import ManageEvent from "./Pages/Dashboard/AdminDashboard/ManageEvent";
+import AdminDashboard from "./Pages/Dashboard/AdminDashboard";
+import ManageUser from "./Pages/Dashboard/ManageUser";
+import ManageEvent from "./Pages/Dashboard/ManageEvent";
+import Payment from "./Pages/Payment/Payment";
+// import AdminDashboard from "./Pages/Dashboard/AdminDashboard/AdminDashboard";
+// import ManageUser from "./Pages/Dashboard/AdminDashboard/ManageUser";
+// import ManageEvent from "./Pages/Dashboard/AdminDashboard/ManageEvent";
 
 import Aos from "aos";
 import { useEffect } from "react";
@@ -111,6 +115,15 @@ function App() {
           element={
             <RequireAuth>
               <OneToOneSchedule />
+            </RequireAuth>
+          }
+        ></Route>
+
+        <Route
+          path="/payment"
+          element={
+            <RequireAuth>
+              <Payment/>
             </RequireAuth>
           }
         ></Route>
