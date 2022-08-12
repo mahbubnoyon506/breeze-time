@@ -56,7 +56,8 @@ const Navbar = () => {
       <Link onClick={logout} className="uppercase" to="/">
         Sign Out
       </Link>
-
+    </>
+  );
   const notification = (
     <>
       <div className="relative ml-3 w-6">
@@ -114,8 +115,9 @@ const Navbar = () => {
           )}
 
           {user ? notification : <></>}
+
         </div>
-        <div class="navbar-end">
+        {/* <div class="navbar-end">
           {user ? (
             adminDashboardMenu
           ) : (
@@ -123,7 +125,7 @@ const Navbar = () => {
               Login
             </Link>
           )}
-        </div>
+        </div> */}
       </div>
     </>
   );
