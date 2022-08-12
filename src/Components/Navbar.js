@@ -55,6 +55,7 @@ const Navbar = () => {
       <Link onClick={logout} className="uppercase" to="/">
         Sign Out
       </Link>
+  
     </>
   );
   const notification = (
