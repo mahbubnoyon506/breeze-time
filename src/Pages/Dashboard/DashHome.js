@@ -14,7 +14,7 @@ const DashHome = () => {
 
 
   const { data: events, isLoading,  refetch } = useQuery(['events'], () =>
-    fetch('https://floating-basin-72615.herokuapp.com/events', {
+    fetch('http://localhost:5000/events', {
       method : 'GET',
       headers : {
         'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
