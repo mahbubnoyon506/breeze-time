@@ -16,8 +16,8 @@ const GetStarted = () => {
                 <h1 className="card-title my-4"> Create simple rules</h1>
               </div>
               <p>
-                Let Calendly know your availability preferences and it'll do the
-                work for you.
+                Let BreezeTime know your availability preferences and it'll do
+                the work for you.
               </p>
             </div>
           </div>
@@ -25,12 +25,11 @@ const GetStarted = () => {
             <div class="card-body">
               <div className="flex items-center">
                 <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
-                <h1 className="card-title my-4"> Create simple rules</h1>
+                <h1 className="card-title my-4"> Share your link</h1>
               </div>
 
               <p>
-                Let Calendly know your availability preferences and it'll do the
-                work for you.
+                Send guests your BreezeTime link or embed it on your website.
               </p>
             </div>
           </div>
@@ -38,13 +37,10 @@ const GetStarted = () => {
             <div class="card-body">
               <div className="flex items-center">
                 <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
-                <h1 className="card-title my-4"> Create simple rules</h1>
+                <h1 className="card-title my-4"> Get booked</h1>
               </div>
 
-              <p>
-                Let Calendly know your availability preferences and it'll do the
-                work for you.
-              </p>
+              <p>They pick a time and the event is added to your calendar.</p>
             </div>
           </div>
         </div>
