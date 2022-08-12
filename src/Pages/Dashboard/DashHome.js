@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
-import axios from "axios";
 import Loader from "../../Components/Loader";
 import Event from "./Event";
 import DeleteModal from "./DeleteModal";
 import UpdateEvent from "./UpdateEvent";
+import { useQuery } from '@tanstack/react-query'
+
 
 const DashHome = () => {
-  const [events, setEvents] = useState([]);
   const [deleteEvent, setDeleteEvent] = useState(null);
   const [updateEvent, setUpdateEvent] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios
-        .get("https://floating-basin-72615.herokuapp.com/events")
-        .then(function (response) {
-          return response;
-        });
-      setEvents(data);
-      setIsLoading(false);
-    })();
-  }, []);
+
+  const { data: events, isLoading,  refetch } = useQuery(['events'], () =>
+    fetch('https://floating-basin-72615.herokuapp.com/events', {
+      method : 'GET',
+      headers : {
+        'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
+      }
+    }).then(res =>
+     res.json()
+    )
+  )
 
   if (isLoading) {
     return <Loader></Loader>;
@@ -52,12 +51,13 @@ const DashHome = () => {
           ></Event>
         ))}
       </div>
-      {events && <DeleteModal deleteEvent={deleteEvent}></DeleteModal>}
+      {deleteEvent && <DeleteModal deleteEvent={deleteEvent} setDeleteEvent={setDeleteEvent} refetch={refetch}></DeleteModal>}
 
-      {events && (
+      {updateEvent && (
         <UpdateEvent
           updateEvent={updateEvent}
           setUpdateEvent={setUpdateEvent}
+          refetch={refetch}
         ></UpdateEvent>
       )}
     </div>

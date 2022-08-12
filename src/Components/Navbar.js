@@ -46,6 +46,17 @@ const Navbar = () => {
       </Link>
     </>
   );
+
+  const adminDashboardMenu = (
+    <>
+      <Link className="uppercase mx-3" to="/adminDashboard">
+        Admin
+      </Link>
+      <Link onClick={logout} className="uppercase" to="/">
+        Sign Out
+      </Link>
+    </>
+  );
   const notification = (
     <>
       <div className="relative ml-3 w-6">
