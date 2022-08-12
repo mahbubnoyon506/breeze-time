@@ -46,7 +46,7 @@ const AdminDashHome = () => {
 
     (async () => {
       const { data } = await axios
-        .get("https://floating-basin-72615.herokuapp.com/events")
+        .get("http://localhost:5000/events")
         .then(function (response) {
           return response;
         });
