@@ -11,7 +11,6 @@ const Navbar = () => {
   const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
-    localStorage.removeItem('accessToken'); //for jwt//
   };
 
   const mainMenuItem = (
@@ -66,7 +65,6 @@ const Navbar = () => {
         </p>
         <MdOutlineNotificationsNone className="text-2xl"></MdOutlineNotificationsNone>
       </div>
-
     </>
   );
 
@@ -115,17 +113,7 @@ const Navbar = () => {
           )}
 
           {user ? notification : <></>}
-
         </div>
-        {/* <div class="navbar-end">
-          {user ? (
-            adminDashboardMenu
-          ) : (
-            <Link className="text-lg text-bold px-5 uppercase" to="/login">
-              Login
-            </Link>
-          )}
-        </div> */}
       </div>
     </>
   );
