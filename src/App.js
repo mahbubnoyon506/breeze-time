@@ -24,6 +24,7 @@ import AdminDashHome from "./Pages/Dashboard/AdminDashHome";
 import AdminDashboard from "./Pages/Dashboard/AdminDashboard";
 import ManageUser from "./Pages/Dashboard/ManageUser";
 import ManageEvent from "./Pages/Dashboard/ManageEvent";
+import Payment from "./Pages/Payment/Payment";
 
 function App() {
   return (
@@ -100,6 +101,15 @@ function App() {
           element={
             <RequireAuth>
               <OneToOneSchedule />
+            </RequireAuth>
+          }
+        ></Route>
+
+        <Route
+          path="/payment"
+          element={
+            <RequireAuth>
+              <Payment/>
             </RequireAuth>
           }
         ></Route>
