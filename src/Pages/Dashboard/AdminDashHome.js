@@ -1,28 +1,59 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
+import axios from "axios";
 import Loader from "../../Components/Loader";
 import Event from "./Event";
 import DeleteModal from "./DeleteModal";
 import UpdateEvent from "./UpdateEvent";
-import { useQuery } from '@tanstack/react-query'
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { useNavigate } from 'react-router-dom';
+import { signOut } from "firebase/auth";
 
-
-const DashHome = () => {
+const AdminDashHome = () => {
+  const [events, setEvents] = useState([]);
   const [deleteEvent, setDeleteEvent] = useState(null);
   const [updateEvent, setUpdateEvent] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [user] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
 
 
-  const { data: events, isLoading,  refetch } = useQuery(['events'], () =>
-    fetch('https://floating-basin-72615.herokuapp.com/events', {
-      method : 'GET',
-      headers : {
-        'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
-      }
-    }).then(res =>
-     res.json()
-    )
-  )
+    if (user) {
+      fetch(`http://localhost:5000/users`, {
+        method: 'GET',
+        headers: {
+          'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+      })
+
+        .then(res => {
+          console.log('res', res);
+          if (res.status === 401 || res.status === 403) {
+            signOut(auth);
+            localStorage.removeItem('accessToken'); //for jwt//
+            navigate('/')
+          }
+          return res.json
+        })
+        
+
+    }
+
+
+    (async () => {
+      const { data } = await axios
+        .get("https://floating-basin-72615.herokuapp.com/events")
+        .then(function (response) {
+          return response;
+        });
+      setEvents(data);
+      setIsLoading(false);
+    })();
+  }, []);
 
   if (isLoading) {
     return <Loader></Loader>;
@@ -51,17 +82,16 @@ const DashHome = () => {
           ></Event>
         ))}
       </div>
-      {deleteEvent && <DeleteModal deleteEvent={deleteEvent} setDeleteEvent={setDeleteEvent} refetch={refetch}></DeleteModal>}
+      {events && <DeleteModal deleteEvent={deleteEvent}></DeleteModal>}
 
-      {updateEvent && (
+      {events && (
         <UpdateEvent
           updateEvent={updateEvent}
           setUpdateEvent={setUpdateEvent}
-          refetch={refetch}
         ></UpdateEvent>
       )}
     </div>
   );
 };
 
-export default DashHome;
+export default AdminDashHome;

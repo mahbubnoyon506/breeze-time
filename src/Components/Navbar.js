@@ -4,10 +4,14 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import logo from "../assets/breezeTime.png";
 import { signOut } from "firebase/auth";
 import auth from "../firebase.init";
+
+import { MdOutlineNotificationsNone } from "react-icons/md";
+
 const Navbar = () => {
   const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken'); //for jwt//
   };
 
   const mainMenuItem = (
@@ -35,12 +39,34 @@ const Navbar = () => {
 
   const dashboardMenu = (
     <>
-      <Link className="uppercase mx-3" to="/dashboard">
+      <Link className=" mx-3" to="/dashboard">
         Dashboard
+      </Link>
+      <Link onClick={logout} className="" to="/">
+        Sign Out
+      </Link>
+    </>
+  );
+
+  const adminDashboardMenu = (
+    <>
+      <Link className="uppercase mx-3" to="/adminDashboard">
+        Admin
       </Link>
       <Link onClick={logout} className="uppercase" to="/">
         Sign Out
       </Link>
+    </>
+  );
+  const notification = (
+    <>
+      <div className="relative ml-3 w-6">
+        <p className=" absolute right-0 text-xs  rounded-full   text-white px-[3px] bg-red-500 top-[-0.2rem] ">
+          0
+        </p>
+        <MdOutlineNotificationsNone className="text-2xl"></MdOutlineNotificationsNone>
+      </div>
+
     </>
   );
 
@@ -83,11 +109,23 @@ const Navbar = () => {
           {user ? (
             dashboardMenu
           ) : (
+            <Link className="text-lg text-bold px-5 " to="/login">
+              Login
+            </Link>
+          )}
+
+          {user ? notification : <></>}
+
+        </div>
+        {/* <div class="navbar-end">
+          {user ? (
+            adminDashboardMenu
+          ) : (
             <Link className="text-lg text-bold px-5 uppercase" to="/login">
               Login
             </Link>
           )}
-        </div>
+        </div> */}
       </div>
     </>
   );
