@@ -22,11 +22,7 @@ const Login = () => {
 
 
     // for jwt
-
-
-    const [token] = useToken(user)
-
-
+    const [token] = useToken(user || createUser)
     // for jwt
 
     const navigate = useNavigate();
