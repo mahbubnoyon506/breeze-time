@@ -117,7 +117,7 @@ const Navbar = () => {
           {user ? notification : <></>}
 
         </div>
-        <div class="navbar-end">
+        {/* <div class="navbar-end">
           {user ? (
             adminDashboardMenu
           ) : (
@@ -125,7 +125,7 @@ const Navbar = () => {
               Login
             </Link>
           )}
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
-import axios from "axios";
 import Loader from "../../Components/Loader";
 import Event from "./Event";
 import DeleteModal from "./DeleteModal";
@@ -13,9 +12,15 @@ const DashHome = () => {
   const [deleteEvent, setDeleteEvent] = useState(null);
   const [updateEvent, setUpdateEvent] = useState(null);
 
+
   const { data: events, isLoading,  refetch } = useQuery(['events'], () =>
-    fetch('https://floating-basin-72615.herokuapp.com/events').then(res =>
-      res.json()
+    fetch('https://floating-basin-72615.herokuapp.com/events', {
+      method : 'GET',
+      headers : {
+        'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
+      }
+    }).then(res =>
+     res.json()
     )
   )
 

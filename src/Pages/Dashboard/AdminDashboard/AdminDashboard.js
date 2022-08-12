@@ -21,15 +21,7 @@ const AdminDashboard = () => {
               <li>
                 <Link to="/dashboard">Dashboard</Link>
               </li>
-              <li>
-                <Link to="/adminDashboard/manageEvent">Manage Event</Link>
-              </li>
-              <li>
-                <Link to="/adminDashboard/manageUser">Manage User</Link>
-              </li>
-              <li>
-                <Link to="/dashboard/scheduledEvents">Scheduled Events</Link>
-              </li>
+
             </ul>
           </div>
         </div>
