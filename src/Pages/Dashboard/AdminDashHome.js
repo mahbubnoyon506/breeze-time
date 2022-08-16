@@ -23,7 +23,7 @@ const AdminDashHome = () => {
 
 
     if (user) {
-      fetch(`http://localhost:5000/users`, {
+      fetch(`https://floating-basin-72615.herokuapp.com/users`, {
         method: 'GET',
         headers: {
           'authorization': `Bearer ${localStorage.getItem('accessToken')}`

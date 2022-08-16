@@ -6,7 +6,7 @@ const Usertable = ({ user, index, refetch }) => {
     const { _id, email, role } = user;
     console.log(user);
     const makeAdmin = () => {
-        const url = `http://localhost:5000/users/admin/${email}`;
+        const url = `https://floating-basin-72615.herokuapp.com/users/admin/${email}`;
         fetch(url, {
             method: 'PUT',
             headers: {
