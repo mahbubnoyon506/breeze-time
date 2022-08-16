@@ -20,8 +20,27 @@ import EventsTypes from "./Pages/Dashboard/EventTypes";
 import ScheduledEvents from "./Pages/Dashboard/ScheduledEvents";
 import WorkFlows from "./Pages/Dashboard/WorkFlows";
 import RoutingForms from "./Pages/Dashboard/RoutingForms";
+import AdminDashHome from "./Pages/Dashboard/AdminDashHome";
+import AdminDashboard from "./Pages/Dashboard/AdminDashboard";
+import ManageUser from "./Pages/Dashboard/ManageUser";
+import ManageEvent from "./Pages/Dashboard/ManageEvent";
+import Payment from "./Pages/Payment/Payment";
+// import AdminDashboard from "./Pages/Dashboard/AdminDashboard/AdminDashboard";
+// import ManageUser from "./Pages/Dashboard/AdminDashboard/ManageUser";
+// import ManageEvent from "./Pages/Dashboard/AdminDashboard/ManageEvent";
+
+import Aos from "aos";
+import { useEffect } from "react";
+import RequiredAdmin from "./Components/RequiredAdmin";
+
+
 
 function App() {
+  useEffect( () => {
+    Aos.init({
+      duration: 1500,
+    });
+  }, [])
   return (
     <div>
       <Navbar></Navbar>
@@ -66,6 +85,23 @@ function App() {
             element={<RoutingForms></RoutingForms>}
           ></Route>
         </Route>
+
+        {/* admin route  */}
+        <Route
+          path="/dashboard"
+          element={
+            <RequiredAdmin>
+               <Dashboard />
+            </RequiredAdmin>
+          }
+        >
+    
+          <Route path="manageUser" element={<RequiredAdmin><ManageUser></ManageUser></RequiredAdmin>}></Route>
+          <Route path="manageEvent" element={<RequiredAdmin><ManageEvent></ManageEvent></RequiredAdmin>}></Route>
+          <Route path="scheduledEvents" element={<RequiredAdmin><ScheduledEvents></ScheduledEvents></RequiredAdmin>}></Route>
+        </Route>
+        {/* admin route  */}
+
         <Route
           path="/eventtype"
           element={
@@ -82,6 +118,16 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+
+        <Route
+          path="/payment"
+          element={
+            <RequireAuth>
+              <Payment/>
+            </RequireAuth>
+          }
+        ></Route>
+
 
         {/* timezone route just for checking */}
         <Route path="/timeZone" element={<TimeZone />}></Route>

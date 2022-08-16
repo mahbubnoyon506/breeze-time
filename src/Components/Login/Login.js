@@ -7,6 +7,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loader from '../Loader';
 import { toast } from 'react-toastify';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -18,6 +19,11 @@ const Login = () => {
         createLoading,
         createError,
     ] = useSignInWithEmailAndPassword(auth);
+
+
+    // for jwt
+    const [token] = useToken(user || createUser)
+    // for jwt
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -32,11 +38,11 @@ const Login = () => {
     }
 
     useEffect(() => {
-        if (createUser || user) {
+        if (token) {
             toast.success('Login successd...')
             navigate(from, { replace: true })
         }
-    }, [user, createUser, navigate, from])
+    }, [token, navigate, from])
 
     if (createLoading || loading) {
         return <Loader></Loader>

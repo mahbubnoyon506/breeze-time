@@ -4,8 +4,8 @@ import DateTimePicker from 'react-datetime-picker';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-const UpdateEvent = ({ updateEvent}) => {
-    const {_id} = updateEvent
+const UpdateEvent = ({ updateEvent, setUpdateEvent, refetch }) => {
+    const { _id } = updateEvent;
     const [value, onChange] = useState(new Date());
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
@@ -19,8 +19,10 @@ const UpdateEvent = ({ updateEvent}) => {
             .then(function (response) {
                 console.log(response)
             })
-        toast.success('Event updated Successfully ')
-        reset();
+            toast.success('Event updated Successfully ')
+            reset();
+            setUpdateEvent('')
+            refetch()
     };
 
     return (
@@ -47,7 +49,7 @@ const UpdateEvent = ({ updateEvent}) => {
                                     <option>Phone Call</option>
                                     <option>Google Meet</option>
                                 </select>
-                               
+
                                 <label class="label">
                                     <span class="label-text">Type Event Description</span>
                                 </label>
@@ -58,7 +60,7 @@ const UpdateEvent = ({ updateEvent}) => {
                                 </label>
                                 <DateTimePicker onChange={onChange} value={value} disableClock={true} />
 
-                                <div className='flex justify-end'>                                   
+                                <div className='flex justify-end'>
                                     <input className='btn btn-outline mt-5 btn-primary btn-sm w-32' type="submit" value="Update Event" />
                                 </div>
                             </div>
