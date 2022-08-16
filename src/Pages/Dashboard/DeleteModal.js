@@ -6,7 +6,7 @@ const DeleteModal = ({ deleteEvent, setDeleteEvent, refetch }) => {
     const { _id, eventName, dateTime } = deleteEvent;
 
     const handleDelete = () => {
-        axios.delete(`http://localhost:5000/event/${_id}`)
+        axios.delete(`https://floating-basin-72615.herokuapp.com/event/${_id}`)
             .then(function (response) {
                 return response;
             })

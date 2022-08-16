@@ -23,7 +23,7 @@ const AdminDashHome = () => {
 
 
     if (user) {
-      fetch(`http://localhost:5000/users`, {
+      fetch(`https://floating-basin-72615.herokuapp.com/users`, {
         method: 'GET',
         headers: {
           'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -46,7 +46,7 @@ const AdminDashHome = () => {
 
     (async () => {
       const { data } = await axios
-        .get("http://localhost:5000/events")
+        .get("https://floating-basin-72615.herokuapp.com/events")
         .then(function (response) {
           return response;
         });

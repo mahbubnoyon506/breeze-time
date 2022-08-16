@@ -15,7 +15,7 @@ const OneToOneSchedule = () => {
             description: data.description,
             dateTime: value
         }
-        axios.post('http://localhost:5000/events', eventValue)
+        axios.post('https://floating-basin-72615.herokuapp.com/events', eventValue)
             .then(function (response) {
                 console.log(response)
             })
