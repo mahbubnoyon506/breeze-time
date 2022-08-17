@@ -27,7 +27,7 @@ import ManageEvent from "./Pages/Dashboard/AdminDashboard/ManageEvent";
 import Aos from "aos";
 import { useEffect } from "react";
 import RequiredAdmin from "./Components/RequiredAdmin";
-import FeedbackModal from "./Components/FeedbackModal";
+import UserReview from "./Components/UserReview";
 
 
 
@@ -47,6 +47,7 @@ function App() {
         <Route path="/enterprise" element={<Enterprise></Enterprise>} />
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/feedback" element={<UserReview />}></Route>
 
 
         {/* dashboard routes */}
