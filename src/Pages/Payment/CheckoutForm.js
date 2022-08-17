@@ -99,6 +99,7 @@ const CheckoutForm = ({ data }) => {
             });
     };
 
+
     if(processing){
         return <Loader></Loader>
     }
