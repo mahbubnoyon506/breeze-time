@@ -4,9 +4,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
-const stripePromise = loadStripe("pk_test_51LVox3J3OcnpMNzWV69CxZccFNo4YYBqp2wt1ItOU6vzPSpEmrRRusykhYlFU4ndFYQVVYAKqLwVlBlixwa0uxDa00d8aNqFau")
+const stripePromise = loadStripe("pk_test_51L0m3ZDl4aqKhSry404LiN0wWgPfpHi09C4GAdiVJ5UHHN1dDOzSURB54zDkEhDCSWQE6SEbHjddW6IQdSKJwOps00Kq9ZM9WC")
 const Payment = () => {
     const [user] = useAuthState(auth);
+
 
     const data = {plan:'monthly'};
     return (
@@ -20,9 +21,6 @@ const Payment = () => {
                                 <CheckoutForm data={data} />
                             </Elements>
                         </div>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Buy Now</button>
-                        </div>
                     </div>
                 </div>
 
@@ -32,7 +30,6 @@ const Payment = () => {
                     <div class="card-body">
                         <h2 class="card-title">Monthly Billing</h2>
                         <p>Total Charge $60</p>
-
                     </div>
                 </div>
 
