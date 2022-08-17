@@ -46,17 +46,6 @@ function App() {
         <Route path="/enterprise" element={<Enterprise></Enterprise>} />
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
-
-        {/* dashboard routes */}
-        {/* <Route
-          path="/"
-          element={
-            <RequireAuth>
-              <DashHome />
-            </RequireAuth>
-          }
-        ></Route> */}
-
         <Route
           path="/dashboard"
           element={
@@ -80,7 +69,6 @@ function App() {
             element={<RoutingForms></RoutingForms>}
           ></Route>
         </Route>
-
         {/* admin route  */}
         <Route
           path="/dashboard"
@@ -90,7 +78,6 @@ function App() {
             </RequiredAdmin>
           }
         >
-
           <Route
             path="manageUser"
             element={
@@ -130,14 +117,13 @@ function App() {
         ></Route>
 
         <Route
-          path="/payment"
+          path="/payment/:paymentId"
           element={
             <RequireAuth>
               <Payment />
             </RequireAuth>
           }
         ></Route>
-
 
         {/* timezone route just for checking */}
         <Route path="/timeZone" element={<TimeZone />}></Route>

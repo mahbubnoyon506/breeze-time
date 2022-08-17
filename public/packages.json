@@ -1,0 +1,33 @@
+[
+    {
+       "name" : "Basic",
+       "price" : "Free",
+       "calender" : "1",
+       "accessType" : "Connect to Google, Office 365, Outlook, and iCloud calendars",
+       "activeEvent" : "1",
+       "oneToOne" : "unlimited",
+       "goupEvent" : "unlimited",
+       "notificationStatus" : "Only on site"
+    },
+    {
+       "name" : "Standard",
+       "price" : "10",
+       "calender" : "5",
+       "accessType" : "Connect to Google, Office 365, Outlook, and iCloud calendars",
+       "activeEvent" : "Unlimited",
+       "oneToOne" : "unlimited",
+       "goupEvent" : "unlimited",
+       "notificationStatus" : "On site, Email and SMS"
+    },
+    {
+       "name" : "Enterprise",
+       "price" : "20",
+       "calender" : "10",
+       "accessType" : "Connect to Google, Office 365, Outlook, and iCloud calendars",
+       "activeEvent" : "Unlimited",
+       "oneToOne" : "unlimited",
+       "goupEvent" : "unlimited",
+       "notificationStatus" : "On site, Email and SMS"
+    }
+
+]
