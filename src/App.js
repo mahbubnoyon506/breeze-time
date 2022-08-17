@@ -32,11 +32,12 @@ import Payment from "./Pages/Payment/Payment";
 import Aos from "aos";
 import { useEffect } from "react";
 import RequiredAdmin from "./Components/RequiredAdmin";
+import FeedbackModal from "./Components/FeedbackModal";
 
 
 
 function App() {
-  useEffect( () => {
+  useEffect(() => {
     Aos.init({
       duration: 1500,
     });
@@ -51,6 +52,7 @@ function App() {
         <Route path="/enterprise" element={<Enterprise></Enterprise>} />
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+
 
         {/* dashboard routes */}
         {/* <Route
@@ -91,11 +93,11 @@ function App() {
           path="/dashboard"
           element={
             <RequiredAdmin>
-               <Dashboard />
+              <Dashboard />
             </RequiredAdmin>
           }
         >
-    
+
           <Route path="manageUser" element={<RequiredAdmin><ManageUser></ManageUser></RequiredAdmin>}></Route>
           <Route path="manageEvent" element={<RequiredAdmin><ManageEvent></ManageEvent></RequiredAdmin>}></Route>
           <Route path="scheduledEvents" element={<RequiredAdmin><ScheduledEvents></ScheduledEvents></RequiredAdmin>}></Route>
@@ -123,7 +125,7 @@ function App() {
           path="/payment"
           element={
             <RequireAuth>
-              <Payment/>
+              <Payment />
             </RequireAuth>
           }
         ></Route>
