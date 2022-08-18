@@ -1,9 +1,9 @@
-import axios from 'axios';
+
 import React from 'react';
 import { toast } from 'react-toastify';
 
 const Usertable = ({ user, index, refetch }) => {
-    const { _id, email, role } = user;
+    const { email, role } = user;
     console.log(user);
     // make admin 
     const makeAdmin = () => {
@@ -56,7 +56,7 @@ const Usertable = ({ user, index, refetch }) => {
     }
 
     return (
-        <tr class="hover">
+        <tr className="hover">
             <th>{index + 1}</th>
             <th>Name</th>
             <td>{email}</td>
