@@ -12,7 +12,7 @@ const Dashboard = () => {
   const adminMenu =
     <>
       <li>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/dashboard">Admin</Link>
       </li>
       <li>
         <Link to="/dashboard/manageUser">Manage User</Link>
@@ -22,6 +22,9 @@ const Dashboard = () => {
       </li>
       <li>
         <Link to="/dashboard/scheduledEvents">Scheduled Events</Link>
+      </li>
+      <li>
+        <Link to="/dashboard/packages">Packages</Link>
       </li>
     </>
 
