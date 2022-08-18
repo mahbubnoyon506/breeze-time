@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 const Usertable = ({ user, index, refetch }) => {
     const { _id, email, role } = user;
     console.log(user);
+    // make admin 
     const makeAdmin = () => {
         const url = `https://floating-basin-72615.herokuapp.com/users/admin/${email}`;
         fetch(url, {
@@ -28,6 +29,32 @@ const Usertable = ({ user, index, refetch }) => {
             })
     }
 
+    // remove admin 
+
+    const removeAdmin = () => {
+        const url = `http://localhost:5000/users/user/${email}`;
+        
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                   if(res.status === 403){
+                       toast.error("You don't have access to make someone user!!")
+                   }
+                return res.json()
+            })
+            .then(data => {
+                console.log(data)
+                if(data.modifiedCount > 0){
+                    toast.success("This admin is demoted as user")
+                    refetch()
+                }
+            })
+    }
+
     return (
         <tr class="hover">
             <th>{index + 1}</th>
@@ -39,7 +66,11 @@ const Usertable = ({ user, index, refetch }) => {
                     <button className='btn btn-outline btn-sm btn-primary' onClick={makeAdmin}>Make Admin</button>
                 }
             </td>
-            <td><button className='btn btn-outline btn-sm btn-primary'>Make Admin</button></td>
+            <td>{
+                    role ? <button className='btn btn-outline btn-sm btn-primary' onClick={removeAdmin}>Remove Admin</button> : <p className='text-success'>User</p>  
+                    
+                }
+                </td>
         </tr>
     );
 };
