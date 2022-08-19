@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import logo from "../assets/breezeTime.png";
@@ -6,8 +6,16 @@ import { signOut } from "firebase/auth";
 import auth from "../firebase.init";
 
 import { MdOutlineNotificationsNone } from "react-icons/md";
+import { useEffect } from "react";
 
 const Navbar = () => {
+  const [notifications, setNotifications] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/notifications")
+      .then((res) => res.json())
+      .then((data) => setNotifications(data));
+  }, []);
+
   const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
@@ -55,14 +63,13 @@ const Navbar = () => {
       <Link onClick={logout} className="uppercase" to="/">
         Sign Out
       </Link>
-  
     </>
   );
   const notification = (
     <>
-      <div className="relative ml-3 w-6">
+      <div className="cursor-pointer relative ml-3 w-6">
         <p className=" absolute right-0 text-xs  rounded-full   text-white px-[3px] bg-red-500 top-[-0.2rem] ">
-          0
+          {notifications?.length}
         </p>
         <MdOutlineNotificationsNone className="text-2xl"></MdOutlineNotificationsNone>
       </div>
