@@ -26,6 +26,8 @@ const Dashboard = () => {
         <Link to="/dashboard/scheduledEvents">Scheduled Events</Link>
       </li>
       <li>
+        <Link to="/dashboard/professionalcollections">Professional Collections</Link>
+=======
         <Link to="/dashboard/packages">Packages</Link>
       </li>
     </>
