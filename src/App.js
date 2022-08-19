@@ -27,7 +27,7 @@ import Payment from "./Pages/Payment/Payment";
 import Aos from "aos";
 import { useEffect } from "react";
 import RequiredAdmin from "./Components/RequiredAdmin";
-import ProfCollection from "./Pages/Dashboard/AdminDashboard/ProfCollection";
+import ProffessionalCollection from "./Pages/Dashboard/AdminDashboard/ProffessionalCollection";
 
 
 
@@ -95,7 +95,7 @@ function App() {
           <Route path="manageUser" element={<RequiredAdmin><ManageUser></ManageUser></RequiredAdmin>}></Route>
           <Route path="manageEvent" element={<RequiredAdmin><ManageEvent></ManageEvent></RequiredAdmin>}></Route>
           <Route path="scheduledEvents" element={<RequiredAdmin><ScheduledEvents></ScheduledEvents></RequiredAdmin>}></Route>
-          <Route path="professionalcollections" element={<RequiredAdmin><ProfCollection></ProfCollection></RequiredAdmin>}></Route>
+          <Route path="professionalcollections" element={<RequiredAdmin><ProffessionalCollection></ProffessionalCollection></RequiredAdmin>}></Route>
         </Route>
         {/* admin route  */}
 

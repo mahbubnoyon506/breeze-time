@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 
-const ProfCollection = () => {
+const ProffessionalCollection = () => {
 
 
 
@@ -61,4 +61,4 @@ return (
     );
 };
 
-export default ProfCollection;
+export default ProffessionalCollection;
