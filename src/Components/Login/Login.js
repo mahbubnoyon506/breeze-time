@@ -30,7 +30,6 @@ const Login = () => {
     const from = location?.state?.from?.pathname || '/';
 
     const onSubmit = async data => {
-        console.log(data)
         await signInWithEmailAndPassword(data.email, data.password)
     };
     const handleGoogleSignIn = () => {

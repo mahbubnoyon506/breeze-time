@@ -16,23 +16,26 @@ import Pricing from "./Pages/Pricing/Pricing";
 import RequireAuth from "./Components/RequireAuth";
 import Enterprise from "./Pages/Enterprise";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import EventsTypes from "./Pages/Dashboard/EventTypes";
-import ScheduledEvents from "./Pages/Dashboard/ScheduledEvents";
-import WorkFlows from "./Pages/Dashboard/WorkFlows";
-import RoutingForms from "./Pages/Dashboard/RoutingForms";
+
+import EventsTypes from "./Pages/Dashboard/UserDashBoard/EventTypes";
+import ScheduledEvents from "./Pages/Dashboard/UserDashBoard/ScheduledEvents";
+import WorkFlows from "./Pages/Dashboard/UserDashBoard/WorkFlows";
+import RoutingForms from "./Pages/Dashboard/UserDashBoard/RoutingForms";
+import Payment from "./Pages/Payment/Payment";
 import ManageUser from "./Pages/Dashboard/AdminDashboard/ManageUser";
 import ManageEvent from "./Pages/Dashboard/AdminDashboard/ManageEvent";
-import Payment from "./Pages/Payment/Payment";
 
 import Aos from "aos";
 import { useEffect } from "react";
 import RequiredAdmin from "./Components/RequiredAdmin";
 import ProffessionalCollection from "./Pages/Dashboard/AdminDashboard/ProffessionalCollection";
+import ManagePackages from "./Pages/Dashboard/AdminDashboard/ManagePackages";
+import Profile from "./Pages/Dashboard/Profile";
 
 
 
 function App() {
-  useEffect( () => {
+  useEffect(() => {
     Aos.init({
       duration: 1500,
     });
@@ -47,17 +50,6 @@ function App() {
         <Route path="/enterprise" element={<Enterprise></Enterprise>} />
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
-
-        {/* dashboard routes */}
-        {/* <Route
-          path="/"
-          element={
-            <RequireAuth>
-              <DashHome />
-            </RequireAuth>
-          }
-        ></Route> */}
-
         <Route
           path="/dashboard"
           element={
@@ -67,6 +59,10 @@ function App() {
           }
         >
           <Route index element={<DashHome></DashHome>}></Route>
+          <Route
+            path="profile"
+            element={<Profile></Profile>}
+          ></Route>
           <Route
             path="eventTypes"
             element={<EventsTypes></EventsTypes>}
@@ -81,13 +77,12 @@ function App() {
             element={<RoutingForms></RoutingForms>}
           ></Route>
         </Route>
-
         {/* admin route  */}
         <Route
           path="/dashboard"
           element={
             <RequiredAdmin>
-               <Dashboard />
+              <Dashboard />
             </RequiredAdmin>
           }
         >
@@ -96,7 +91,33 @@ function App() {
           <Route path="manageEvent" element={<RequiredAdmin><ManageEvent></ManageEvent></RequiredAdmin>}></Route>
           <Route path="scheduledEvents" element={<RequiredAdmin><ScheduledEvents></ScheduledEvents></RequiredAdmin>}></Route>
           <Route path="professionalcollections" element={<RequiredAdmin><ProffessionalCollection></ProffessionalCollection></RequiredAdmin>}></Route>
+=======
+          <Route
+            path="manageUser"
+            element={
+              <RequiredAdmin>
+                <ManageUser />
+              </RequiredAdmin>}></Route>
+          <Route
+            path="manageEvent"
+            element={
+              <RequiredAdmin>
+                <ManageEvent />
+              </RequiredAdmin>}></Route>
+          <Route
+            path="scheduledEvents"
+            element={
+              <RequiredAdmin>
+                <ScheduledEvents />
+              </RequiredAdmin>}></Route>
+              <Route
+            path="packages"
+            element={
+              <RequiredAdmin>
+                <ManagePackages />
+              </RequiredAdmin>}></Route>
         </Route>
+        
         {/* admin route  */}
 
         <Route
@@ -117,14 +138,13 @@ function App() {
         ></Route>
 
         <Route
-          path="/payment"
+          path="/payment/:paymentId"
           element={
             <RequireAuth>
-              <Payment/>
+              <Payment />
             </RequireAuth>
           }
         ></Route>
-
 
         {/* timezone route just for checking */}
         <Route path="/timeZone" element={<TimeZone />}></Route>

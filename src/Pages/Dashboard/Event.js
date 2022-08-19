@@ -6,22 +6,22 @@ const Event = ({event, setDeleteEvent, setUpdateEvent}) => {
     
     return (
         <div>
-            <div class="card w-96 bg-base-100 hover:bg-accent-focus shadow-xl ">
-                <div class="card-body">
+            <div className="card w-96 bg-base-100 hover:bg-accent-focus shadow-xl ">
+                <div className="card-body">
                     <div className='flex justify-between pb-5'>
-                        <h2 class="card-title ">
+                        <h2 className="card-title ">
                             {eventName}
                         </h2>
-                        <label for="updateEvent" onClick={setUpdateEvent(event)} class="btn btn-xs btn-outline btn-primary">Update Event</label>
+                        <label for="updateEvent" onClick={setUpdateEvent(event)} className="btn btn-xs btn-outline btn-primary">Update Event</label>
                     </div>
                     <div className='flex justify-between'>
                         <p>Event type: {eventType}</p>
                         <p>Event date: {dateTime}</p>
                     </div>
                     <p>Description: {description}</p>
-                    <div class="card-actions justify-between pt-5">
-                        <Link to='' class="btn btn-xs btn-outline btn-primary">Start Meeting</Link>
-                        <label onClick={setDeleteEvent(event)} for="event-delete" class="btn btn-xs btn-outline btn-error">Delete Event</label>
+                    <div className="card-actions justify-between pt-5">
+                        <Link to='' className="btn btn-xs btn-outline btn-primary">Start Meeting</Link>
+                        <label onClick={setDeleteEvent(event)} for="event-delete" className="btn btn-xs btn-outline btn-error">Delete Event</label>
                     </div>
                 </div>
             </div>

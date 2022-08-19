@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import Loader from '../../Components/Loader';
 const CheckoutForm = ({ data }) => {
     const [user] = useAuthState(auth)
-    const { plan } = data;
     const price = '10'
     const stripe = useStripe();
     const elements = useElements();
@@ -13,9 +13,12 @@ const CheckoutForm = ({ data }) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState("");
     const [clientSecret, setClientSecret] = useState("");
+
+
+
     useEffect(() => {
         fetch(
-            "",
+            "http://localhost:5000/create-payment-intent",
             {
                 method: "POST",
                 headers: {
@@ -46,7 +49,7 @@ const CheckoutForm = ({ data }) => {
             return;
         }
 
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error} = await stripe.createPaymentMethod({
             type: "card",
             card,
         });
@@ -61,6 +64,7 @@ const CheckoutForm = ({ data }) => {
                     card: card,
                     billing_details: {
                         email: user.email,
+                        name: user.displayName
                     },
                 },
             });
@@ -72,61 +76,80 @@ const CheckoutForm = ({ data }) => {
             setTransactionId(paymentIntent.id);
             setSuccess("Congrats");
         }
-
-        // const payment = {
-        //   data: _id,
-        //   transactionId: paymentIntent.id,
-        // };
-        //     fetch(`https://sleepy-wildwood-25871.herokuapp.com/order/${_id}`, {
-        //       method: "PATCH",
-        //       headers: {
-        //         "content-type": "application/json",
-        //         // authorization: Bearer ${localStorage.getItem("accessToken")},
-        //       },
-        //       body: JSON.stringify(payment),
-        //     })
-        //       .then((res) => res.json())
-        //       .then((data) => {
-        //         setProcessing(false);
-        //         console.log(data);
-        //       });
+        const payment = {
+            name: user.displayName,
+            email: user.email,
+            status: 'professional',
+            transactionId: paymentIntent.id
+        };
+        fetch(`http://localhost:5000/users/professional`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(payment),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setProcessing(false);
+                console.log(data);
+            });
+        // give user a professional status
+                const url = `http://localhost:5000/users/professional/${user.email}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                console.log(res)
+                return res.json()
+            })
+            .then(data => {
+                console.log(data)
+            })
     };
+
+
+    if(processing){
+        return <Loader></Loader>
+    }
 
     return (
 
-        
-
-            <>
-                <form onSubmit={handleSubmit}>
-                    <CardElement
-                        options={{
-                            style: {
-                                base: {
-                                    fontSize: "16px",
-                                    color: "#424770",
-                                    "::placeholder": {
-                                        color: "#aab7c4",
-                                    },
-                                },
-                                invalid: {
-                                    color: "#9e2146",
+        <>
+            <form onSubmit={handleSubmit}>
+                <CardElement
+                    options={{
+                        style: {
+                            base: {
+                                fontSize: "16px",
+                                color: "#424770",
+                                "::placeholder": {
+                                    color: "#aab7c4",
                                 },
                             },
-                        }}
-                    />
-                    <button
-                        className="btn btn-success btn-sm mt-4"
-                        type="submit"
-                        disabled={!stripe}
-                    >
-                        Pay
-                    </button>
-                </form>
-                {cardError && <p className="text-red-500">{cardError}</p>}
-                {success && <p className="text-green-500">{success}</p>}
-                {transactionId && <p>Your {transactionId}</p>}
-            </>
-        
+                            invalid: {
+                                color: "#9e2146",
+                            },
+                        },
+                    }}
+                />
+                <button
+                    className="btn bg-primary border-none text-white rounded-lg hover:bg-accent btn-sm mt-10 px-10"
+                    type="submit"
+                    disabled={!stripe || !clientSecret}
+                >
+                    Pay
+                </button>
+            </form>
+            {cardError && <p className="text-red-500">{cardError}</p>}
+            {success && <p className="text-green-500">{success}</p>}
+            {transactionId && <p>Your {transactionId}</p>}
+        </>
+
     );
 };
 

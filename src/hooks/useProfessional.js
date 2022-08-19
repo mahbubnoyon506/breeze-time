@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 
-const useAdmin = user => {
-    const [admin, setAdmin] = useState(false);
-    const [adminloading, setAdminLoading] = useState(true);
+const useProfessional = user => {
+    const [professional, setProfessional] = useState(false);
+    const [loading, setLoading] = useState(true);
     useEffect( () => {
        const email = user?.email;
        if(email){
-          fetch(`https://floating-basin-72615.herokuapp.com/admin/${email}`, {
+          fetch(`http://localhost:5000/professional/${email}`, {
             method : 'GET',
             headers: {
                 'content-type' : 'application/json',
@@ -15,11 +15,11 @@ const useAdmin = user => {
           })
           .then( res => res.json())
           .then( data => {
-            setAdmin(data.admin);
-            setAdminLoading(false)
+            setProfessional(data.professional);
+            setLoading(false)
           })
        }
     }, [user])
-    return [admin, adminloading];
+    return [professional, loading];
 }
-export default useAdmin;
+export default useProfessional;

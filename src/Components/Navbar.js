@@ -47,17 +47,6 @@ const Navbar = () => {
     </>
   );
 
-  const adminDashboardMenu = (
-    <>
-      <Link className="uppercase mx-3" to="/adminDashboard">
-        Admin
-      </Link>
-      <Link onClick={logout} className="uppercase" to="/">
-        Sign Out
-      </Link>
-  
-    </>
-  );
   const notification = (
     <>
       <div className="relative ml-3 w-6">
@@ -71,13 +60,13 @@ const Navbar = () => {
 
   return (
     <>
-      <div class="navbar bg-slate-50 lg:px-16 py-5 sm:px-0">
-        <div class="navbar-start ">
-          <div class="dropdown">
-            <label tabindex="0" class="btn btn-ghost lg:hidden">
+      <div className="navbar bg-slate-50 lg:px-16 py-5 sm:px-0">
+        <div className="navbar-start ">
+          <div className="dropdown">
+            <label tabindex="0" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
+                className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -92,7 +81,7 @@ const Navbar = () => {
             </label>
             <ul
               tabindex="0"
-              class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               {mainMenuItem}
             </ul>
@@ -101,10 +90,10 @@ const Navbar = () => {
             <img src={logo} className="lg:w-1/2 sm:w-1/4" alt="" />
           </Link>
         </div>
-        <div class="navbar-center hidden lg:flex">
-          <ul class="menu menu-horizontal p-0">{mainMenuItem}</ul>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal p-0">{mainMenuItem}</ul>
         </div>
-        <div class="navbar-end">
+        <div className="navbar-end">
           {user ? (
             dashboardMenu
           ) : (
@@ -112,7 +101,6 @@ const Navbar = () => {
               Login
             </Link>
           )}
-
           {user ? notification : <></>}
         </div>
       </div>
