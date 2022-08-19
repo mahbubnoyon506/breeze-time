@@ -4,8 +4,11 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const OneToOneSchedule = () => {
+    const [user] = useAuthState(auth);
     const [value, onChange] = useState(new Date());
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
@@ -13,12 +16,13 @@ const OneToOneSchedule = () => {
             eventName: data.eventname,
             eventType: data.event,
             description: data.description,
-            dateTime: value
+            dateTime: value,
+            host: user.email
         }
-        axios.post('https://floating-basin-72615.herokuapp.com/events', eventValue)
+        axios.post('http://localhost:5000/events', eventValue)
             .then(function (response) {
-                console.log(response)
             })
+        console.log(eventValue)
         toast.success('Event created Successfully ')
         reset();
     };
@@ -32,30 +36,30 @@ const OneToOneSchedule = () => {
             </div>
             <div className='border-2 mx-20 p-5'>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div class="form-control w-full ">
-                        <label class="label">
-                            <span class="label-text">Event Name</span>
+                    <div className="form-control w-full ">
+                        <label className="label">
+                            <span className="label-text">Event Name</span>
                         </label>
 
-                        <input {...register("eventname", { required: true })} type="text" placeholder="Type here" class="input input-bordered w-full" />
+                        <input {...register("eventname", { required: true })} type="text" placeholder="Type here" className="input input-bordered w-full" />
                         {errors.eventname && <p className='text-error text-xs'>Event type is required.</p> }
-                        <label class="label">
-                            <span class="label-text">Event Options</span>
+                        <label className="label">
+                            <span className="label-text">Event Options</span>
                         </label>
-                        <select class="select select-bordered" {...register("event", { required: true })}>
+                        <select className="select select-bordered" {...register("event", { required: true })}>
                             <option disabled selected>Pick one</option>
                             <option>In Person Meeting</option>
                             <option>Phone Call</option>
                             <option>Google Meet</option>
                         </select>
                         {errors.event && <p>Event type is required.</p> }
-                        <label class="label">
-                            <span class="label-text">Type Event Description</span>
+                        <label className="label">
+                            <span className="label-text">Type Event Description</span>
                         </label>
-                        <textarea {...register("description", { required: 'Description is required.' })} class="textarea textarea-bordered h-24" placeholder="Description"></textarea>
+                        <textarea {...register("description", { required: 'Description is required.' })} className="textarea textarea-bordered h-24" placeholder="Description"></textarea>
                         <p className='text-error text-xs'>{errors.description?.message}</p>
-                        <label class="label">
-                            <span class="label-text">Select Date</span>
+                        <label className="label">
+                            <span className="label-text">Select Date</span>
                         </label>
                         <DateTimePicker onChange={onChange} value={value} disableClock={true} />
                         

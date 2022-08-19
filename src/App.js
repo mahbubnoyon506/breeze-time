@@ -16,15 +16,10 @@ import Pricing from "./Pages/Pricing/Pricing";
 import RequireAuth from "./Components/RequireAuth";
 import Enterprise from "./Pages/Enterprise";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import EventsTypes from "./Pages/Dashboard/EventTypes";
-import ScheduledEvents from "./Pages/Dashboard/ScheduledEvents";
-import WorkFlows from "./Pages/Dashboard/WorkFlows";
-import RoutingForms from "./Pages/Dashboard/RoutingForms";
-// import AdminDashHome from "./Pages/Dashboard/AdminDashHome";
-// import AdminDashboard from "./Pages/Dashboard/AdminDashboard";
-// import ManageUser from "./Pages/Dashboard/ManageUser";
-// import ManageEvent from "./Pages/Dashboard/ManageEvent";
-// import AdminDashboard from "./Pages/Dashboard/AdminDashboard/AdminDashboard";
+import EventsTypes from "./Pages/Dashboard/UserDashBoard/EventTypes";
+import ScheduledEvents from "./Pages/Dashboard/UserDashBoard/ScheduledEvents";
+import WorkFlows from "./Pages/Dashboard/UserDashBoard/WorkFlows";
+import RoutingForms from "./Pages/Dashboard/UserDashBoard/RoutingForms";
 import Payment from "./Pages/Payment/Payment";
 import ManageUser from "./Pages/Dashboard/AdminDashboard/ManageUser";
 import ManageEvent from "./Pages/Dashboard/AdminDashboard/ManageEvent";
@@ -33,6 +28,7 @@ import Aos from "aos";
 import { useEffect } from "react";
 import RequiredAdmin from "./Components/RequiredAdmin";
 import ManagePackages from "./Pages/Dashboard/AdminDashboard/ManagePackages";
+import Profile from "./Pages/Dashboard/Profile";
 
 
 
@@ -61,6 +57,10 @@ function App() {
           }
         >
           <Route index element={<DashHome></DashHome>}></Route>
+          <Route
+            path="profile"
+            element={<Profile></Profile>}
+          ></Route>
           <Route
             path="eventTypes"
             element={<EventsTypes></EventsTypes>}

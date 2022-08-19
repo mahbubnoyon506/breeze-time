@@ -4,7 +4,7 @@
        "price" : "Free",
        "calender" : "1",
        "accessType" : "Connect to Google, Office 365, Outlook, and iCloud calendars",
-       "activeEvent" : "1",
+       "activeEvent" : "2",
        "oneToOne" : "unlimited",
        "groupEvent" : "unlimited",
        "notificationStatus" : "Only on site"
