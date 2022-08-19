@@ -9,6 +9,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import useProfessional from "../../hooks/useProfessional";
+import { toast } from "react-toastify";
 
 
 
@@ -35,6 +36,10 @@ const DashHome = () => {
     return <Loader></Loader>;
   }
 
+  const handleEventCreate = () => {
+    toast.error('You reached the maximum event creation limit !! Teke a package.')
+  }
+
   return (
     <div className="px-10">
       <h2 className="text-2xl my-5">My Schedule Calender</h2>
@@ -46,7 +51,7 @@ const DashHome = () => {
           </span>
           {
             events.length >= 2 && !professional ?
-              <Link to="/pricing">Create New Event</Link>
+              <Link onClick={handleEventCreate} to="/pricing">Create New Event</Link>
               :
               <Link to="/eventtype">Create New Event</Link>
           }
