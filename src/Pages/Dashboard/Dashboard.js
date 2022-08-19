@@ -23,6 +23,9 @@ const Dashboard = () => {
       <li>
         <Link to="/dashboard/scheduledEvents">Scheduled Events</Link>
       </li>
+      <li>
+        <Link to="/dashboard/professionalcollections">Professional Collections</Link>
+      </li>
     </>
 
   const userMenu =

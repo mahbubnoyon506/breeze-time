@@ -20,18 +20,14 @@ import EventsTypes from "./Pages/Dashboard/EventTypes";
 import ScheduledEvents from "./Pages/Dashboard/ScheduledEvents";
 import WorkFlows from "./Pages/Dashboard/WorkFlows";
 import RoutingForms from "./Pages/Dashboard/RoutingForms";
-import AdminDashHome from "./Pages/Dashboard/AdminDashHome";
-import AdminDashboard from "./Pages/Dashboard/AdminDashboard";
-import ManageUser from "./Pages/Dashboard/ManageUser";
-import ManageEvent from "./Pages/Dashboard/ManageEvent";
+import ManageUser from "./Pages/Dashboard/AdminDashboard/ManageUser";
+import ManageEvent from "./Pages/Dashboard/AdminDashboard/ManageEvent";
 import Payment from "./Pages/Payment/Payment";
-// import AdminDashboard from "./Pages/Dashboard/AdminDashboard/AdminDashboard";
-// import ManageUser from "./Pages/Dashboard/AdminDashboard/ManageUser";
-// import ManageEvent from "./Pages/Dashboard/AdminDashboard/ManageEvent";
 
 import Aos from "aos";
 import { useEffect } from "react";
 import RequiredAdmin from "./Components/RequiredAdmin";
+import ProfCollection from "./Pages/Dashboard/AdminDashboard/ProfCollection";
 
 
 
@@ -99,6 +95,7 @@ function App() {
           <Route path="manageUser" element={<RequiredAdmin><ManageUser></ManageUser></RequiredAdmin>}></Route>
           <Route path="manageEvent" element={<RequiredAdmin><ManageEvent></ManageEvent></RequiredAdmin>}></Route>
           <Route path="scheduledEvents" element={<RequiredAdmin><ScheduledEvents></ScheduledEvents></RequiredAdmin>}></Route>
+          <Route path="professionalcollections" element={<RequiredAdmin><ProfCollection></ProfCollection></RequiredAdmin>}></Route>
         </Route>
         {/* admin route  */}
 
