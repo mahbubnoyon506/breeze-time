@@ -9,7 +9,7 @@ import useAdmin from '../../hooks/useAdmin';
 const Package = ({ p }) => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
-  const { id, name, price, accessType, activeEvent, calender, goupEvent, notificationStatus, oneToOne } = p;
+  const { id, name, price, accessType, activeEvent, calender, groupEvent, notificationStatus, oneToOne } = p;
   const handleAdmin = () => {
     toast.error("Admin can't make payment")
   }
@@ -29,7 +29,7 @@ const Package = ({ p }) => {
         </div>
         <div className='flex flex-row items-center'>
           <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
-          <span>{goupEvent}</span>
+          <span>{groupEvent}</span>
         </div>
 
         <div className='flex flex-row items-center'>

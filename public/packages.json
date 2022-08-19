@@ -6,7 +6,7 @@
        "accessType" : "Connect to Google, Office 365, Outlook, and iCloud calendars",
        "activeEvent" : "2",
        "oneToOne" : "unlimited",
-       "goupEvent" : "unlimited",
+       "groupEvent" : "unlimited",
        "notificationStatus" : "Only on site"
     },
     {
@@ -16,7 +16,7 @@
        "accessType" : "Connect to Google, Office 365, Outlook, and iCloud calendars",
        "activeEvent" : "Unlimited",
        "oneToOne" : "unlimited",
-       "goupEvent" : "unlimited",
+       "groupEvent" : "unlimited",
        "notificationStatus" : "On site, Email and SMS"
     },
     {
@@ -26,7 +26,7 @@
        "accessType" : "Connect to Google, Office 365, Outlook, and iCloud calendars",
        "activeEvent" : "Unlimited",
        "oneToOne" : "unlimited",
-       "goupEvent" : "unlimited",
+       "groupEvent" : "unlimited",
        "notificationStatus" : "On site, Email and SMS"
     }
 
