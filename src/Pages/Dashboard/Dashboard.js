@@ -13,6 +13,7 @@ const Dashboard = () => {
   const adminMenu =
     <>
       <li>
+        <Link to="/dashboard">Admin</Link>
         <Link to="/dashboard/profile">Admin Profile</Link>
       </li>
       <li>
@@ -20,6 +21,12 @@ const Dashboard = () => {
       </li>
       <li>
         <Link to="/dashboard/manageEvent">Manage Event</Link>
+      </li>
+      <li>
+        <Link to="/dashboard/scheduledEvents">Scheduled Events</Link>
+      </li>
+      <li>
+        <Link to="/dashboard/packages">Packages</Link>
       </li>
     </>
 

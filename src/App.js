@@ -27,6 +27,7 @@ import ManageEvent from "./Pages/Dashboard/AdminDashboard/ManageEvent";
 import Aos from "aos";
 import { useEffect } from "react";
 import RequiredAdmin from "./Components/RequiredAdmin";
+import ManagePackages from "./Pages/Dashboard/AdminDashboard/ManagePackages";
 import Profile from "./Pages/Dashboard/Profile";
 
 
@@ -101,7 +102,14 @@ function App() {
               <RequiredAdmin>
                 <ScheduledEvents />
               </RequiredAdmin>}></Route>
+              <Route
+            path="packages"
+            element={
+              <RequiredAdmin>
+                <ManagePackages />
+              </RequiredAdmin>}></Route>
         </Route>
+        
         {/* admin route  */}
 
         <Route
