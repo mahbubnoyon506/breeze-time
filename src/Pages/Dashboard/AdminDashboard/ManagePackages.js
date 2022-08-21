@@ -1,12 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import Loader from '../../../Components/Loader';
-import Usertable from './Usertable';
+import PackageTable from './PackageTable';
 
-const ManageUser = () => {
-
-    const { data, isLoading,  refetch } = useQuery(['users'], () =>
-    fetch('https://floating-basin-72615.herokuapp.com/users', {
+const ManagePackages = () => {
+    const { data, isLoading,  refetch } = useQuery(['packages'], () =>
+    fetch('http://localhost:5000/packages', {
         method : 'GET',
         headers : {
             'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
@@ -21,20 +20,21 @@ const ManageUser = () => {
     
     return (
         <div>
-            <div className="overflow-x-auto">
-                <table className="table w-full">
+            <div class="overflow-x-auto">
+                <table class="table w-full">
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Manage</th>
+                            <th>Package</th>
+                            <th>Package Details</th>
+                            <th>Price</th>
+                            <th>Update</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            data.map( (user, index) => <Usertable key={user._id} user={user} index={index} refetch={refetch}></Usertable>)
+                            data.map( (memberPackage, index) => <PackageTable key={memberPackage._id} memberPackage={memberPackage} index={index} refetch={refetch}></PackageTable>)
                         }
                     </tbody>
                 </table>
@@ -43,4 +43,4 @@ const ManageUser = () => {
     );
 };
 
-export default ManageUser;
+export default ManagePackages;

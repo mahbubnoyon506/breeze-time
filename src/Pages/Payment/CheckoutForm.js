@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { FaBlackTie } from 'react-icons/fa';
 import Loader from '../../Components/Loader';
 const CheckoutForm = ({ data }) => {
     const [user] = useAuthState(auth)
-    const { plan } = data;
     const price = '10'
     const stripe = useStripe();
     const elements = useElements();
@@ -51,7 +49,7 @@ const CheckoutForm = ({ data }) => {
             return;
         }
 
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error} = await stripe.createPaymentMethod({
             type: "card",
             card,
         });
@@ -88,7 +86,7 @@ const CheckoutForm = ({ data }) => {
             method: "POST",
             headers: {
                 "content-type": "application/json",
-                // authorization: Bearer ${localStorage.getItem("accessToken")},
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
             body: JSON.stringify(payment),
         })
@@ -97,7 +95,23 @@ const CheckoutForm = ({ data }) => {
                 setProcessing(false);
                 console.log(data);
             });
+        // give user a professional status
+                const url = `http://localhost:5000/users/professional/${user.email}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                console.log(res)
+                return res.json()
+            })
+            .then(data => {
+                console.log(data)
+            })
     };
+
 
     if(processing){
         return <Loader></Loader>
