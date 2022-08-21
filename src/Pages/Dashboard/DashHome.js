@@ -10,6 +10,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import useProfessional from "../../hooks/useProfessional";
 import { toast } from "react-toastify";
+import StartMeetingModal from "./StartMeetingModal";
 
 
 
@@ -18,9 +19,10 @@ const DashHome = () => {
   const [professional] = useProfessional(user);
   const [deleteEvent, setDeleteEvent] = useState(null);
   const [updateEvent, setUpdateEvent] = useState(null);
+  const [startCall, setStartCall] = useState(null);
 
 
-  const url = `http://localhost:5000/event?host=${user.email}`
+  const url = `https://floating-basin-72615.herokuapp.com/event?host=${user.email}`
   const { data: events, isLoading, refetch } = useQuery(['events'], () =>
     fetch(url, {
       method: 'GET',
@@ -65,6 +67,7 @@ const DashHome = () => {
             event={event}
             setDeleteEvent={setDeleteEvent}
             setUpdateEvent={setUpdateEvent}
+            setStartCall={setStartCall}
           ></Event>
         ))}
       </div>
@@ -75,13 +78,20 @@ const DashHome = () => {
           refetch={refetch}>
         </DeleteModal>}
 
-      {updateEvent && (
+      {updateEvent && 
         <UpdateEvent
           updateEvent={updateEvent}
           setUpdateEvent={setUpdateEvent}
           refetch={refetch}
         ></UpdateEvent>
-      )}
+      }
+      {
+        startCall && 
+        <StartMeetingModal
+        startCall={startCall}
+        setStartCall={setStartCall}
+        ></StartMeetingModal>
+      }
     </div>
   );
 };

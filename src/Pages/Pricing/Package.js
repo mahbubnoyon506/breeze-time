@@ -9,7 +9,7 @@ import useAdmin from '../../hooks/useAdmin';
 const Package = ({ p }) => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
-  const { id, name, price, accessType, activeEvent, calender, groupEvent, notificationStatus, oneToOne } = p;
+  const { id, name, price, accessType, activeEvent, calender, goupEvent, notificationStatus, oneToOne } = p;
   const handleAdmin = () => {
     toast.error("Admin can't make payment")
   }
@@ -25,28 +25,28 @@ const Package = ({ p }) => {
         }
         <div className='flex flex-row items-center'>
           <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
-          <span>{calender}</span>
+          <span>Calender access: {calender}</span>
         </div>
         <div className='flex flex-row items-center'>
           <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
-          <span>{groupEvent}</span>
+          <span>Group Event: {goupEvent}</span>
         </div>
 
         <div className='flex flex-row items-center'>
           <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
-          <span>{oneToOne}</span>
+          <span>One to One Event: {oneToOne}</span>
         </div>
         <div className='flex flex-row items-center'>
           <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
-          <span>{activeEvent}</span>
+          <span>Active event: {activeEvent}</span>
         </div>
         <div className='flex flex-row items-center'>
           <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
-          <span>{notificationStatus}</span>
+          <span>Notification: {notificationStatus}</span>
         </div>
         <div className='flex flex-row items-center'>
           <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
-          <span>{accessType}</span>
+          <span>{accessType.slice(0, 30)}...</span>
         </div>
         {
           price === 'Free' ? ''

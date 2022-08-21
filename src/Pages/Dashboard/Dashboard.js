@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -27,6 +28,9 @@ const Dashboard = () => {
       </li>
       <li>
         <Link to="/dashboard/packages">Packages</Link>
+        </li>
+        <li>
+        <Link to="/dashboard/professionalcollections">Professional Collections</Link>
       </li>
     </>
 
