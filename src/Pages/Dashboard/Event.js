@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 const Event = ({event, setDeleteEvent, setUpdateEvent, setStartCall}) => {
     const {eventName, eventType, dateTime, description} = event;
