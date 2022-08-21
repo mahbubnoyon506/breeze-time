@@ -3,6 +3,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loader from '../../Components/Loader';
+
 const CheckoutForm = ({ data }) => {
     const [user] = useAuthState(auth)
     const price = '10'
@@ -14,16 +15,14 @@ const CheckoutForm = ({ data }) => {
     const [transactionId, setTransactionId] = useState("");
     const [clientSecret, setClientSecret] = useState("");
 
-
-
     useEffect(() => {
         fetch(
-            "http://localhost:5000/create-payment-intent",
+            "https://floating-basin-72615.herokuapp.com/create-payment-intent",
             {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
-                    //   authorization: Bearer ${localStorage.getItem("accessToken")},
+                    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                 },
                 body: JSON.stringify({ price }),
             }
@@ -82,7 +81,7 @@ const CheckoutForm = ({ data }) => {
             status: 'professional',
             transactionId: paymentIntent.id
         };
-        fetch(`http://localhost:5000/users/professional`, {
+        fetch(`https://floating-basin-72615.herokuapp.com/users/professional`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -96,7 +95,7 @@ const CheckoutForm = ({ data }) => {
                 console.log(data);
             });
         // give user a professional status
-                const url = `http://localhost:5000/users/professional/${user.email}`;
+                const url = `https://floating-basin-72615.herokuapp.com/users/professional/${user.email}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -104,7 +103,6 @@ const CheckoutForm = ({ data }) => {
             }
         })
             .then(res => {
-                console.log(res)
                 return res.json()
             })
             .then(data => {

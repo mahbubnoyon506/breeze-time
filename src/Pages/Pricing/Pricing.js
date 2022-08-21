@@ -5,18 +5,19 @@ import Loader from '../../Components/Loader';
 import Package from './Package';
 
 
+
 const Pricing = () => {
 
    const {data, isLoading} = useQuery(['packages'], () => 
-    fetch('packages.json')  
+    fetch('http://localhost:5000/packages')  
    .then(res => res.json())
    )
 
    if(isLoading) {
     return <Loader></Loader>
    }
-
-
+ 
+   
   return (
 
     <div className="lg:mx-16 md:mx-8 sm:mx-3 mb-12">
