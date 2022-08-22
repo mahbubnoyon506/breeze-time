@@ -88,8 +88,8 @@ const Navbar = () => {
           {showNotification ? (
             <div className="">
               {notifications.map((n) => (
-                <div className="z-10 bg-info py-1 px-3 left-[-5.5rem] rounded relative my-2 mr">
-                  <p className="text-black text-sm font-mono">
+                <div className="z-10 toast bg-[#F96669] py-1 px-3 left-[-5.5rem] rounded relative my-2 ">
+                  <p className=" text-white text-sm font-mono">
                     {n?.notification}
                   </p>
                 </div>
