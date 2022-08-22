@@ -32,7 +32,7 @@ const Usertable = ({ user, index, refetch }) => {
     // remove admin 
 
     const removeAdmin = () => {
-        const url = `http://localhost:5000/users/user/${email}`;
+        const url = `https://floating-basin-72615.herokuapp.com/users/user/${email}`;
         
         fetch(url, {
             method: 'PUT',

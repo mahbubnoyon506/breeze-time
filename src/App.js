@@ -16,7 +16,6 @@ import Pricing from "./Pages/Pricing/Pricing";
 import RequireAuth from "./Components/RequireAuth";
 import Enterprise from "./Pages/Enterprise";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-
 import EventsTypes from "./Pages/Dashboard/UserDashBoard/EventTypes";
 import ScheduledEvents from "./Pages/Dashboard/UserDashBoard/ScheduledEvents";
 import WorkFlows from "./Pages/Dashboard/UserDashBoard/WorkFlows";
@@ -24,13 +23,14 @@ import RoutingForms from "./Pages/Dashboard/UserDashBoard/RoutingForms";
 import Payment from "./Pages/Payment/Payment";
 import ManageUser from "./Pages/Dashboard/AdminDashboard/ManageUser";
 import ManageEvent from "./Pages/Dashboard/AdminDashboard/ManageEvent";
-
-import Aos from "aos";
 import { useEffect } from "react";
 import RequiredAdmin from "./Components/RequiredAdmin";
-import ProffessionalCollection from "./Pages/Dashboard/AdminDashboard/ProffessionalCollection";
 import ManagePackages from "./Pages/Dashboard/AdminDashboard/ManagePackages";
 import Profile from "./Pages/Dashboard/Profile";
+import ProfessionalCollection from "./Pages/Dashboard/AdminDashboard/ProfessionalCollection";
+import Aos from "aos";
+
+
 
 
 
@@ -86,12 +86,6 @@ function App() {
             </RequiredAdmin>
           }
         >
-    
-          <Route path="manageUser" element={<RequiredAdmin><ManageUser></ManageUser></RequiredAdmin>}></Route>
-          <Route path="manageEvent" element={<RequiredAdmin><ManageEvent></ManageEvent></RequiredAdmin>}></Route>
-          <Route path="scheduledEvents" element={<RequiredAdmin><ScheduledEvents></ScheduledEvents></RequiredAdmin>}></Route>
-          <Route path="professionalcollections" element={<RequiredAdmin><ProffessionalCollection></ProffessionalCollection></RequiredAdmin>}></Route>
-=======
           <Route
             path="manageUser"
             element={
@@ -110,14 +104,38 @@ function App() {
               <RequiredAdmin>
                 <ScheduledEvents />
               </RequiredAdmin>}></Route>
-              <Route
+          <Route
+            path="professionalcollections"
+            element={
+              <RequiredAdmin>
+                <ProfessionalCollection />
+              </RequiredAdmin>}></Route>
+          <Route
+            path="manageUser"
+            element={
+              <RequiredAdmin>
+                <ManageUser />
+              </RequiredAdmin>}></Route>
+          <Route
+            path="manageEvent"
+            element={
+              <RequiredAdmin>
+                <ManageEvent />
+              </RequiredAdmin>}></Route>
+          <Route
+            path="scheduledEvents"
+            element={
+              <RequiredAdmin>
+                <ScheduledEvents />
+              </RequiredAdmin>}></Route>
+          <Route
             path="packages"
             element={
               <RequiredAdmin>
                 <ManagePackages />
               </RequiredAdmin>}></Route>
         </Route>
-        
+
         {/* admin route  */}
 
         <Route
