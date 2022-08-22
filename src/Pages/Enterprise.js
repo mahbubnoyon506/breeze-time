@@ -1,6 +1,22 @@
 import React from "react";
+import emailjs from "@emailjs/browser";
 
 const Enterprise = () => {
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("gmail", "template_0e678w6", e.target, "Aw1U_DTBP_DYYuB0S")
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  };
   return (
     <section
       className="py-20 px-4 lg:px-16 overflow-hidden relative z-10"
@@ -32,7 +48,7 @@ const Enterprise = () => {
             data-aos-duration="2000"
           >
             <div className="bg-gray-100 dark:bg-slate-800 relative rounded-lg p-8 sm:p-12 shadow-lg">
-              <form>
+              <form onSubmit={sendEmail}>
                 <div className="mb-6">
                   <input
                     type="text"
@@ -50,7 +66,7 @@ const Enterprise = () => {
                                 focus-visible:shadow-none
                                 focus:border-primary
                                 "
-                    name="full_name"
+                    name="name"
                     id="full_name"
                   />
                 </div>
@@ -75,6 +91,29 @@ const Enterprise = () => {
                     id="email"
                   />
                 </div>
+                <div className="mb-6">
+                  {" "}
+                  <input
+                    type="subject"
+                    placeholder="subject"
+                    className="
+                                w-full
+                                rounded
+                                p-3
+                                text-gray-800
+                                dark:text-gray-50
+                                dark:bg-slate-700
+                                border-gray-500
+                                dark:border-slate-600
+                                outline-none
+                                focus-visible:shadow-none
+                                focus:border-primary
+                                "
+                    name="subject"
+                    id="subject"
+                  />
+                </div>
+
                 <div className="mb-6">
                   <input
                     inputMode="numeric"
