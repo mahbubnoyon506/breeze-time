@@ -4,9 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loader from '../../Components/Loader';
 
-const CheckoutForm = ({ data }) => {
+const CheckoutForm = ({ pack }) => {
     const [user] = useAuthState(auth)
-    const price = '10'
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState("");
@@ -14,17 +13,19 @@ const CheckoutForm = ({ data }) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState("");
     const [clientSecret, setClientSecret] = useState("");
+    const { name, price } = pack;
 
     useEffect(() => {
+        const data = { name, price }
         fetch(
-            "https://floating-basin-72615.herokuapp.com/create-payment-intent",
+            "http://localhost:5000/create-payment-intent",
             {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
                     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                 },
-                body: JSON.stringify({ price }),
+                body: JSON.stringify({ data }),
             }
         )
             .then((res) => res.json())
@@ -33,7 +34,9 @@ const CheckoutForm = ({ data }) => {
                     setClientSecret(data.clientSecret);
                 }
             });
-    }, [price]);
+    }, [name, price]);
+
+    console.log(clientSecret)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -48,7 +51,7 @@ const CheckoutForm = ({ data }) => {
             return;
         }
 
-        const { error} = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: "card",
             card,
         });
@@ -81,7 +84,7 @@ const CheckoutForm = ({ data }) => {
             status: 'professional',
             transactionId: paymentIntent.id
         };
-        fetch(`https://floating-basin-72615.herokuapp.com/users/professional`, {
+        fetch(`http://localhost:5000/users/professional`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -95,7 +98,7 @@ const CheckoutForm = ({ data }) => {
                 console.log(data);
             });
         // give user a professional status
-                const url = `https://floating-basin-72615.herokuapp.com/users/professional/${user.email}`;
+        const url = `http://localhost:5000/users/professional/${user.email}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -111,7 +114,7 @@ const CheckoutForm = ({ data }) => {
     };
 
 
-    if(processing){
+    if (processing) {
         return <Loader></Loader>
     }
 
@@ -140,12 +143,12 @@ const CheckoutForm = ({ data }) => {
                     type="submit"
                     disabled={!stripe || !clientSecret}
                 >
-                    Pay
+                    Make Payment
                 </button>
             </form>
             {cardError && <p className="text-red-500">{cardError}</p>}
             {success && <p className="text-green-500">{success}</p>}
-            {transactionId && <p>Your {transactionId}</p>}
+            {transactionId && <p>Your transaction ID: {transactionId}</p>}
         </>
 
     );

@@ -2,11 +2,10 @@ import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
-import { useParams } from 'react-router-dom';
-const stripePromise = loadStripe("pk_test_51L0m3ZDl4aqKhSry404LiN0wWgPfpHi09C4GAdiVJ5UHHN1dDOzSURB54zDkEhDCSWQE6SEbHjddW6IQdSKJwOps00Kq9ZM9WC")
+import usePackageId from '../../hooks/usePackageId';
+const stripePromise = loadStripe("pk_test_51LZctaLkATqQKPdLv8dEKwA9kpuWqSf8UGNRaobrHBS4jwf4tY3uvOk9aSwP39vmp3nXlOk5AHpZ9UsZu7KGgCJB009GvwP5sH")
 const Payment = () => {
-    const {paymentId} = useParams()
-    const data = {plan:'monthly'};
+    const [pack]= usePackageId()
     return (
         <div className='flex justify-center  items-center my-16'>
             <div className='payment'>
@@ -15,19 +14,18 @@ const Payment = () => {
                         <h2 className="card-title">You are almost there!</h2>
                         <div className="mt-5 w-full">
                             <Elements stripe={stripePromise}>
-                                <CheckoutForm data={data} />
+                                <CheckoutForm pack={pack} />
                             </Elements>
                         </div>
                     </div>
                 </div>
-
             </div>
             <div className='package mx-5'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
                         <h2 className="card-title">Monthly Billing</h2>
-                        <p>Total Charge $60</p>
-                        <p>{paymentId}</p>
+                        <p>Total Charge {pack.price} $</p>
+                        <p>Package type {pack.name}</p>
                     </div>
                 </div>
 

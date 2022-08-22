@@ -1,23 +1,17 @@
-
 import React from 'react';
-import { useQuery } from '@tanstack/react-query';
 import Loader from '../../Components/Loader';
 import Package from './Package';
+import usePackage from '../../hooks/usePackage';
 
 
 
 const Pricing = () => {
-
-   const {data, isLoading} = useQuery(['packages'], () => 
-    fetch('http://localhost:5000/packages')  
-   .then(res => res.json())
-   )
+  const [packages, isLoading] = usePackage([]);
 
    if(isLoading) {
     return <Loader></Loader>
    }
  
-   
   return (
 
     <div className="lg:mx-16 md:mx-8 sm:mx-3 mb-12">
@@ -27,7 +21,7 @@ const Pricing = () => {
       <div className="">
         <div className="lg:grid lg:grid-cols-3 gap-4 ">
             {
-              data.map( (p) => <Package p={p}></Package>)
+              packages.map( (p) => <Package p={p}></Package>)
             }
         </div>
       </div>
