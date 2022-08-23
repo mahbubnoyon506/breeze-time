@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Event = ({event, setDeleteEvent, setUpdateEvent}) => {
+
+const Event = ({event, setDeleteEvent, setUpdateEvent, setStartCall}) => {
     const {eventName, eventType, dateTime, description} = event;
     
     return (
@@ -20,7 +20,8 @@ const Event = ({event, setDeleteEvent, setUpdateEvent}) => {
                     </div>
                     <p>Description: {description}</p>
                     <div className="card-actions justify-between pt-5">
-                        <Link to='' className="btn btn-xs btn-outline btn-primary">Start Meeting</Link>
+                        {/* <Link to='' className="btn btn-xs btn-outline btn-primary">Start Meeting</Link> */}
+                        <label onClick={setStartCall(event)} for="meetingOpen" class="btn btn-xs btn-outline btn-primary">open modal</label>
                         <label onClick={setDeleteEvent(event)} for="event-delete" className="btn btn-xs btn-outline btn-error">Delete Event</label>
                     </div>
                 </div>

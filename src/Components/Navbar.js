@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import logo from "../assets/breezeTime.png";
@@ -6,8 +6,24 @@ import { signOut } from "firebase/auth";
 import auth from "../firebase.init";
 
 import { MdOutlineNotificationsNone } from "react-icons/md";
-
+import { useEffect } from "react";
 const Navbar = () => {
+  const [notifications, setNotifications] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/notifications")
+      .then((res) => res.json())
+      .then((data) => setNotifications(data));
+  }, []);
+
+  // 👇️ initialize boolean to false
+  const [showNotification, setShowNotification] = useState(false);
+
+  const toggleNotification = () => {
+    console.log(notifications);
+    // 👇️ passed function to setState
+    setShowNotification((current) => !current);
+  };
+
   const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
@@ -47,13 +63,42 @@ const Navbar = () => {
     </>
   );
 
+  const adminDashboardMenu = (
+    <>
+      <Link className="uppercase mx-3" to="/adminDashboard">
+        Admin
+      </Link>
+      <Link onClick={logout} className="uppercase" to="/">
+        Sign Out
+      </Link>
+    </>
+  );
   const notification = (
     <>
-      <div className="relative ml-3 w-6">
+      <div
+        onClick={toggleNotification}
+        className="cursor-pointer relative ml-3 w-6"
+      >
         <p className=" absolute right-0 text-xs  rounded-full   text-white px-[3px] bg-red-500 top-[-0.2rem] ">
-          0
+          {notifications?.length}
         </p>
         <MdOutlineNotificationsNone className="text-2xl"></MdOutlineNotificationsNone>
+        <div className="absolute ">
+          {" "}
+          {showNotification ? (
+            <div className="">
+              {notifications.map((n) => (
+                <div className="z-50 toast bg-[#F96669] py-1 px-3 left-[-5.5rem] rounded relative my-2 ">
+                  <p className=" text-white text-sm font-mono">
+                    {n?.notification}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
     </>
   );

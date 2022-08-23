@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 
-const ProffessionalCollection = () => {
+const ProfessionalCollection = () => {
 
 
 
 const [professional , setProfessional] = useState([])
 useEffect(()=>{
-    fetch('http://localhost:5000/professional')
+    fetch('https://floating-basin-72615.herokuapp.com/professional')
     .then(res=> res.json())
     .then(data => setProfessional(data))
 } ,[])
@@ -16,7 +16,7 @@ useEffect(()=>{
 const handleDelete = (id) => {
   const proceed = window.confirm("Are you sure you want to delete?");
   if (proceed) {
-    const url = `http://localhost:5000/professional/${id}`;
+    const url = `https://floating-basin-72615.herokuapp.com/professional/${id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -61,4 +61,4 @@ return (
     );
 };
 
-export default ProffessionalCollection;
+export default ProfessionalCollection;
