@@ -143,7 +143,7 @@ const CheckoutForm = ({ pack }) => {
                     type="submit"
                     disabled={!stripe || !clientSecret}
                 >
-                    Make Payment
+                    Pay
                 </button>
             </form>
             {cardError && <p className="text-red-500">{cardError}</p>}
