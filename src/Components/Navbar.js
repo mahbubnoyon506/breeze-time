@@ -139,6 +139,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal p-0">{mainMenuItem}</ul>
         </div>
         <div className="navbar-end">
+          {user ? notification : <></>}
           {user ? (
             dashboardMenu
           ) : (
@@ -146,7 +147,6 @@ const Navbar = () => {
               Login
             </Link>
           )}
-          {user ? notification : <></>}
         </div>
       </div>
     </>
