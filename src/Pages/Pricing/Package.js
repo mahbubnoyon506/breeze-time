@@ -9,7 +9,7 @@ import useAdmin from '../../hooks/useAdmin';
 const Package = ({ p }) => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
-  const { id, name, price, accessType, activeEvent, calender, goupEvent, notificationStatus, oneToOne } = p;
+  const { _id, name, price, accessType, activeEvent, calender, goupEvent, notificationStatus, oneToOne } = p;
   const handleAdmin = () => {
     toast.error("Admin can't make payment")
   }
@@ -56,12 +56,11 @@ const Package = ({ p }) => {
                 <><button onClick={handleAdmin} className='disabled my-3 btn btn-sm bg-transparent border-black text-black rounded-lg hover:bg-secondary-focus hover:border-secondary-focus hover:text-white'>Get started</button></>
                 :
                 <>
-                  <Link to={`/payment/${id}`} className='m-auto'><button className=' my-3 btn btn-sm bg-transparent border-black text-black rounded-lg hover:bg-secondary-focus hover:border-secondary-focus  hover:text-white'>Get started</button></Link>
+                  <Link to={`/payment/${_id}`} className='m-auto'><button className=' my-3 btn btn-sm bg-transparent border-black text-black rounded-lg hover:bg-secondary-focus hover:border-secondary-focus  hover:text-white'>Get started</button></Link>
                   <p className='m-auto'>No credit card needed</p>
                 </>
             )
         }
-
       </div>
     </div>
   );
