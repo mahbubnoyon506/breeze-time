@@ -6,7 +6,7 @@ const useProfessional = user => {
     useEffect( () => {
        const email = user?.email;
        if(email){
-          fetch(`https://floating-basin-72615.herokuapp.com/professional/${email}`, {
+          fetch(`http://localhost:5000/professional/${email}`, {
             method : 'GET',
             headers: {
                 'content-type' : 'application/json',
