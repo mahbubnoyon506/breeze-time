@@ -38,16 +38,13 @@ const Navbar = () => {
         <Link to="/teams">Teams</Link>
       </li>
       <li>
-        <Link to="/enterprise">Enterprise</Link>
-      </li>
-      <li>
         <Link to="/pricing">Pricing</Link>
       </li>
       <li>
-        <Link to="#">About</Link>
+        <Link to="/about">About</Link>
       </li>
       <li>
-        <Link to="#">Contact</Link>
+        <Link to="/contact">Contact</Link>
       </li>
     </>
   );

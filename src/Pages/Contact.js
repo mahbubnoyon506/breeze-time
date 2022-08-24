@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Enterprise = () => {
+const Contact = () => {
     return (
         <section
             className="py-20 px-4 lg:px-16 overflow-hidden relative z-10" data-aos="fade-up"
@@ -936,4 +936,4 @@ const Enterprise = () => {
     );
 };
 
-export default Enterprise;
+export default Contact;

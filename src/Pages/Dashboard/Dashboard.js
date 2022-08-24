@@ -27,12 +27,9 @@ const Dashboard = () => {
       </li>
       <li>
         <Link to="/dashboard/packages">Packages</Link>
-        </li>
-        <li>
-        <Link to="/dashboard/professionalcollections">Professional Collections</Link>
-        <Link to="/dashboard/professionalcollections">Professional Collections</Link>
-=======
-        <Link to="/dashboard/packages">Packages</Link>
+      </li>
+      <li>
+        <Link to="/dashboard/professionalCollections">Professional Collections</Link>
       </li>
     </>
 

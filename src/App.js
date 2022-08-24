@@ -13,8 +13,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Teams from "./Pages/Teams/Teams";
 import Pricing from "./Pages/Pricing/Pricing";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
 import RequireAuth from "./Components/RequireAuth";
-import Enterprise from "./Pages/Enterprise";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import EventsTypes from "./Pages/Dashboard/UserDashBoard/EventTypes";
 import ScheduledEvents from "./Pages/Dashboard/UserDashBoard/ScheduledEvents";
@@ -32,8 +33,6 @@ import Aos from "aos";
 
 
 
-
-
 function App() {
   useEffect(() => {
     Aos.init({
@@ -47,7 +46,8 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/teams" element={<Teams></Teams>}></Route>
         <Route path="/pricing" element={<Pricing></Pricing>}></Route>
-        <Route path="/enterprise" element={<Enterprise></Enterprise>} />
+        <Route path="/contact" element={<Contact></Contact>} />
+        <Route path="/about" element={<About></About>} />
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route
@@ -105,7 +105,7 @@ function App() {
                 <ScheduledEvents />
               </RequiredAdmin>}></Route>
           <Route
-            path="professionalcollections"
+            path="professionalCollections"
             element={
               <RequiredAdmin>
                 <ProfessionalCollection />
