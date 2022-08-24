@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PackageUpdateModal from './PackageUpdateModal';
 
 const PackageTable = ({ memberPackage, index, refetch, setUpdatePackage, setDeletePackage }) => {
     const { _id, name, price } = memberPackage;
