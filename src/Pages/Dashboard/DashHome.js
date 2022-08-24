@@ -52,7 +52,7 @@ const DashHome = () => {
             <FaPlus></FaPlus>
           </span>
           {
-            events.length >= 2 && !professional ?
+            events?.length >= 2 && !professional ?
               <Link onClick={handleEventCreate} to="/pricing">Create New Event</Link>
               :
               <Link to="/eventtype">Create New Event</Link>
@@ -61,7 +61,7 @@ const DashHome = () => {
       </div>
       <hr />
       <div className="mt-5 grid grid-cols-1 lg:grid-cols-2 gap-5 my-5  ">
-        {events.map((event) => (
+        {events?.map((event) => (
           <Event
             key={event._id}
             event={event}
@@ -78,7 +78,7 @@ const DashHome = () => {
           refetch={refetch}>
         </DeleteModal>}
 
-      {updateEvent && 
+      {updateEvent &&
         <UpdateEvent
           updateEvent={updateEvent}
           setUpdateEvent={setUpdateEvent}
@@ -86,10 +86,10 @@ const DashHome = () => {
         ></UpdateEvent>
       }
       {
-        startCall && 
+        startCall &&
         <StartMeetingModal
-        startCall={startCall}
-        setStartCall={setStartCall}
+          startCall={startCall}
+          setStartCall={setStartCall}
         ></StartMeetingModal>
       }
     </div>
