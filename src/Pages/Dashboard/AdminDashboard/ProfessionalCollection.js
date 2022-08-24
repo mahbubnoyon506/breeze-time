@@ -7,7 +7,7 @@ const ProfessionalCollection = () => {
 
 const [professional , setProfessional] = useState([])
 useEffect(()=>{
-    fetch('https://floating-basin-72615.herokuapp.com/professional')
+    fetch('http://localhost:5000/professional')
     .then(res=> res.json())
     .then(data => setProfessional(data))
 } ,[])
@@ -16,7 +16,7 @@ useEffect(()=>{
 const handleDelete = (id) => {
   const proceed = window.confirm("Are you sure you want to delete?");
   if (proceed) {
-    const url = `https://floating-basin-72615.herokuapp.com/professional/${id}`;
+    const url = `http://localhost:5000/professional/${id}`;
     fetch(url, {
       method: "DELETE",
     })

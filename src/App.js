@@ -29,20 +29,19 @@ import ManagePackages from "./Pages/Dashboard/AdminDashboard/ManagePackages";
 import Profile from "./Pages/Dashboard/Profile";
 import ProfessionalCollection from "./Pages/Dashboard/AdminDashboard/ProfessionalCollection";
 import Aos from "aos";
-
-
-
-
+import Chat from "./ChatBoot/Chat";
 
 function App() {
   useEffect(() => {
     Aos.init({
       duration: 1500,
     });
-  }, [])
+  }, []);
   return (
     <div>
       <Navbar></Navbar>
+
+      <Chat></Chat>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/teams" element={<Teams></Teams>}></Route>
@@ -59,10 +58,7 @@ function App() {
           }
         >
           <Route index element={<DashHome></DashHome>}></Route>
-          <Route
-            path="profile"
-            element={<Profile></Profile>}
-          ></Route>
+          <Route path="profile" element={<Profile></Profile>}></Route>
           <Route
             path="eventTypes"
             element={<EventsTypes></EventsTypes>}
@@ -95,49 +91,65 @@ function App() {
             element={
               <RequiredAdmin>
                 <ManageUser />
-              </RequiredAdmin>}></Route>
+              </RequiredAdmin>
+            }
+          ></Route>
           <Route
             path="manageEvent"
             element={
               <RequiredAdmin>
                 <ManageEvent />
-              </RequiredAdmin>}></Route>
+              </RequiredAdmin>
+            }
+          ></Route>
           <Route
             path="scheduledEvents"
             element={
               <RequiredAdmin>
                 <ScheduledEvents />
-              </RequiredAdmin>}></Route>
+              </RequiredAdmin>
+            }
+          ></Route>
           <Route
             path="professionalcollections"
             element={
               <RequiredAdmin>
                 <ProfessionalCollection />
-              </RequiredAdmin>}></Route>
+              </RequiredAdmin>
+            }
+          ></Route>
           <Route
             path="manageUser"
             element={
               <RequiredAdmin>
                 <ManageUser />
-              </RequiredAdmin>}></Route>
+              </RequiredAdmin>
+            }
+          ></Route>
           <Route
             path="manageEvent"
             element={
               <RequiredAdmin>
                 <ManageEvent />
-              </RequiredAdmin>}></Route>
+              </RequiredAdmin>
+            }
+          ></Route>
           <Route
             path="scheduledEvents"
             element={
               <RequiredAdmin>
                 <ScheduledEvents />
-              </RequiredAdmin>}></Route>
+              </RequiredAdmin>
+            }
+          ></Route>
           <Route
             path="packages"
             element={
               <RequiredAdmin>
                 <ManagePackages />
-              </RequiredAdmin>}></Route>
+              </RequiredAdmin>
+            }
+          ></Route>
         </Route>
 
         {/* admin route  */}
@@ -160,7 +172,7 @@ function App() {
         ></Route>
 
         <Route
-          path="/payment/:paymentId"
+          path="/payment/:id"
           element={
             <RequireAuth>
               <Payment />

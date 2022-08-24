@@ -16,13 +16,13 @@ const OneToOneSchedule = () => {
             eventName: data.eventname,
             eventType: data.event,
             description: data.description,
+            targetedEmail: data.targetedEmail,
             dateTime: value,
             host: user.email
         }
-        axios.post('https://floating-basin-72615.herokuapp.com/events', eventValue)
+        axios.post('http://localhost:5000/events', eventValue)
             .then(function (response) {
             })
-        console.log(eventValue)
         toast.success('Event created Successfully ')
         reset();
     };
@@ -40,7 +40,6 @@ const OneToOneSchedule = () => {
                         <label className="label">
                             <span className="label-text">Event Name</span>
                         </label>
-
                         <input {...register("eventname", { required: true })} type="text" placeholder="Type here" className="input input-bordered w-full" />
                         {errors.eventname && <p className='text-error text-xs'>Event type is required.</p>}
                         <label className="label">
@@ -53,6 +52,11 @@ const OneToOneSchedule = () => {
                             <option>Google Meet</option>
                         </select>
                         {errors.event && <p>Event type is required.</p>}
+                        <label className="label">
+                            <span className="label-text">Tageted Email</span>
+                        </label>
+                        <input {...register("targetedEmail", { required: true })} type="email" placeholder="Type targeted email here" className="input input-bordered w-full" />
+                        {errors.targetedEmail && <p className='text-error text-xs'>Targeted email is required.</p> }
                         <label className="label">
                             <span className="label-text">Type Event Description</span>
                         </label>
