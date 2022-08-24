@@ -7,24 +7,24 @@ import PackageTable from './PackageTable';
 import UpdatePack from './UpdatePack';
 
 const ManagePackages = () => {
-    const [updatePackage, setUpdatePackage] = useState('')
-    const [deletePackage, setDeletePackage] = useState('')
+    // const [updatePackage, setUpdatePackage] = useState('')
+    // const [deletePackage, setDeletePackage] = useState('')
 
 
-    const { data, isLoading,  refetch } = useQuery(['packages'], () =>
-    fetch('http://localhost:5000/packages', {
-        method : 'GET',
-        headers : {
-            'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
-        }
-    }).then(res =>
-      res.json()
+    const { data, isLoading, refetch } = useQuery(['packages'], () =>
+        fetch('http://localhost:5000/packages', {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        }).then(res =>
+            res.json()
+        )
     )
-  )
-    if(isLoading){
+    if (isLoading) {
         return <Loader></Loader>
     }
-    
+
     return (
         <div>
             <div class="overflow-x-auto">
@@ -40,16 +40,11 @@ const ManagePackages = () => {
                     </thead>
                     <tbody>
                         {
-                            data.map( (memberPackage, index) => <PackageTable key={memberPackage._id} memberPackage={memberPackage} index={index} refetch={refetch} setUpdatePackage={setUpdatePackage} setDeletePackage={setDeletePackage}></PackageTable>)
+                            data.map((memberPackage, index) => <PackageTable key={memberPackage._id} memberPackage={memberPackage} index={index} refetch={refetch} /*setUpdatePackage={setUpdatePackage} setDeletePackage={setDeletePackage}*/></PackageTable>)
                         }
                     </tbody>
                 </table>
-                {
-                    updatePackage && <UpdatePack updatePackage={updatePackage}></UpdatePack>
-                }
-                {
-                   deletePackage && <DeletePack deletePackage={deletePackage}></DeletePack> 
-                }
+
             </div>
         </div>
     );
