@@ -2,13 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useState } from 'react';
 import Loader from '../../../Components/Loader';
-import DeletePack from './DeletePack';
+import AddPackage from './AddPackage';
 import PackageTable from './PackageTable';
-import UpdatePack from './UpdatePack';
 
 const ManagePackages = () => {
-    // const [updatePackage, setUpdatePackage] = useState('')
-    // const [deletePackage, setDeletePackage] = useState('')
+    const [addPackage, setAddPackage] = useState(null)
 
 
     const { data, isLoading, refetch } = useQuery(['packages'], () =>
@@ -25,8 +23,13 @@ const ManagePackages = () => {
         return <Loader></Loader>
     }
 
+    const addPackageRefetch = () => {
+        refetch()
+    }
+
     return (
         <div>
+            <label onClick={() => setAddPackage(data)} for="addPackage" class="btn btn-outline btn-sm btn-primary">Add</label>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
@@ -44,7 +47,12 @@ const ManagePackages = () => {
                         }
                     </tbody>
                 </table>
-
+                {
+                    addPackage && <AddPackage
+                        addPackageRefetch={addPackageRefetch}
+                        setAddPackage={setAddPackage}
+                    ></AddPackage>
+                }
             </div>
         </div>
     );
