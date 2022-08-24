@@ -82,6 +82,10 @@ function App() {
             </RequiredAdmin>
           }
         >
+
+          <Route path="manageUser" element={<RequiredAdmin><ManageUser></ManageUser></RequiredAdmin>}></Route>
+          <Route path="manageEvent" element={<RequiredAdmin><ManageEvent></ManageEvent></RequiredAdmin>}></Route>
+          <Route path="scheduledEvents" element={<RequiredAdmin><ScheduledEvents></ScheduledEvents></RequiredAdmin>}></Route>
           <Route
             path="manageUser"
             element={

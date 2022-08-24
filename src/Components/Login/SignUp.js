@@ -16,13 +16,9 @@ const SignUp = () => {
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
 
 
-// for jwt
-const [token] = useToken(user);
-
-if (token) {
-    navigate('/adminDashboard')
-}
-// for jwt
+    // for jwt
+    const [token] = useToken(user);
+    // for jwt
 
 
     const navigate = useNavigate();
@@ -32,9 +28,11 @@ if (token) {
     const onSubmit = async data => {
         console.log(data)
         await createUserWithEmailAndPassword(data.email, data.password)
-
     };
 
+    if (token) {
+        navigate('/adminDashboard')
+    }
     useEffect(() => {
         if (user) {
             toast.success('Login successd...')
