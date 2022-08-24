@@ -11,13 +11,15 @@ const UpdatePack = ({ updatePackage, setUpdatePackage, refetch, _id }) => {
         axios.put(`http://localhost:5000/packages/${_id}`, data)
             .then(function (response) {
                 if (response.status === 200) {
-                    toast.success('Event updated Successfully ')
+                    toast.success('Package updated Successfully ')
                 }
-                console.log(response.status)
             })
         refetch()
         setUpdatePackage(null)
     };
+    const handleCancelUpdate = () => {
+        setUpdatePackage(null)
+    }
 
     return (
         <div>
@@ -25,7 +27,7 @@ const UpdatePack = ({ updatePackage, setUpdatePackage, refetch, _id }) => {
             <div class="modal">
                 <div class="modal-box relative">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <h2 className="text-3xl text-primary font-bold text-center mb-4">Update Package</h2>
+                        <h2 className="text-3xl text-primary font-bold text-center mb-4">Update Package <span>{updatePackage.name}</span></h2>
                         {/* accessType */}
                         <div>
                             <lable className="text-sm font-medium leading-none text-gray-800 relative">accessType </lable>
@@ -66,12 +68,10 @@ const UpdatePack = ({ updatePackage, setUpdatePackage, refetch, _id }) => {
                             <lable className="text-sm font-medium leading-none text-gray-800 relative">price </lable>
                             <input {...register("price")} aria-label="enter price adress" type="number" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
                         </div>
-                        <div className="mt-8 modal-action">
-                            <input type={'submit'} aria-label="create my account" className=" btn focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-md font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full cursor-pointer" value={'Update'} />
+                        <div className='mt-8 flex justify-between'>
+                            <input type={'submit'} aria-label="create my account" className=" btn focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-md font-semibold leading-none text-white focus:outline-none bg-primary border rounded hover:bg-indigo-600 py-4 cursor-pointer" value={'Update'} />
+                            <button onClick={handleCancelUpdate} className="btn focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-md font-semibold leading-none text-white focus:outline-none bg-accent border rounded hover:bg-indigo-600 py-4 cursor-pointer ">cancel</button>
                         </div>
-                        {/* <div class="modal-action">
-                            <label for="updatePackage" class="btn">Yay!</label>
-                        </div> */}
                     </form>
                 </div>
             </div>
