@@ -33,7 +33,7 @@ const PackageTable = ({ memberPackage, index, refetch }) => {
                     `$${price}/month`
             }</td>
             <td>
-                <button onClick={handleUpdatePackage()} className='btn btn-outline btn-sm btn-primary'>Update Package</button>
+                <lable for='package-update-modal' /*onClick={handleUpdatePackage()}*/ className='btn btn-outline btn-sm btn-primary'>Update Package</lable>
 
             </td>
             <td><button onClick={handleDeletePackag()} className='btn btn-outline btn-sm btn-primary'>Delete Package</button>
