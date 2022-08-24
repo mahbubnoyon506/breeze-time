@@ -4,6 +4,14 @@ const PackageTable = ({ memberPackage, index, refetch }) => {
     const { _id, name, price, activeEvent, calender, groupEvent, notificationStatus, oneToOne, accessType } = memberPackage;
     console.log(memberPackage);
 
+    const handleUpdatePackage = () => {
+
+    }
+
+    const handleDeletePackag = () => {
+
+    }
+
     return (
         <tr class="hover">
             <th>{index + 1}</th>
@@ -25,10 +33,10 @@ const PackageTable = ({ memberPackage, index, refetch }) => {
                     `$${price}/month`
             }</td>
             <td>
-                <button className='btn btn-outline btn-sm btn-primary'>Update Package</button>
+                <button onClick={handleUpdatePackage()} className='btn btn-outline btn-sm btn-primary'>Update Package</button>
 
             </td>
-            <td><button className='btn btn-outline btn-sm btn-primary'>Delete Package</button>
+            <td><button onClick={handleDeletePackag()} className='btn btn-outline btn-sm btn-primary'>Delete Package</button>
             </td>
         </tr>
     );
