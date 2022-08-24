@@ -30,7 +30,7 @@ const Dashboard = () => {
       </li>
       <li>
         <Link to="/dashboard/professionalcollections">Professional Collections</Link>
-      </li>        <Link to="/dashboard/packages">Packages</Link>
+      </li>
 
     </>
 

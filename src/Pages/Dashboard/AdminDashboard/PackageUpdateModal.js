@@ -8,13 +8,13 @@ const PackageUpdateModal = () => {
         console.log(data)
     };
 
-
+    console.log('inside package update modal')
 
     return (
-        <div>
+        <>
             <input type="checkbox" id="package-update-modal" class="modal-toggle" />
             <div class="modal">
-                <div class="modal-box relative">
+                <div class="modal-box">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div>
                             <lable className="text-sm font-medium leading-none text-gray-800 relative">Name</lable>
@@ -55,7 +55,7 @@ const PackageUpdateModal = () => {
                     </form>
                 </div>
             </div>
-        </div >
+        </ >
     );
 };
 

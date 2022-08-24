@@ -5,11 +5,12 @@ const PackageTable = ({ memberPackage, index, refetch }) => {
     const { _id, name, price, activeEvent, calender, groupEvent, notificationStatus, oneToOne, accessType } = memberPackage;
     // console.log(memberPackage);
 
-    const [openPackageUpdateModal, setPackageUpdateModal] = useState(null)
+    const [openPackageUpdateModal, setOpenPackageUpdateModal] = useState(null)
 
     const handleUpdatePackage = () => {
-        console.log('clicked update')
-        setPackageUpdateModal(true)
+        setOpenPackageUpdateModal(' ')
+        console.log('clicked update', openPackageUpdateModal)
+
     }
 
     const handleDeletePackag = () => {
@@ -38,7 +39,7 @@ const PackageTable = ({ memberPackage, index, refetch }) => {
                         `$${price}/month`
                 }</td>
                 <td>
-                    <lable for='package-update-modal' onClick={handleUpdatePackage} className='btn btn-outline btn-sm btn-primary'>Update Package</lable>
+                    <button /*for='package-update-modal'*/ onClick={handleUpdatePackage} className='btn btn-outline btn-sm btn-primary'>Update Package</button>
 
                 </td>
                 <td><button onClick={handleDeletePackag()} className='btn btn-outline btn-sm btn-primary'>Delete Package</button>
@@ -46,7 +47,7 @@ const PackageTable = ({ memberPackage, index, refetch }) => {
             </tr >
             {
                 openPackageUpdateModal && <PackageUpdateModal
-                    setPackageUpdateModal={setPackageUpdateModal}
+                    setOpenPackageUpdateModal={setOpenPackageUpdateModal}
                 ></PackageUpdateModal>
             }
         </div >
