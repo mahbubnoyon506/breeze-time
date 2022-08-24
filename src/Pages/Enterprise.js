@@ -114,7 +114,7 @@ const Enterprise = () => {
                   />
                 </div>
 
-                <div className="mb-6">
+                {/* <div className="mb-6">
                   <input
                     inputMode="numeric"
                     placeholder="Your Phone"
@@ -134,7 +134,7 @@ const Enterprise = () => {
                     name="phone_number"
                     id="phone_number"
                   />
-                </div>
+                </div> */}
                 <div className="mb-6">
                   <textarea
                     rows="6"
