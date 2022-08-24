@@ -77,9 +77,9 @@ const Dashboard = () => {
           Open drawer
         </label>
       </div>
-      <div className="drawer-side ">
+      <div className="drawer-side bg-slate-50">
         <label for="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 overflow-y-auto w-80  text-base-content bg-slate-100 ">
+        <ul className="menu p-4 overflow-y-auto w-80  text-base-content bg-transparent ">
           {
             admin ? adminMenu : (professional ? professionalMenu : userMenu)
           }

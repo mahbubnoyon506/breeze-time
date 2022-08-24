@@ -34,9 +34,12 @@ const DashHome = () => {
     )
   )
 
+
   if (isLoading) {
     return <Loader></Loader>;
   }
+
+  console.log(events)
 
   const handleEventCreate = () => {
     toast.error('You reached the maximum event creation limit !! Teke a package.')
@@ -52,7 +55,7 @@ const DashHome = () => {
             <FaPlus></FaPlus>
           </span>
           {
-            events?.length >= 2 && !professional ?
+            events?.length >= 5 && !professional ?
               <Link onClick={handleEventCreate} to="/pricing">Create New Event</Link>
               :
               <Link to="/eventtype">Create New Event</Link>
