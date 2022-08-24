@@ -40,7 +40,7 @@ const ManagePackages = () => {
                     </thead>
                     <tbody>
                         {
-                            data.map((memberPackage, index) => <PackageTable key={memberPackage._id} memberPackage={memberPackage} index={index} refetch={refetch} /*setUpdatePackage={setUpdatePackage} setDeletePackage={setDeletePackage}*/></PackageTable>)
+                            data.map((memberPackage, index) => <PackageTable key={memberPackage._id} memberPackage={memberPackage} index={index} refetch={refetch} ></PackageTable>)
                         }
                     </tbody>
                 </table>

@@ -30,10 +30,17 @@ const PackageTable = ({ memberPackage, index, refetch }) => {
                 updatePackage && <UpdatePack
                     updatePackage={updatePackage}
                     setUpdatePackage={setUpdatePackage}
+                    refetch={refetch}
+                    _id={_id}
                 ></UpdatePack>
             }
             {
-                deletePackage && <DeletePack deletePackage={deletePackage}></DeletePack>
+                deletePackage && <DeletePack
+                    deletePackage={deletePackage}
+                    setDeletePackage={setDeletePackage}
+                    refetch={refetch}
+                    _id={_id}
+                ></DeletePack>
             }
         </>
     );
