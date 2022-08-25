@@ -38,16 +38,13 @@ const Navbar = () => {
         <Link to="/teams">Teams</Link>
       </li>
       <li>
-        <Link to="/enterprise">Enterprise</Link>
-      </li>
-      <li>
         <Link to="/pricing">Pricing</Link>
       </li>
       <li>
-        <Link to="#">About</Link>
+        <Link to="/about">About</Link>
       </li>
       <li>
-        <Link to="#">Contact</Link>
+        <Link to="/contact">Contact</Link>
       </li>
     </>
   );
@@ -65,10 +62,14 @@ const Navbar = () => {
         <div className="absolute ">
           {" "}
           {showNotification ? (
-            <div className="">
+            <div className="bg-gradient-to-r z-40 toast top-24 from-blue-200 to-red-200 rounded ">
               {notifications.map((n) => (
-                <div className="z-50 toast bg-[#F96669] py-1 px-3 left-[-5.5rem] rounded relative my-2 ">
-                  <p className=" text-white text-sm font-mono">
+                <div className=" w-52  rounded">
+                  <p
+                    className=" flex items-center bg-accent  p-2 rounded text-sm font-sans
+                   text-white"
+                  >
+                    {" "}
                     {n?.notification}
                   </p>
                 </div>
@@ -120,6 +121,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal p-0">{mainMenuItem}</ul>
         </div>
         <div className="navbar-end">
+          {user ? notification : <></>}
           {user ? (
             dashboardMenu
           ) : (

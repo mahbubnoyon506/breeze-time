@@ -1,7 +1,7 @@
 import React from "react";
 import emailjs from "@emailjs/browser";
 
-const Enterprise = () => {
+const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -114,7 +114,7 @@ const Enterprise = () => {
                   />
                 </div>
 
-                <div className="mb-6">
+                {/* <div className="mb-6">
                   <input
                     inputMode="numeric"
                     placeholder="Your Phone"
@@ -134,7 +134,7 @@ const Enterprise = () => {
                     name="phone_number"
                     id="phone_number"
                   />
-                </div>
+                </div> */}
                 <div className="mb-6">
                   <textarea
                     rows="6"
@@ -981,4 +981,4 @@ const Enterprise = () => {
   );
 };
 
-export default Enterprise;
+export default Contact;

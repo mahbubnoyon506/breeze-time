@@ -13,8 +13,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Teams from "./Pages/Teams/Teams";
 import Pricing from "./Pages/Pricing/Pricing";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
 import RequireAuth from "./Components/RequireAuth";
-import Enterprise from "./Pages/Enterprise";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import EventsTypes from "./Pages/Dashboard/UserDashBoard/EventTypes";
 import ScheduledEvents from "./Pages/Dashboard/UserDashBoard/ScheduledEvents";
@@ -29,7 +30,10 @@ import ManagePackages from "./Pages/Dashboard/AdminDashboard/ManagePackages";
 import Profile from "./Pages/Dashboard/Profile";
 import ProfessionalCollection from "./Pages/Dashboard/AdminDashboard/ProfessionalCollection";
 import Aos from "aos";
+
+
 import Chat from "./ChatBoot/Chat";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   useEffect(() => {
@@ -46,7 +50,8 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/teams" element={<Teams></Teams>}></Route>
         <Route path="/pricing" element={<Pricing></Pricing>}></Route>
-        <Route path="/enterprise" element={<Enterprise></Enterprise>} />
+        <Route path="/contact" element={<Contact></Contact>} />
+        <Route path="/about" element={<About></About>} />
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route
@@ -82,6 +87,10 @@ function App() {
             </RequiredAdmin>
           }
         >
+
+          <Route path="manageUser" element={<RequiredAdmin><ManageUser></ManageUser></RequiredAdmin>}></Route>
+          <Route path="manageEvent" element={<RequiredAdmin><ManageEvent></ManageEvent></RequiredAdmin>}></Route>
+          <Route path="scheduledEvents" element={<RequiredAdmin><ScheduledEvents></ScheduledEvents></RequiredAdmin>}></Route>
           <Route
             path="manageUser"
             element={
@@ -107,7 +116,7 @@ function App() {
             }
           ></Route>
           <Route
-            path="professionalcollections"
+            path="professionalCollections"
             element={
               <RequiredAdmin>
                 <ProfessionalCollection />
@@ -178,6 +187,7 @@ function App() {
 
         {/* timezone route just for checking */}
         <Route path="/timeZone" element={<TimeZone />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />
       <ToastContainer />
