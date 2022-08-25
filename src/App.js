@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer/Footer";
-import Login from "./Components/Login/Login";
+import Signin from "./Components/Login/Signin";
 import SignUp from "./Components/Login/SignUp";
 import TimeZone from "./Components/TimeZone";
 import EventType from "./Pages/Schadule/EventType";
@@ -51,7 +51,7 @@ function App() {
         <Route path="/pricing" element={<Pricing></Pricing>}></Route>
         <Route path="/contact" element={<Contact></Contact>} />
         <Route path="/about" element={<About></About>} />
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/Signin" element={<Signin />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route
           path="/dashboard"

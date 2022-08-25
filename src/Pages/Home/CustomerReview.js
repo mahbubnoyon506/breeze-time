@@ -43,13 +43,14 @@ const CustomerReview = () => {
                 {/* review modal */}
                 <div>
                     {
-                        admin ? (<label onClick={handleAdmin}  className="btn rounded-lg border-none bg-primary text-white hover:bg-accent">Give Review</label>) : 
-                        (<label for="my-modal-6" className="btn rounded-lg border-none bg-primary text-white hover:bg-accent modal-button">Give Review</label>)
+                        admin ? (<label onClick={handleAdmin} className="btn rounded-lg border-none bg-primary text-white hover:bg-accent">Give Review</label>) :
+                            (<label for="my-modal-6" className="btn rounded-lg border-none bg-primary text-white hover:bg-accent modal-button">Give Review</label>)
                     }
 
                     <input type="checkbox" id="my-modal-6" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">
-                        <div className="modal-box">
+                        <div className="modal-box relative">
+                            <label for="my-modal-6" class="btn btn-sm btn-circle border-0 text-white bg-primary hover:bg-accent hover:text-black absolute right-2 top-2">✕</label>
                             <form onSubmit={handleReview}>
                                 <input type="text" name='name' placeholder="Type your name here" className="input input-bordered input-accent w-full max-w-xs mt-5" value={user?.displayName} />
                                 <input type="email" name='email' placeholder="Type your email here" className="input input-bordered input-accent w-full max-w-xs mt-5" value={user?.email} disabled />
@@ -64,10 +65,8 @@ const CustomerReview = () => {
                                 </select>
                                 <input type="text" name='review' placeholder="Type your review here" className="input input-bordered input-accent w-full max-w-xs mt-5" />
                                 <div className="modal-action">
-                                    <label for="my-modal-6" className="btn rounded-lg border-none bg-primary text-white hover:bg-accent">
-
-
-                                        <input type="submit" value={'Submit'} />
+                                    <label for="my-modal-6" className="btn rounded-lg border-none bg-primary text-white hover:bg-accent w-1/2 mx-auto">
+                                        <input type="submit" value={'Submit'} className="" />
                                     </label>
                                 </div>
                             </form>
