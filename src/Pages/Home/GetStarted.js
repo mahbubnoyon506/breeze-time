@@ -3,7 +3,7 @@ import { FaCheckCircle } from "react-icons/fa";
 
 const GetStarted = () => {
   return (
-    <div className="">
+    <div className="px-10">
       <h1 className="text-2xl lg:text-4xl font-bold justify-center flex my-8 lg:my-16">
         We make it easy to get started
       </h1>

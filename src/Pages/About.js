@@ -6,7 +6,7 @@ import nishat from '../assets/images/about_nishat.png'
 import noman from '../assets/images/about_noman.png'
 import shohag from '../assets/images/about_shohag.png'
 import kaniz from '../assets/images/about_kaniz.png'
-import { FaFacebookF, FaLinkedinIn, FaGithub, FaUser } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaGithub, FaGlobe } from "react-icons/fa";
 
 const About = () => {
     return (
@@ -41,7 +41,7 @@ const About = () => {
                         <div className=''>
                             <div class="avatar">
                                 <div class="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
-                                    <img src={mahbub} />
+                                    <img src={mahbub} alt=''/>
                                 </div>
                             </div>
                             <div className="card-body text-justify">
@@ -52,7 +52,7 @@ const About = () => {
                                     <a href="https://www.facebook.com/mahbub4noyon/" target={'_blank'}><FaFacebookF className='mx-4 my-2' /></a>
                                     <a href="https://www.linkedin.com/in/mahbubnoyon/" target={'_blank'}><FaLinkedinIn className='mx-4 my-2' /></a>
                                     <a href="https://github.com/mahbubnoyon506" target={'_blank'}><FaGithub className='mx-4 my-2' /></a>
-                                    <a href=" http://webapparchitect.com/" target={'_blank'}><FaUser className='mx-4 my-2' /></a>
+                                    <a href=" http://webapparchitect.com/" target={'_blank'}><FaGlobe className='mx-4 my-2' /></a>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ const About = () => {
                         <div className=''>
                             <div class="avatar">
                                 <div class="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
-                                    <img src={nishat} />
+                                    <img src={nishat} alt=''/>
                                 </div>
                             </div>
                             <div className="card-body text-justify">
@@ -75,7 +75,7 @@ const About = () => {
                                     <a href="https://www.facebook.com/nishattasnim24" target={'_blank'}><FaFacebookF className='mx-4 my-2' /></a>
                                     <a href="https://www.linkedin.com/in/nishattasnim24/" target={'_blank'}><FaLinkedinIn className='mx-4 my-2' /></a>
                                     <a href="https://github.com/nishattasnim08" target={'_blank'}><FaGithub className='mx-4 my-2' /></a>
-                                    <a href="https://nishat-tasnim-portfolio.web.app/" target={'_blank'}><FaUser className='mx-4 my-2' /></a>
+                                    <a href="https://nishat-tasnim-portfolio.web.app/" target={'_blank'}><FaGlobe className='mx-4 my-2' /></a>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@ const About = () => {
                                     <a href="https://www.facebook.com/azizul.azizulhoquejiku" target={'_blank'}><FaFacebookF className='mx-4 my-2' /></a>
                                     <a href="https://www.linkedin.com/in/muhammad-azizul-hoque-jiku-775057211/" target={'_blank'}><FaLinkedinIn className='mx-4 my-2' /></a>
                                     <a href="https://github.com/muhammad-jiku" target={'_blank'}><FaGithub className='mx-4 my-2' /></a>
-                                    <a href="https://muhammad-azizul-hoque-jiku.web.app/" target={'_blank'}><FaUser className='mx-4 my-2' /></a>
+                                    <a href="https://muhammad-azizul-hoque-jiku.web.app/" target={'_blank'}><FaGlobe className='mx-4 my-2' /></a>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +121,7 @@ const About = () => {
                                     <a href="https://web.facebook.com/neamul.haque.1614" target={'_blank'}><FaFacebookF className='mx-4 my-2' /></a>
                                     <a href="https://www.linkedin.com/in/neamul62/" target={'_blank'}><FaLinkedinIn className='mx-4 my-2' /></a>
                                     <a href="https://github.com/Neamul01" target={'_blank'}><FaGithub className='mx-4 my-2' /></a>
-                                    <a href="https://neamuls-portfolio.web.app/" target={'_blank'}><FaUser className='mx-4 my-2' /></a>
+                                    <a href="https://neamuls-portfolio.web.app/" target={'_blank'}><FaGlobe className='mx-4 my-2' /></a>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,7 @@ const About = () => {
                                     <a href="https://www.facebook.com/kaniz.fatema.148116" target={'_blank'}><FaFacebookF className='mx-4 my-2' /></a>
                                     <a href="https://www.linkedin.com/in/kaniz-fatema-292927164" target={'_blank'}><FaLinkedinIn className='mx-4 my-2' /></a>
                                     <a href="https://github.com/Kanizfatema47" target={'_blank'}><FaGithub className='mx-4 my-2' /></a>
-                                    <a href="https://kanizfatema.netlify.app/" target={'_blank'}><FaUser className='mx-4 my-2' /></a>
+                                    <a href="https://kanizfatema.netlify.app/" target={'_blank'}><FaGlobe className='mx-4 my-2' /></a>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +167,7 @@ const About = () => {
                                     <a href="https://www.facebook.com/profile.php?id=100004130176262" target={'_blank'}><FaFacebookF className='mx-4 my-2' /></a>
                                     <a href="https://www.linkedin.com/in/md-shohag-034bb6190/" target={'_blank'}><FaLinkedinIn className='mx-4 my-2' /></a>
                                     <a href="https://github.com/MDSHOHAG617" target={'_blank'}><FaGithub className='mx-4 my-2' /></a>
-                                    <a href="https://myportfolio-7252c.web.app/" target={'_blank'}><FaUser className='mx-4 my-2' /></a>
+                                    <a href="https://myportfolio-7252c.web.app/" target={'_blank'}><FaGlobe className='mx-4 my-2' /></a>
                                 </div>
                             </div>
                         </div>

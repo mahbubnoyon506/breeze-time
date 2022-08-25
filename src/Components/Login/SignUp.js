@@ -140,7 +140,7 @@ const SignUp = () => {
                             {errors.password && <small className='text-red-500'>Password is required!!</small>}
                         </div>
                         <div className="mt-8">
-                            <input type={'submit'} aria-label="create my account" className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-md font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full cursor-pointer" value={'SignUp'} />
+                            <input type={'submit'} aria-label="create my account" className="focus:ring-2 focus:ring-offset-2 btn bg-primary border-none hover:bg-accent  text-md font-semibold leading-none text-white focus:outline-none rounded  py-4 w-full cursor-pointer" value={'SignUp'} />
                         </div>
                         <p className="text-sm text-center mt-4 font-medium leading-none text-gray-500">
                             Already have account?{" "}

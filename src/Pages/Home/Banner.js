@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import bannerimage from '../../assets/3958832.jpg'
-import AOS from 'aos';
 
 const Banner = () => {
 
   return (
-    <div>
-      <div className="hero bg-white py-5 lg:max-h-screen">
+    <div >
+      <div className="hero bg-white py-5 lg:max-h-screen ">
         <div className="hero-content flex-col  lg:flex-row-reverse md:flex-row-reverse">
           <div className="flex-shrink-0 w-full max-w-lg" data-aos="fade-left">
             <img src={bannerimage} alt="" className='rounded' />

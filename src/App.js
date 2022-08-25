@@ -52,7 +52,7 @@ function App() {
         <Route path="/pricing" element={<Pricing></Pricing>}></Route>
         <Route path="/contact" element={<Contact></Contact>} />
         <Route path="/about" element={<About></About>} />
-        <Route path="/Signin" element={<Signin />}></Route>
+        <Route path="/signin" element={<Signin />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route
           path="/dashboard"
