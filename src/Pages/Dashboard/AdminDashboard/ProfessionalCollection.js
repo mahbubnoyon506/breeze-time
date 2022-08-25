@@ -37,12 +37,13 @@ return (
      <th>Name</th>
      <th>Email</th>
      <th>Status</th>
+     <th>Modify</th>
    </tr>
  </thead>
  <tbody>
    {professional.map((data, index) => (
      <tr>
-       <th>{index}</th>
+       <th>{index + 1}</th>
        <td>{data.name}</td>
        <td>{data.email}</td>
        <td>{data.status}</td>

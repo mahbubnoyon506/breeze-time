@@ -6,7 +6,6 @@ import doMore3 from '../../assets/doMore3.jpg';
 const DoMore = () => {
     return (
         <div className='w-full mx-auto bg-white flex font-sans'>
-
             <div className='text-center'>
                 <h1 className="text-2xl lg:text-4xl font-bold text-center pt-8 lg:pt-16">Do more of what you do best</h1>
                 <p className='mx-6 lg:text-2xl text-center px-6 pt-4 lg:pt-8 mb-10'>With scheduling hassles and interruptions gone, your day is cleared for accomplishment.</p>

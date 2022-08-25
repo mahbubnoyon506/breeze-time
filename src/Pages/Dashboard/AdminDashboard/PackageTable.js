@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PackageTable = ({ memberPackage, index, refetch, setUpdatePackage, setDeletePackage}) => {
-    const { _id, name, price } = memberPackage;
+    const { name, price } = memberPackage;
     console.log(memberPackage);
 
     return (
