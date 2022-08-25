@@ -41,7 +41,7 @@ const OneToOneSchedule = () => {
                             <span className="label-text">Event Name</span>
                         </label>
                         <input {...register("eventname", { required: true })} type="text" placeholder="Type here" className="input input-bordered w-full" />
-                        {errors.eventname && <p className='text-error text-xs'>Event type is required.</p> }
+                        {errors.eventname && <p className='text-error text-xs'>Event type is required.</p>}
                         <label className="label">
                             <span className="label-text">Event Options</span>
                         </label>
@@ -51,7 +51,7 @@ const OneToOneSchedule = () => {
                             <option>Phone Call</option>
                             <option>Google Meet</option>
                         </select>
-                        {errors.event && <p>Event type is required.</p> }
+                        {errors.event && <p>Event type is required.</p>}
                         <label className="label">
                             <span className="label-text">Tageted Email</span>
                         </label>
@@ -66,7 +66,7 @@ const OneToOneSchedule = () => {
                             <span className="label-text">Select Date</span>
                         </label>
                         <DateTimePicker onChange={onChange} value={value} disableClock={true} />
-                        
+
                         <div className='flex justify-end'>
                             <input className='btn btn-outline  my-5 btn-primary w-32' type="submit" value="Create Event" />
                         </div>

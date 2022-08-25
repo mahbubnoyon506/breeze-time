@@ -31,6 +31,7 @@ const Dashboard = () => {
       <li>
         <Link to="/dashboard/professionalCollections">Professional Collections</Link>
       </li>
+
     </>
 
   const professionalMenu =

@@ -2,31 +2,34 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useState } from 'react';
 import Loader from '../../../Components/Loader';
-import DeletePack from './DeletePack';
+import AddPackage from './AddPackage';
 import PackageTable from './PackageTable';
-import UpdatePack from './UpdatePack';
 
 const ManagePackages = () => {
-    const [updatePackage, setUpdatePackage] = useState('')
-    const [deletePackage, setDeletePackage] = useState('')
+    const [addPackage, setAddPackage] = useState(null)
 
 
-    const { data, isLoading,  refetch } = useQuery(['packages'], () =>
-    fetch('http://localhost:5000/packages', {
-        method : 'GET',
-        headers : {
-            'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
-        }
-    }).then(res =>
-      res.json()
+    const { data, isLoading, refetch } = useQuery(['packages'], () =>
+        fetch('http://localhost:5000/packages', {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        }).then(res =>
+            res.json()
+        )
     )
-  )
-    if(isLoading){
+    if (isLoading) {
         return <Loader></Loader>
     }
-    
+
+    const addPackageRefetch = () => {
+        refetch()
+    }
+
     return (
         <div>
+            <label onClick={() => setAddPackage(data)} for="addPackage" class="btn btn-outline btn-sm btn-primary">Add</label>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
@@ -40,15 +43,15 @@ const ManagePackages = () => {
                     </thead>
                     <tbody>
                         {
-                            data.map( (memberPackage, index) => <PackageTable key={memberPackage._id} memberPackage={memberPackage} index={index} refetch={refetch} setUpdatePackage={setUpdatePackage} setDeletePackage={setDeletePackage}></PackageTable>)
+                            data.map((memberPackage, index) => <PackageTable key={memberPackage._id} memberPackage={memberPackage} index={index} refetch={refetch} ></PackageTable>)
                         }
                     </tbody>
                 </table>
                 {
-                    updatePackage && <UpdatePack updatePackage={updatePackage}></UpdatePack>
-                }
-                {
-                   deletePackage && <DeletePack deletePackage={deletePackage}></DeletePack> 
+                    addPackage && <AddPackage
+                        addPackageRefetch={addPackageRefetch}
+                        setAddPackage={setAddPackage}
+                    ></AddPackage>
                 }
             </div>
         </div>
