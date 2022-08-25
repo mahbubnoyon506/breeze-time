@@ -33,6 +33,7 @@ import Aos from "aos";
 
 
 import Chat from "./ChatBoot/Chat";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   useEffect(() => {
@@ -186,6 +187,7 @@ function App() {
 
         {/* timezone route just for checking */}
         <Route path="/timeZone" element={<TimeZone />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />
       <ToastContainer />
