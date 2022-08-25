@@ -63,11 +63,12 @@ const Navbar = () => {
         <div className="absolute ">
           {" "}
           {showNotification ? (
-            <div className="bg-gradient-to-r z-40 toast top-24 from-blue-200 to-red-200 rounded ">
+            <div className="z-40 toast top-[75px] ">
+              <div className="bg-primary p-2 rounded">
               {notifications.map((n) => (
                 <div className=" w-52  rounded">
                   <p
-                    className=" flex items-center bg-accent  p-2 rounded text-sm font-sans
+                    className=" flex items-center my-2 border-accent-focus border-2 p-2 rounded text-sm font-sans
                    text-white"
                   >
                     {" "}
@@ -75,6 +76,7 @@ const Navbar = () => {
                   </p>
                 </div>
               ))}
+              </div>
             </div>
           ) : (
             <></>
@@ -145,7 +147,7 @@ const Navbar = () => {
           {user ? (
             dashboardMenu
           ) : (
-            <Link className=" px-5 " to="/login">
+            <Link className=" px-5 " to="/signin">
               Sign IN
             </Link>
           )}

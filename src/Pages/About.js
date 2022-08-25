@@ -24,11 +24,6 @@ const About = () => {
                         <br />
                         We hope you enjoy our site as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to
                         <span className='text-lg font-bold text-secondary-focus'><Link to='/contact'> Contact us</Link></span>.
-                        <br />
-                        Sincerely,
-                        <br />
-                        <br />
-                        <span className='text-xl font-bold text-secondary-focus'>GoalDiggers</span>
                     </p>
                 </div>
             </div>

@@ -8,11 +8,13 @@ import auth from '../../firebase.init';
 import Loader from '../Loader';
 import { toast } from 'react-toastify';
 import useToken from '../../hooks/useToken';
+import signIn from '../../assets/images/Signin.jpg'
 import SocialLogin from './SocialLogin';
 
-const Login = () => {
+const Signin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [show, setShow] = useState(false);
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [
         signInWithEmailAndPassword,
         createUser,
@@ -22,7 +24,7 @@ const Login = () => {
 
 
     // for jwt
-    const [token] = useToken(createUser)
+    const [token] = useToken(user || createUser)
     // for jwt
 
     const navigate = useNavigate();
@@ -32,29 +34,35 @@ const Login = () => {
     const onSubmit = async data => {
         await signInWithEmailAndPassword(data.email, data.password)
     };
+    const handleGoogleSignIn = () => {
+        signInWithGoogle();
+    }
 
     useEffect(() => {
         if (token) {
-            toast.success('Login successd...')
+            toast.success('Signin successd...')
             navigate(from, { replace: true })
         }
     }, [token, navigate, from])
 
-    if (createLoading) {
+    if (createLoading || loading) {
         return <Loader></Loader>
 
     };
-    if (createError) {
-        toast.error(createError?.message)
+    if (createError || error) {
+        toast.error(error.message)
     }
 
     return (
-        <div className="h-full bg-gradient-to-tl from-green-400 to-indigo-900 w-full pb-16 px-4">
-            <div className="flex flex-col items-center justify-center">
-                <div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
+        <div className="w-full bg-white pb-16 px-4">
+            <div className="w-11/12 grid grid-cols lg:grid-cols-2 gap-0 lg:gap-12 mx-auto justify-center items-center">
+                <div>
+                    <img className='w-1/4 lg:w-4/5 mx-auto' src={signIn} alt="Signin" data-aos="fade-right" />
+                </div>
+                <div className="shadow-2xl rounded-xl w-4/5 p-10 mt-16" data-aos="fade-left">
 
-                    <p className="text-3xl my-4 mb-12 text-center font-extrabold leading-6 text-gray-800">
-                        Login
+                    <p className="text-3xl mb-6 text-center font-extrabold leading-6 text-gray-800">
+                        Sign In
                     </p>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -84,7 +92,7 @@ const Login = () => {
                             {errors.password && <small className='text-red-500'>Password is required!!</small>}
                         </div>
                         <div className="mt-8">
-                            <input type={'submit'} aria-label="create my account" className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-md font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full cursor-pointer" value={'Login'} />
+                            <input type={'submit'} aria-label="create my account" className="focus:ring-2 focus:ring-offset-2 btn bg-primary border-none hover:bg-accent  text-md font-semibold leading-none text-white focus:outline-none rounded  py-4 w-full cursor-pointer" value={'Signin'} />
                         </div>
                     </form>
                     <div className="w-full flex items-center justify-between py-5">
@@ -92,13 +100,18 @@ const Login = () => {
                         <p className="text-base font-medium leading-4 px-2.5 text-gray-400">OR</p>
                         <hr className="w-full bg-gray-400  " />
                     </div>
-                    <p className="text-sm mt-4 font-medium leading-none text-gray-500">
-                        Dont have account?{" "}
+                    <p className="text-sm font-medium leading-none text-gray-500 text-center">
+                        Don't have account?{" "}
                         <Link to={'/signup'} className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
-                            Sign up here
+                            Sign Up here
                         </Link>
                     </p>
-                    {/* social login  */}
+
+                    <p className="text-sm mt-4 font-medium leading-none text-gray-500">
+                        {/* <Link to={'/eventType'} className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
+                            check here
+                        </Link> */}
+                    </p>
                     <SocialLogin />
                 </div>
             </div>
@@ -106,4 +119,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Signin;
