@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 import Loader from '../Loader';
 import useToken from '../../hooks/useToken';
+import SocialLogin from './SocialLogin';
 import signUp from '../../assets/images/Signup.jpg'
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [passShow, setPassShow] = useState(false);
     const [confirmPassShow, setConfirmPassShow] = useState(false);
+    const [updateProfile, updating, UpdateProfileError] = useUpdateProfile(auth);
 
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
 
@@ -20,9 +22,6 @@ const SignUp = () => {
     // for jwt
     const [token] = useToken(user);
 
-    if (token) {
-        navigate('/adminDashboard')
-    }
     // for jwt
 
 
@@ -30,9 +29,16 @@ const SignUp = () => {
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/';
 
+    if (token) {
+        navigate('/adminDashboard')
+    }
     const onSubmit = async data => {
         console.log(data)
-        await createUserWithEmailAndPassword(data.email, data.password)
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({
+            displayName: data.userName,
+        })
+
     };
 
     if (token) {
@@ -44,19 +50,19 @@ const SignUp = () => {
             navigate(from, { replace: true })
         }
     }, [user, navigate, from])
-    if (loading) {
+    if (loading || updating) {
         return <Loader></Loader>
 
     };
-    if (error) {
+    if (error || UpdateProfileError) {
         toast.error(error.message)
     }
 
     return (
         <div className="w-full bg-white pb-16 px-4">
             <div className="w-11/12 grid grid-cols lg:grid-cols-2 gap-0 lg:gap-12 mx-auto justify-center items-center">
-            <div>
-                    <img className='w-1/4 lg:w-4/5 mx-auto' src={signUp} alt="Signup" data-aos="fade-right"/>
+                <div>
+                    <img className='w-1/4 lg:w-4/5 mx-auto' src={signUp} alt="Signup" data-aos="fade-right" />
                 </div>
                 <div className="shadow-2xl rounded-xl w-4/5 p-10 mt-16" data-aos="fade-left">
 
@@ -143,6 +149,14 @@ const SignUp = () => {
                             </Link>
                         </p>
                     </form>
+                    <div className="w-full flex items-center justify-between py-5">
+                        <hr className="w-full bg-gray-400" />
+                        <p className="text-base font-medium leading-4 px-2.5 text-gray-400">Or</p>
+                        <hr className="w-full bg-gray-400  " />
+                    </div>
+
+                    {/* social login  */}
+                    <SocialLogin />
                 </div>
             </div>
         </div>
