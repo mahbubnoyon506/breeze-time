@@ -22,7 +22,7 @@ const DashHome = () => {
   const [startCall, setStartCall] = useState(null);
 
 
-  const url = `https://floating-basin-72615.herokuapp.com/event?host=${user.email}`
+  const url = `http://localhost:5000/event?host=${user.email}`
   const { data: events, isLoading, refetch } = useQuery(['events'], () =>
     fetch(url, {
       method: 'GET',
@@ -34,9 +34,12 @@ const DashHome = () => {
     )
   )
 
+
   if (isLoading) {
     return <Loader></Loader>;
   }
+
+  console.log(events)
 
   const handleEventCreate = () => {
     toast.error('You reached the maximum event creation limit !! Teke a package.')
@@ -52,7 +55,7 @@ const DashHome = () => {
             <FaPlus></FaPlus>
           </span>
           {
-            events.length >= 2 && !professional ?
+            events.length >= 5 && !professional ?
               <Link onClick={handleEventCreate} to="/pricing">Create New Event</Link>
               :
               <Link to="/eventtype">Create New Event</Link>

@@ -83,10 +83,16 @@ const Navbar = () => {
         <div className="absolute ">
           {" "}
           {showNotification ? (
-            <div className="">
+            <div className="bg-gradient-to-r z-40 toast top-24 from-blue-200 to-red-200 rounded ">
               {notifications.map((n) => (
-                <div className="z-10 bg-info py-1 px-3 left-[-6rem] rounded relative my-2 mr">
-                  <p className=" text-sm font-mono">{n?.notification}</p>
+                <div className=" w-52  rounded">
+                  <p
+                    className=" flex items-center bg-accent  p-2 rounded text-sm font-sans
+                   text-white"
+                  >
+                    {" "}
+                    {n?.notification}
+                  </p>
                 </div>
               ))}
             </div>
@@ -134,6 +140,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal p-0">{mainMenuItem}</ul>
         </div>
         <div className="navbar-end">
+          {user ? notification : <></>}
           {user ? (
             dashboardMenu
           ) : (
@@ -141,7 +148,6 @@ const Navbar = () => {
               Login
             </Link>
           )}
-          {user ? notification : <></>}
         </div>
       </div>
     </>
