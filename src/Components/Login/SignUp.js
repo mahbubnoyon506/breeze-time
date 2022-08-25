@@ -7,6 +7,7 @@ import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 import Loader from '../Loader';
 import useToken from '../../hooks/useToken';
+import SocialLogin from './SocialLogin';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -140,6 +141,14 @@ const SignUp = () => {
                             </Link>
                         </p>
                     </form>
+                    <div className="w-full flex items-center justify-between py-5">
+                        <hr className="w-full bg-gray-400" />
+                        <p className="text-base font-medium leading-4 px-2.5 text-gray-400">Or</p>
+                        <hr className="w-full bg-gray-400  " />
+                    </div>
+
+                    {/* social login  */}
+                    <SocialLogin />
                 </div>
             </div>
         </div>
