@@ -10,6 +10,8 @@ const Dashboard = () => {
   const [admin] = useAdmin(user);
   const [professional] = useProfessional(user);
 
+  
+
   const adminMenu =
     <>
       <li>
