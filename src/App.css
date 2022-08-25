@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+/* design for dashboard menu */
+
+.active {
+  background-color: #f96669;
+  color: white;
+}
+.in-active {
+  color: black;
+}

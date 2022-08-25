@@ -65,17 +65,17 @@ const Navbar = () => {
           {showNotification ? (
             <div className="z-40 toast top-[75px] ">
               <div className="bg-primary p-2 rounded">
-              {notifications.map((n) => (
-                <div className=" w-52  rounded">
-                  <p
-                    className=" flex items-center my-2 border-accent-focus border-2 p-2 rounded text-sm font-sans
+                {notifications.map((n) => (
+                  <div className=" w-52  rounded">
+                    <p
+                      className=" flex items-center my-2 border-accent-focus border-2 p-2 rounded text-sm font-sans
                    text-white"
-                  >
-                    {" "}
-                    {n?.notification}
-                  </p>
-                </div>
-              ))}
+                    >
+                      {" "}
+                      {n?.notification}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           ) : (
