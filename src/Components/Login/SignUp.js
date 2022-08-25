@@ -1,60 +1,72 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 import Loader from '../Loader';
 import useToken from '../../hooks/useToken';
+import SocialLogin from './SocialLogin';
+import signUp from '../../assets/images/Signup.jpg'
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [passShow, setPassShow] = useState(false);
     const [confirmPassShow, setConfirmPassShow] = useState(false);
+    const [updateProfile, updating, UpdateProfileError] = useUpdateProfile(auth);
 
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
 
 
-// for jwt
-const [token] = useToken(user);
+    // for jwt
+    const [token] = useToken(user);
 
-if (token) {
-    navigate('/adminDashboard')
-}
-// for jwt
+    // for jwt
 
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/';
 
+    if (token) {
+        navigate('/adminDashboard')
+    }
     const onSubmit = async data => {
         console.log(data)
-        await createUserWithEmailAndPassword(data.email, data.password)
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({
+            displayName: data.userName,
+        })
 
     };
 
+    if (token) {
+        navigate('/adminDashboard')
+    }
     useEffect(() => {
         if (user) {
-            toast.success('Login successd...')
+            toast.success('Signin successd...')
             navigate(from, { replace: true })
         }
     }, [user, navigate, from])
-    if (loading) {
+    if (loading || updating) {
         return <Loader></Loader>
 
     };
-    if (error) {
+    if (error || UpdateProfileError) {
         toast.error(error.message)
     }
 
     return (
-        <div className="h-full bg-gradient-to-tl from-green-400 to-indigo-900 w-full pb-16 px-4">
-            <div className="flex flex-col items-center justify-center">
-                <div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
+        <div className="w-full bg-white pb-16 px-4">
+            <div className="w-11/12 grid grid-cols lg:grid-cols-2 gap-0 lg:gap-12 mx-auto justify-center items-center">
+                <div>
+                    <img className='w-1/4 lg:w-4/5 mx-auto' src={signUp} alt="Signup" data-aos="fade-right" />
+                </div>
+                <div className="shadow-2xl rounded-xl w-4/5 p-10 mt-16" data-aos="fade-left">
 
-                    <p className="text-3xl my-4 mb-12 text-center font-extrabold leading-6 text-gray-800">
+                    <p className="text-3xl mb-6 text-center font-extrabold leading-6 text-gray-800">
                         SignUp
                     </p>
 
@@ -128,15 +140,23 @@ if (token) {
                             {errors.password && <small className='text-red-500'>Password is required!!</small>}
                         </div>
                         <div className="mt-8">
-                            <input type={'submit'} aria-label="create my account" className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-md font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full cursor-pointer" value={'SignUp'} />
+                            <input type={'submit'} aria-label="create my account" className="focus:ring-2 focus:ring-offset-2 btn bg-primary border-none hover:bg-accent  text-md font-semibold leading-none text-white focus:outline-none rounded  py-4 w-full cursor-pointer" value={'SignUp'} />
                         </div>
-                        <p className="text-sm mt-4 font-medium leading-none text-gray-500">
+                        <p className="text-sm text-center mt-4 font-medium leading-none text-gray-500">
                             Already have account?{" "}
-                            <Link to={'/login'} className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
-                                Login here
+                            <Link to={'/Signin'} className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
+                                SignIn here
                             </Link>
                         </p>
                     </form>
+                    <div className="w-full flex items-center justify-between py-5">
+                        <hr className="w-full bg-gray-400" />
+                        <p className="text-base font-medium leading-4 px-2.5 text-gray-400">Or</p>
+                        <hr className="w-full bg-gray-400  " />
+                    </div>
+
+                    {/* social login  */}
+                    <SocialLogin />
                 </div>
             </div>
         </div>

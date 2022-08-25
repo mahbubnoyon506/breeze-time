@@ -18,13 +18,13 @@ const DeleteModal = ({ deleteEvent, setDeleteEvent, refetch }) => {
 
     return (
         <div>
-            <input type="checkbox" id="event-delete" class="modal-toggle" />
-            <label for="event-delete" class="modal cursor-pointer">
-                <label class="modal-box relative" for="">
+            <input type="checkbox" id="event-delete" className="modal-toggle" />
+            <label for="event-delete" className="modal cursor-pointer">
+                <label className="modal-box relative" for="">
                     <h2 className='py-5'>Are you sure to delete {eventName} start at {dateTime}</h2>
-                    <div class="flex justify-end">
-                        <label for="event-delete" class="btn btn-sm btn-primary mr-3">Cancel</label>
-                        <button onClick={handleDelete} class="btn btn-sm btn-error">Delete</button>
+                    <div className="flex justify-end">
+                        <label for="event-delete" className="btn btn-sm btn-primary mr-3">Cancel</label>
+                        <button onClick={handleDelete} className="btn btn-sm btn-error">Delete</button>
                     </div>
                 </label>
             </label>

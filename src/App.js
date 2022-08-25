@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer/Footer";
-import Login from "./Components/Login/Login";
+import Signin from "./Components/Login/Signin";
 import SignUp from "./Components/Login/SignUp";
 import TimeZone from "./Components/TimeZone";
 import EventType from "./Pages/Schadule/EventType";
@@ -13,51 +13,47 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Teams from "./Pages/Teams/Teams";
 import Pricing from "./Pages/Pricing/Pricing";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
 import RequireAuth from "./Components/RequireAuth";
-import Enterprise from "./Pages/Enterprise";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import EventsTypes from "./Pages/Dashboard/EventTypes";
-import ScheduledEvents from "./Pages/Dashboard/ScheduledEvents";
-import WorkFlows from "./Pages/Dashboard/WorkFlows";
-import RoutingForms from "./Pages/Dashboard/RoutingForms";
+import EventsTypes from "./Pages/Dashboard/UserDashBoard/EventTypes";
+import ScheduledEvents from "./Pages/Dashboard/UserDashBoard/ScheduledEvents";
+import WorkFlows from "./Pages/Dashboard/UserDashBoard/WorkFlows";
+import RoutingForms from "./Pages/Dashboard/UserDashBoard/RoutingForms";
+import Payment from "./Pages/Payment/Payment";
 import ManageUser from "./Pages/Dashboard/AdminDashboard/ManageUser";
 import ManageEvent from "./Pages/Dashboard/AdminDashboard/ManageEvent";
-import Payment from "./Pages/Payment/Payment";
-
-import Aos from "aos";
 import { useEffect } from "react";
 import RequiredAdmin from "./Components/RequiredAdmin";
-import ProfCollection from "./Pages/Dashboard/AdminDashboard/ProfCollection";
+import ManagePackages from "./Pages/Dashboard/AdminDashboard/ManagePackages";
+import Profile from "./Pages/Dashboard/Profile";
+import ProfessionalCollection from "./Pages/Dashboard/AdminDashboard/ProfessionalCollection";
+import Aos from "aos";
 
 
+import Chat from "./ChatBoot/Chat";
+import NotFound from "./Pages/NotFound";
 
 function App() {
-  useEffect( () => {
+  useEffect(() => {
     Aos.init({
       duration: 1500,
     });
-  }, [])
+  }, []);
   return (
     <div>
       <Navbar></Navbar>
+
+      <Chat></Chat>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/teams" element={<Teams></Teams>}></Route>
         <Route path="/pricing" element={<Pricing></Pricing>}></Route>
-        <Route path="/enterprise" element={<Enterprise></Enterprise>} />
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/contact" element={<Contact></Contact>} />
+        <Route path="/about" element={<About></About>} />
+        <Route path="/signin" element={<Signin />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
-
-        {/* dashboard routes */}
-        {/* <Route
-          path="/"
-          element={
-            <RequireAuth>
-              <DashHome />
-            </RequireAuth>
-          }
-        ></Route> */}
-
         <Route
           path="/dashboard"
           element={
@@ -67,6 +63,7 @@ function App() {
           }
         >
           <Route index element={<DashHome></DashHome>}></Route>
+          <Route path="profile" element={<Profile></Profile>}></Route>
           <Route
             path="eventTypes"
             element={<EventsTypes></EventsTypes>}
@@ -81,22 +78,85 @@ function App() {
             element={<RoutingForms></RoutingForms>}
           ></Route>
         </Route>
-
         {/* admin route  */}
         <Route
           path="/dashboard"
           element={
             <RequiredAdmin>
-               <Dashboard />
+              <Dashboard />
             </RequiredAdmin>
           }
         >
-    
+
           <Route path="manageUser" element={<RequiredAdmin><ManageUser></ManageUser></RequiredAdmin>}></Route>
           <Route path="manageEvent" element={<RequiredAdmin><ManageEvent></ManageEvent></RequiredAdmin>}></Route>
           <Route path="scheduledEvents" element={<RequiredAdmin><ScheduledEvents></ScheduledEvents></RequiredAdmin>}></Route>
-          <Route path="professionalcollections" element={<RequiredAdmin><ProfCollection></ProfCollection></RequiredAdmin>}></Route>
+          <Route
+            path="manageUser"
+            element={
+              <RequiredAdmin>
+                <ManageUser />
+              </RequiredAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageEvent"
+            element={
+              <RequiredAdmin>
+                <ManageEvent />
+              </RequiredAdmin>
+            }
+          ></Route>
+          <Route
+            path="scheduledEvents"
+            element={
+              <RequiredAdmin>
+                <ScheduledEvents />
+              </RequiredAdmin>
+            }
+          ></Route>
+          <Route
+            path="professionalCollections"
+            element={
+              <RequiredAdmin>
+                <ProfessionalCollection />
+              </RequiredAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageUser"
+            element={
+              <RequiredAdmin>
+                <ManageUser />
+              </RequiredAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageEvent"
+            element={
+              <RequiredAdmin>
+                <ManageEvent />
+              </RequiredAdmin>
+            }
+          ></Route>
+          <Route
+            path="scheduledEvents"
+            element={
+              <RequiredAdmin>
+                <ScheduledEvents />
+              </RequiredAdmin>
+            }
+          ></Route>
+          <Route
+            path="packages"
+            element={
+              <RequiredAdmin>
+                <ManagePackages />
+              </RequiredAdmin>
+            }
+          ></Route>
         </Route>
+
         {/* admin route  */}
 
         <Route
@@ -117,17 +177,17 @@ function App() {
         ></Route>
 
         <Route
-          path="/payment"
+          path="/payment/:id"
           element={
             <RequireAuth>
-              <Payment/>
+              <Payment />
             </RequireAuth>
           }
         ></Route>
 
-
         {/* timezone route just for checking */}
         <Route path="/timeZone" element={<TimeZone />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />
       <ToastContainer />

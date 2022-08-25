@@ -14,7 +14,7 @@ const Footer = () => {
           more.
         </p>
 
-        <div class="grid grid-flow-col p-2">
+        <div className="grid grid-flow-col p-2">
           <a href>
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -27,36 +27,36 @@ const UpdateEvent = ({ updateEvent, setUpdateEvent, refetch }) => {
 
     return (
         <div>
-            <input type="checkbox" id="updateEvent" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box relative">
-                    <label for="updateEvent" class="btn btn-sm btn-primary btn-circle absolute right-2 top-2">✕</label>
+            <input type="checkbox" id="updateEvent" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label for="updateEvent" className="btn btn-sm btn-primary btn-circle absolute right-2 top-2">✕</label>
                     <div className='border-2 p-5'>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div class="form-control w-full ">
-                                <label class="label">
-                                    <span class="label-text">Event Name</span>
+                            <div className="form-control w-full ">
+                                <label className="label">
+                                    <span className="label-text">Event Name</span>
                                 </label>
 
-                                <input {...register("eventname", { required: true })} type="text" placeholder="Type here" class="input input-bordered w-full" />
+                                <input {...register("eventname", { required: true })} type="text" placeholder="Type here" className="input input-bordered w-full" />
                                 {errors.eventname && <p className='text-error text-xs'>Event type is required.</p>}
-                                <label class="label">
-                                    <span class="label-text">Event Options</span>
+                                <label className="label">
+                                    <span className="label-text">Event Options</span>
                                 </label>
-                                <select class="select select-bordered" {...register("event", { required: true })}>
+                                <select className="select select-bordered" {...register("event", { required: true })}>
                                     <option disabled selected>Pick one</option>
                                     <option>In Person Meeting</option>
                                     <option>Phone Call</option>
                                     <option>Google Meet</option>
                                 </select>
 
-                                <label class="label">
-                                    <span class="label-text">Type Event Description</span>
+                                <label className="label">
+                                    <span className="label-text">Type Event Description</span>
                                 </label>
-                                <textarea {...register("description", { required: 'Description is required.' })} class="textarea textarea-bordered h-24" placeholder="Description"></textarea>
+                                <textarea {...register("description", { required: 'Description is required.' })} className="textarea textarea-bordered h-24" placeholder="Description"></textarea>
                                 <p className='text-error text-xs'>{errors.description?.message}</p>
-                                <label class="label">
-                                    <span class="label-text">Select Date</span>
+                                <label className="label">
+                                    <span className="label-text">Select Date</span>
                                 </label>
                                 <DateTimePicker onChange={onChange} value={value} disableClock={true} />
 
