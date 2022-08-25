@@ -23,14 +23,13 @@ const Payment = () => {
                 </div>
             </div>
             <div className='package mx-5'>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-base-100 shadow-xl p-5">
                     <div className="card-body">
                         <h2 className="card-title">Monthly Billing</h2>
                         <p>Total Charge {pack.price} $</p>
                         <p>Package type {pack.name}</p>
                     </div>
                 </div>
-
             </div>
         </div>
     );

@@ -14,7 +14,6 @@ const Teams = () => {
             <p className="py-6 ">The fastest and easiest way to schedule any meeting or other collaboration.</p>
             <Link to='/eventtype'><button className='btn bg-primary border-none text-white rounded-lg hover:bg-accent '>try it for free</button></Link>
           </div>
-
         </div>
       </div>
     </div>

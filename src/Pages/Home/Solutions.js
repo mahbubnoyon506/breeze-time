@@ -8,7 +8,7 @@ import { HiOutlineDesktopComputer } from 'react-icons/hi';
 
 const Solutions = () => {
     return (
-        <div className='w-full bg-blue-50 flex justify-center items-center font-sans px-10'>
+        <div className='bg-blue-50 flex justify-center items-center font-sans '>
             <div className='my-12 md:my-32 container'>
                 <div>
                     <h2 className='text-center mb-2 md:mb-8 text-md uppercase font-semibold text-primary tracking-wide'>Solutions</h2>
@@ -22,7 +22,7 @@ const Solutions = () => {
                             <GiOnTarget className='text-4xl text-primary' />
                             <div className="card-title my-4">Sales</div>
                             <p className="text-gray-600 font-normal leading-7">
-                                Spend more time selling, and less time on admin. Shorten your sales cycle by letting prospects schedule while they’re in peak buying mode.
+                                Spend more time selling, and less time on admin. Shorten your sales cycle by letting prospects schedule while they're in peak buying mode.
                             </p>
                             <p className='text-lg text-primary mt-2 md:mt-6 flex items-center'>
                                 Learn more <IoIosArrowForward className='ml-2 w-4' />

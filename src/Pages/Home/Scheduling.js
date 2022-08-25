@@ -31,7 +31,7 @@ const Scheduling = () => {
 
 
   return (
-    <div className="pb-20">
+    <div className="pb-20 px-8">
       <h1 className="text-2xl lg:text-4xl font-bold justify-center flex my-8 lg:my-16">
         Scheduling for any meeting type
       </h1>

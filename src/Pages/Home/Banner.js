@@ -5,8 +5,8 @@ import bannerimage from '../../assets/3958832.jpg'
 const Banner = () => {
 
   return (
-    <div>
-      <div className="hero bg-white py-5 lg:max-h-screen px-10">
+    <div >
+      <div className="hero bg-white py-5 lg:max-h-screen ">
         <div className="hero-content flex-col  lg:flex-row-reverse md:flex-row-reverse">
           <div className="flex-shrink-0 w-full max-w-lg" data-aos="fade-left">
             <img src={bannerimage} alt="" className='rounded' />

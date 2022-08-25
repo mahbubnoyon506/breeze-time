@@ -25,6 +25,7 @@ const Navbar = () => {
   };
 
   const [user] = useAuthState(auth);
+
   const logout = () => {
     signOut(auth);
   };
@@ -86,15 +87,34 @@ const Navbar = () => {
   const dashboardMenu = (
     <>
       {notification}
-      <Link className=" mx-3" to="/dashboard">
-        Dashboard
-      </Link>
-      <Link onClick={logout} className="" to="/">
-        Sign Out
-      </Link>
-      <label for="dashboard-drawyer" class="btn btn-square btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-      </label>
+      <div class="dropdown dropdown-end dropdown-hover">
+        <label tabindex="0" class="flex items-center ml-2 cursor-pointer">
+          <button class="btn btn-square btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+          <div class=" avatar online sm:hidden lg:block ">
+            <div class="w-10 rounded-full">
+              <img src="https://placeimg.com/192/192/people" alt='' />
+            </div>
+          </div>
+        </label>
+        <ul tabindex="0" class="dropdown-content menu py-5 p-2 shadow bg-base-100 rounded-box w-52">
+          <div class=" avatar lg:hidden flex justify-center pb-5">
+            <div class="w-16 rounded-full">
+              <img src="https://placeimg.com/192/192/people" alt='' />
+            </div>
+          </div>
+          <Link className="pl-5" to="/dashboard">
+            Dashboard
+          </Link>
+          <label for="dashboard-drawyer" class="py-3 pl-5 lg:hidden cursor-pointer">Dashboard Menu</label>
+          <Link className="pl-5" onClick={logout} to="/">
+            Sign Out
+          </Link>
+        </ul>
+      </div>
+
+
     </>
   );
 
@@ -121,11 +141,11 @@ const Navbar = () => {
           <ul className="menu menu-horizontal p-0">{mainMenuItem}</ul>
         </div>
         <div className="navbar-end">
-        
+
           {user ? (
             dashboardMenu
           ) : (
-            <Link className="text-lg text-bold px-5 " to="/login">
+            <Link className=" px-5 " to="/login">
               Sign IN
             </Link>
           )}

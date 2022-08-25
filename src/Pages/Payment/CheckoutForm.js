@@ -14,26 +14,29 @@ const CheckoutForm = ({ pack }) => {
     const [transactionId, setTransactionId] = useState("");
     const [clientSecret, setClientSecret] = useState("");
     const { name, price } = pack;
-
+  
     useEffect(() => {
         const data = { name, price }
-        fetch(
-            "http://localhost:5000/create-payment-intent",
-            {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json",
-                    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-                },
-                body: JSON.stringify({ data }),
-            }
-        )
-            .then((res) => res.json())
-            .then((data) => {
-                if (data?.clientSecret) {
-                    setClientSecret(data.clientSecret);
+        if(price){
+            console.log(price)
+            fetch(
+                "http://localhost:5000/create-payment-intent",
+                {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                    },
+                    body: JSON.stringify(data),
                 }
-            });
+            )
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data?.clientSecret) {
+                        setClientSecret(data.clientSecret);
+                    }
+                });
+        }
     }, [name, price]);
 
     console.log(clientSecret)
@@ -76,7 +79,7 @@ const CheckoutForm = ({ pack }) => {
         } else {
             setCardError("");
             setTransactionId(paymentIntent.id);
-            setSuccess("Congrats");
+            setSuccess("Congrats!! Your payment completed.");
         }
         const payment = {
             name: user.displayName,
@@ -147,7 +150,7 @@ const CheckoutForm = ({ pack }) => {
                 </button>
             </form>
             {cardError && <p className="text-red-500">{cardError}</p>}
-            {success && <p className="text-green-500">{success}</p>}
+            {success && <p className="text-green-500 py-3">{success}</p>}
             {transactionId && <p>Your transaction ID: {transactionId}</p>}
         </>
 
