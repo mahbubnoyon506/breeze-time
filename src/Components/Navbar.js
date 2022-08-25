@@ -144,8 +144,8 @@ const Navbar = () => {
           {user ? (
             dashboardMenu
           ) : (
-            <Link className="text-lg text-bold px-5 " to="/login">
-              Login
+            <Link className="text-lg text-bold px-5 " to="/Signin">
+              Sign In
             </Link>
           )}
         </div>
