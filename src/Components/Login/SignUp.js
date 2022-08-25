@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
@@ -12,6 +12,7 @@ const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [passShow, setPassShow] = useState(false);
     const [confirmPassShow, setConfirmPassShow] = useState(false);
+    const [updateProfile, updating, UpdateProfileError] = useUpdateProfile(auth);
 
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
 
@@ -27,7 +28,11 @@ const SignUp = () => {
 
     const onSubmit = async data => {
         console.log(data)
-        await createUserWithEmailAndPassword(data.email, data.password)
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({
+            displayName: data.userName,
+        })
+
     };
 
     if (token) {
@@ -39,11 +44,11 @@ const SignUp = () => {
             navigate(from, { replace: true })
         }
     }, [user, navigate, from])
-    if (loading) {
+    if (loading || updating) {
         return <Loader></Loader>
 
     };
-    if (error) {
+    if (error || UpdateProfileError) {
         toast.error(error.message)
     }
 
