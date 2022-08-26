@@ -1,5 +1,5 @@
-import React from "react";
-import { toast } from "react-toastify";
+import React from 'react';
+import { toast } from 'react-toastify';
 
 const Usertable = ({ user, index, refetch }) => {
   const { email, role } = user;
@@ -8,9 +8,9 @@ const Usertable = ({ user, index, refetch }) => {
   const makeAdmin = () => {
     const url = `https://floating-basin-72615.herokuapp.com/users/admin/${email}`;
     fetch(url, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
     })
       .then((res) => {
@@ -22,7 +22,7 @@ const Usertable = ({ user, index, refetch }) => {
       .then((data) => {
   
         if (data.modifiedCount > 0) {
-          toast.success("This user is promoted as admin");
+          toast.success('This user is promoted as admin');
           refetch();
         }
       });
@@ -34,9 +34,9 @@ const Usertable = ({ user, index, refetch }) => {
     const url = `https://floating-basin-72615.herokuapp.com/users/user/${email}`;
 
     fetch(url, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
     })
       .then((res) => {
@@ -48,7 +48,7 @@ const Usertable = ({ user, index, refetch }) => {
       .then((data) => {
   
         if (data.modifiedCount > 0) {
-          toast.success("This admin is demoted as user");
+          toast.success('This admin is demoted as user');
           refetch();
         }
       });
