@@ -29,7 +29,7 @@ const Event = ({ event, setDeleteEvent, setUpdateEvent, setStartCall }) => {
               for="meetingOpen"
               class="btn btn-xs btn-outline btn-primary"
             >
-              open modal
+              Join Meeting
             </label>
             <label
               onClick={setDeleteEvent(event)}
