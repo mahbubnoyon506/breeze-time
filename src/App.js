@@ -1,39 +1,38 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home/Home";
-import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer/Footer";
-import Signin from "./Components/Login/Signin";
-import SignUp from "./Components/Login/SignUp";
-import TimeZone from "./Components/TimeZone";
-import EventType from "./Pages/Schadule/EventType";
-import DashHome from "./Pages/Dashboard/DashHome";
-import OneToOneSchedule from "./Pages/Schadule/OneToOneSchedule";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Teams from "./Pages/Teams/Teams";
-import Pricing from "./Pages/Pricing/Pricing";
-import About from "./Pages/About";
-import Contact from "./Pages/Contact";
-import RequireAuth from "./Components/RequireAuth";
-import Dashboard from "./Pages/Dashboard/Dashboard";
-import EventsTypes from "./Pages/Dashboard/UserDashBoard/EventTypes";
-import ScheduledEvents from "./Pages/Dashboard/UserDashBoard/ScheduledEvents";
-import WorkFlows from "./Pages/Dashboard/UserDashBoard/WorkFlows";
-import RoutingForms from "./Pages/Dashboard/UserDashBoard/RoutingForms";
-import Payment from "./Pages/Payment/Payment";
-import ManageUser from "./Pages/Dashboard/AdminDashboard/ManageUser";
-import ManageEvent from "./Pages/Dashboard/AdminDashboard/ManageEvent";
-import { useEffect } from "react";
-import RequiredAdmin from "./Components/RequiredAdmin";
-import ManagePackages from "./Pages/Dashboard/AdminDashboard/ManagePackages";
-import Profile from "./Pages/Dashboard/Profile";
-import ProfessionalCollection from "./Pages/Dashboard/AdminDashboard/ProfessionalCollection";
-import Aos from "aos";
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home/Home';
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer/Footer';
+import Signin from './Components/Login/Signin';
+import SignUp from './Components/Login/SignUp';
+import TimeZone from './Components/TimeZone';
+import EventType from './Pages/Schadule/EventType';
+import DashHome from './Pages/Dashboard/DashHome';
+import OneToOneSchedule from './Pages/Schadule/OneToOneSchedule';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Teams from './Pages/Teams/Teams';
+import Pricing from './Pages/Pricing/Pricing';
+import About from './Pages/About';
+import Contact from './Pages/Contact';
+import RequireAuth from './Components/RequireAuth';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import EventsTypes from './Pages/Dashboard/UserDashBoard/EventTypes';
+import ScheduledEvents from './Pages/Dashboard/UserDashBoard/ScheduledEvents';
+import WorkFlows from './Pages/Dashboard/UserDashBoard/WorkFlows';
+import RoutingForms from './Pages/Dashboard/UserDashBoard/RoutingForms';
+import Payment from './Pages/Payment/Payment';
+import ManageUser from './Pages/Dashboard/AdminDashboard/ManageUser';
+import ManageEvent from './Pages/Dashboard/AdminDashboard/ManageEvent';
+import { useEffect } from 'react';
+import RequiredAdmin from './Components/RequiredAdmin';
+import ManagePackages from './Pages/Dashboard/AdminDashboard/ManagePackages';
+import Profile from './Pages/Dashboard/Profile';
+import ProfessionalCollection from './Pages/Dashboard/AdminDashboard/ProfessionalCollection';
+import Aos from 'aos';
 
-
-import Chat from "./ChatBoot/Chat";
-import NotFound from "./Pages/NotFound";
+import Chat from './ChatBoot/Chat';
+import NotFound from './Pages/NotFound';
 
 function App() {
   useEffect(() => {
@@ -87,10 +86,30 @@ function App() {
             </RequiredAdmin>
           }
         >
-
-          {/* <Route path="manageUser" element={<RequiredAdmin><ManageUser></ManageUser></RequiredAdmin>}></Route> */}
-          <Route path="manageEvent" element={<RequiredAdmin><ManageEvent></ManageEvent></RequiredAdmin>}></Route>
-          <Route path="scheduledEvents" element={<RequiredAdmin><ScheduledEvents></ScheduledEvents></RequiredAdmin>}></Route>
+          <Route
+            path="manageUser"
+            element={
+              <RequiredAdmin>
+                <ManageUser></ManageUser>
+              </RequiredAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageEvent"
+            element={
+              <RequiredAdmin>
+                <ManageEvent></ManageEvent>
+              </RequiredAdmin>
+            }
+          ></Route>
+          <Route
+            path="scheduledEvents"
+            element={
+              <RequiredAdmin>
+                <ScheduledEvents></ScheduledEvents>
+              </RequiredAdmin>
+            }
+          ></Route>
           <Route
             path="manageUser"
             element={
@@ -189,6 +208,7 @@ function App() {
         <Route path="/timeZone" element={<TimeZone />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
+
       <Footer />
       <ToastContainer />
     </div>

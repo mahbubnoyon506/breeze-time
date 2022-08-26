@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import logo from "../assets/breezeTime.png";
-import { signOut } from "firebase/auth";
-import auth from "../firebase.init";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import logo from '../assets/breezeTime.png';
+import { signOut } from 'firebase/auth';
+import auth from '../firebase.init';
 
-import { MdOutlineNotificationsNone } from "react-icons/md";
-import { useEffect } from "react";
+import { MdOutlineNotificationsNone } from 'react-icons/md';
+import { useEffect } from 'react';
 const Navbar = () => {
   const [notifications, setNotifications] = useState([]);
   useEffect(() => {
-    fetch("https://floating-basin-72615.herokuapp.com/notifications")
+    fetch('https://floating-basin-72615.herokuapp.com/notifications')
       .then((res) => res.json())
       .then((data) => setNotifications(data));
   }, []);
@@ -61,7 +61,7 @@ const Navbar = () => {
         </p>
         <MdOutlineNotificationsNone className="text-2xl"></MdOutlineNotificationsNone>
         <div className="absolute ">
-          {" "}
+          {' '}
           {showNotification ? (
             <div className="z-40 toast top-[75px] ">
               <div className="bg-primary p-2 rounded">
@@ -71,7 +71,7 @@ const Navbar = () => {
                       className=" flex items-center my-2 border-accent-focus border-2 p-2 rounded text-sm font-sans
                    text-white"
                     >
-                      {" "}
+                      {' '}
                       {n?.notification}
                     </p>
                   </div>
@@ -89,34 +89,52 @@ const Navbar = () => {
   const dashboardMenu = (
     <>
       {notification}
-      <div className="dropdown dropdown-end dropdown-hover">
-        <label tabIndex="0" className="flex items-center ml-2 cursor-pointer">
-          <button className="btn btn-square btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      <div class="dropdown dropdown-end dropdown-hover">
+        <label tabindex="0" class="flex items-center ml-2 cursor-pointer">
+          <button class="btn btn-square btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="inline-block w-5 h-5 stroke-current"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
           </button>
-          <div className=" avatar online sm:hidden lg:block ">
-            <div className="w-10 rounded-full">
-              <img src="https://placeimg.com/192/192/people" alt='' />
+          <div class=" avatar online sm:hidden lg:block ">
+            <div class="w-10 rounded-full">
+              <img src="https://placeimg.com/192/192/people" alt="" />
             </div>
           </div>
         </label>
-        <ul tabIndex="0" className="dropdown-content menu py-5 p-2 shadow bg-base-100 rounded-box w-52">
-          <div className=" avatar lg:hidden flex justify-center pb-5">
-            <div className="w-16 rounded-full">
-              <img src="https://placeimg.com/192/192/people" alt='' />
+        <ul
+          tabindex="0"
+          class="dropdown-content menu py-5 p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          <div class=" avatar lg:hidden flex justify-center pb-5">
+            <div class="w-16 rounded-full">
+              <img src="https://placeimg.com/192/192/people" alt="" />
             </div>
           </div>
           <Link className="pl-5" to="/dashboard">
             Dashboard
           </Link>
-          <label for="dashboard-drawyer" className="py-3 pl-5 lg:hidden cursor-pointer">Dashboard Menu</label>
+          <label
+            for="dashboard-drawyer"
+            class="py-3 pl-5 lg:hidden cursor-pointer"
+          >
+            Dashboard Menu
+          </label>
           <Link className="pl-5" onClick={logout} to="/">
             Sign Out
           </Link>
         </ul>
       </div>
-
-
     </>
   );
 
@@ -125,8 +143,20 @@ const Navbar = () => {
       <div className="navbar bg-slate-50 lg:px-16 py-5 sm:px-0">
         <div className="navbar-start ">
           <div className="dropdown">
-            <label tabIndex="0" className="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <label tabindex="0" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="inline-block w-5 h-5 stroke-current"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
             </label>
             <ul
               tabIndex="0"
@@ -143,7 +173,6 @@ const Navbar = () => {
           <ul className="menu menu-horizontal p-0">{mainMenuItem}</ul>
         </div>
         <div className="navbar-end">
-
           {user ? (
             dashboardMenu
           ) : (
@@ -159,7 +188,18 @@ const Navbar = () => {
 
 export default Navbar;
 
-
-<label for="dashboard-drawyer" className="btn  btn-square btn-ghost lg:hidden">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-</label>
+<label for="dashboard-drawyer" class="btn  btn-square btn-ghost lg:hidden">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    class="inline-block w-5 h-5 stroke-current"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M4 6h16M4 12h16M4 18h16"
+    ></path>
+  </svg>
+</label>;
