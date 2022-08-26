@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Event = ({ event, setDeleteEvent, setUpdateEvent, setStartCall }) => {
   const { eventName, eventType, dateTime, description } = event;
