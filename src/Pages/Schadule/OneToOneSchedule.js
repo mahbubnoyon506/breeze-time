@@ -26,13 +26,13 @@ const OneToOneSchedule = () => {
       host: user.email,
     };
     axios
-      .post('http://localhost:5000/events', eventValue)
+      .post('https://floating-basin-72615.herokuapp.com/events', eventValue)
       .then(function (response) {});
     toast.success('Event created Successfully ');
     reset();
   };
   //   axios
-  //     .post('https://floating-basin-72615.herokuapp.com/events', eventValue)
+  //     .post('https://floating-basin-72615.herokuapp.com/', eventValue)
   //     .then(function (response) {
   //       console.log(response);
   //     });
@@ -108,7 +108,7 @@ const OneToOneSchedule = () => {
                 value="Create Event"
               />
             </div>
-            <div className="border-2 mx-20 p-5">
+            {/*   <div className="border-2 mx-20 p-5">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full ">
                   <label className="label">
@@ -185,7 +185,7 @@ const OneToOneSchedule = () => {
                   </div>
                 </div>
               </form>
-            </div>
+            </div> */}
           </div>
         </form>
       </div>

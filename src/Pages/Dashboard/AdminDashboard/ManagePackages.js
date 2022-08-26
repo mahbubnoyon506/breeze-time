@@ -1,20 +1,20 @@
-import { useQuery } from "@tanstack/react-query";
-import React from "react";
-import { useState } from "react";
-import Loader from "../../../Components/Loader";
-import AddPackage from "./AddPackage";
-import PackageTable from "./PackageTable";
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
+import { useState } from 'react';
+import Loader from '../../../Components/Loader';
+import AddPackage from './AddPackage';
+import PackageTable from './PackageTable';
 
-import { BsPlusLg } from "react-icons/bs";
+import { BsPlusLg } from 'react-icons/bs';
 
 const ManagePackages = () => {
   const [addPackage, setAddPackage] = useState(null);
 
-  const { data, isLoading, refetch } = useQuery(["packages"], () =>
-    fetch("http://localhost:5000/packages", {
-      method: "GET",
+  const { data, isLoading, refetch } = useQuery(['packages'], () =>
+    fetch('https://floating-basin-72615.herokuapp.com/packages', {
+      method: 'GET',
       headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
     }).then((res) => res.json())
   );
@@ -28,7 +28,7 @@ const ManagePackages = () => {
 
   return (
     <div>
-      {" "}
+      {' '}
       <div className="flex items-center justify-between mx-8">
         <h2 className="text-2xl my-5 text-center">Packages</h2>
         <label
