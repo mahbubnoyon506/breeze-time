@@ -5,6 +5,7 @@ import LogoCarousel from "./LogoCarousel";
 import Scheduling from "./Scheduling";
 import Solutions from "./Solutions";
 import DoMore from "./DoMore";
+import CustomerReview from "./CustomerReview";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Scheduling></Scheduling>
       <Solutions></Solutions>
       <DoMore></DoMore>
+      <CustomerReview></CustomerReview>
     </div>
   );
 };

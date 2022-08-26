@@ -102,3 +102,13 @@
 .wrapper .content .bottom .btm .btnn button i {
   margin-left: 5px;
 }
+
+/* design for dashboard menu */
+
+.active {
+  background-color: #f96669;
+  color: white;
+}
+.in-active {
+  color: black;
+}

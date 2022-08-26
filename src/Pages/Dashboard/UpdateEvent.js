@@ -4,7 +4,7 @@ import DateTimePicker from 'react-datetime-picker';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-const UpdateEvent = ({ updateEvent, setUpdateEvent }) => {
+const UpdateEvent = ({ updateEvent, setUpdateEvent, refetch }) => {
   const { _id } = updateEvent;
   const [value, onChange] = useState(new Date());
   const {
@@ -28,6 +28,7 @@ const UpdateEvent = ({ updateEvent, setUpdateEvent }) => {
     toast.success('Event updated Successfully ');
     reset();
     setUpdateEvent('');
+    refetch();
   };
 
   return (
@@ -36,7 +37,7 @@ const UpdateEvent = ({ updateEvent, setUpdateEvent }) => {
       <div className="modal">
         <div className="modal-box relative">
           <label
-            htmlFor="updateEvent"
+            for="updateEvent"
             className="btn btn-sm btn-primary btn-circle absolute right-2 top-2"
           >
             ✕
@@ -71,7 +72,7 @@ const UpdateEvent = ({ updateEvent, setUpdateEvent }) => {
                   <option>Phone Call</option>
                   <option>Google Meet</option>
                 </select>
-                {errors.event && <p>Event type is required.</p>}
+
                 <label className="label">
                   <span className="label-text">Type Event Description</span>
                 </label>
@@ -106,6 +107,7 @@ const UpdateEvent = ({ updateEvent, setUpdateEvent }) => {
           </div>
         </div>
       </div>
+      {/* </form> */}
     </div>
   );
 };
