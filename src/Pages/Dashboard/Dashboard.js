@@ -8,11 +8,11 @@ import { HiMenu } from "react-icons/hi";
 import { FaHouseUser } from "react-icons/fa";
 import "../../App.css";
 
+
 const Dashboard = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
   const [professional] = useProfessional(user);
-
 
   const adminMenu = (
     <>
@@ -218,7 +218,7 @@ const Dashboard = () => {
     <div className="drawer drawer-mobile">
       <input id="dashboard-drawyer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content ">
-        <Outlet></Outlet>
+        <Outlet></Outlet>      
       </div>
       <div className="drawer-side bg-slate-50">
         <label for="dashboard-drawyer" className="drawer-overlay"></label>

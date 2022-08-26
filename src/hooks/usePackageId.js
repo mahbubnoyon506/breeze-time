@@ -5,7 +5,7 @@ const usePackageId = () => {
     const {id} = useParams();
     const [pack, setPack]= useState(id);
     useEffect(() => {
-        const url = `http://localhost:5000/packages/${id}`;
+        const url = `https://floating-basin-72615.herokuapp.com/packages/${id}`;
         fetch(url, {
             method: 'GET',
             headers: {

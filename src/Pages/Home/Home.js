@@ -9,7 +9,7 @@ import CustomerReview from "./CustomerReview";
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       <Banner></Banner>
       <LogoCarousel></LogoCarousel>
       <GetStarted></GetStarted>

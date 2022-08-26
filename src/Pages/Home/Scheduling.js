@@ -39,8 +39,8 @@ const Scheduling = () => {
         {
           data.map((d) =>
             <>
-              <div class="card w-full bg-white shadow-md sm:mb-5 lg:mb-0" data-aos="zoom-in">
-                <div class="card-body ">
+              <div className="card w-full bg-white shadow-md sm:mb-5 lg:mb-0" data-aos="zoom-in">
+                <div className="card-body ">
                   <img
                     className="w-8"
                     src={d.image}

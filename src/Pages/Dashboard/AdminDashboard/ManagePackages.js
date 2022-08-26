@@ -11,7 +11,7 @@ const ManagePackages = () => {
   const [addPackage, setAddPackage] = useState(null);
 
   const { data, isLoading, refetch } = useQuery(["packages"], () =>
-    fetch("http://localhost:5000/packages", {
+    fetch("https://floating-basin-72615.herokuapp.com/packages", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -42,8 +42,8 @@ const ManagePackages = () => {
           </div>
         </label>
       </div>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
               <th></th>
