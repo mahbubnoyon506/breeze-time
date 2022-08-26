@@ -19,12 +19,9 @@ const DashHome = () => {
   const [updateEvent, setUpdateEvent] = useState(null);
   const [startCall, setStartCall] = useState(null);
 
-  const url = `https://floating-basin-72615.herokuapp.com/event?host=${user.email}`;
-  const {
-    data: events,
-    isLoading,
-    refetch,
-  } = useQuery(['events'], () =>
+
+  const url = `https://floating-basin-72615.herokuapp.com/event?host=${user.email}`
+  const { data: events, isLoading, refetch } = useQuery(['events'], () =>
     fetch(url, {
       method: 'GET',
       headers: {
@@ -37,7 +34,6 @@ const DashHome = () => {
     return <Loader></Loader>;
   }
 
-  console.log(events);
 
   const handleEventCreate = () => {
     toast.error(

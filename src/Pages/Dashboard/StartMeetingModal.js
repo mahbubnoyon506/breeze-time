@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { Link } from 'react-router-dom';
+
 
 const StartMeetingModal = () => {
   const [user] = useAuthState(auth);

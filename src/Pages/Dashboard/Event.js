@@ -27,7 +27,7 @@ const Event = ({ event, setDeleteEvent, setUpdateEvent, setStartCall }) => {
             <label
               onClick={setStartCall(event)}
               for="meetingOpen"
-              class="btn btn-xs btn-outline btn-primary"
+              className="btn btn-xs btn-outline btn-primary"
             >
               Join Meeting
             </label>

@@ -24,9 +24,9 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
 
   return (
     <div>
-      <input type="checkbox" id="addPackage" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box relative">
+      <input type="checkbox" id="addPackage" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative">
           <form onSubmit={handleSubmit(onSubmit)}>
             <h2 className="text-3xl text-primary font-bold text-center mb-4">
               Add Package

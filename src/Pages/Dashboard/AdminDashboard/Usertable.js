@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const Usertable = ({ user, index, refetch }) => {
   const { email, role } = user;
-  console.log(user);
+
   // make admin
   const makeAdmin = () => {
     const url = `https://floating-basin-72615.herokuapp.com/users/admin/${email}`;
@@ -20,7 +20,7 @@ const Usertable = ({ user, index, refetch }) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+  
         if (data.modifiedCount > 0) {
           toast.success('This user is promoted as admin');
           refetch();
@@ -46,7 +46,7 @@ const Usertable = ({ user, index, refetch }) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+  
         if (data.modifiedCount > 0) {
           toast.success('This admin is demoted as user');
           refetch();

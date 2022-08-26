@@ -39,15 +39,15 @@ const About = () => {
                     {/* Md. Mahbub Alam  */}
                     <div className="card lg:card-side bg-base-100 shadow-xl hover:bg-accent-focus">
                         <div className=''>
-                            <div class="avatar">
-                                <div class="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
+                            <div className="avatar">
+                                <div className="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
                                     <img src={mahbub} alt=''/>
                                 </div>
                             </div>
                             <div className="card-body text-justify">
                                 <h2 className="text-3xl font-bold text-center">Md. Mahbub Alam</h2>
                                 <p className='text-lg font-bold text-center'>Jr. MERN Web Developer</p>
-                                <div class="divider"></div>
+                                <div className="divider"></div>
                                 <div className='flex justify-center'>
                                     <a href="https://www.facebook.com/mahbub4noyon/" target={'_blank'}><FaFacebookF className='mx-4 my-2' /></a>
                                     <a href="https://www.linkedin.com/in/mahbubnoyon/" target={'_blank'}><FaLinkedinIn className='mx-4 my-2' /></a>
@@ -62,15 +62,15 @@ const About = () => {
                     {/* Nishat Tasnim  */}
                     <div className="card lg:card-side bg-base-100 shadow-xl hover:bg-accent-focus">
                         <div className=''>
-                            <div class="avatar">
-                                <div class="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
+                            <div className="avatar">
+                                <div className="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
                                     <img src={nishat} alt=''/>
                                 </div>
                             </div>
                             <div className="card-body text-justify">
                                 <h2 className="text-3xl font-bold text-center">Nishat Tasnim</h2>
                                 <p className='text-lg font-bold text-center'>Jr. MERN Web Developer</p>
-                                <div class="divider"></div>
+                                <div className="divider"></div>
                                 <div className='flex justify-center'>
                                     <a href="https://www.facebook.com/nishattasnim24" target={'_blank'}><FaFacebookF className='mx-4 my-2' /></a>
                                     <a href="https://www.linkedin.com/in/nishattasnim24/" target={'_blank'}><FaLinkedinIn className='mx-4 my-2' /></a>
@@ -85,15 +85,15 @@ const About = () => {
                     {/* Muhammad Azizul Haque Jiku  */}
                     <div className="card lg:card-side bg-base-100 shadow-xl hover:bg-accent-focus">
                         <div className=''>
-                            <div class="avatar">
-                                <div class="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
+                            <div className="avatar">
+                                <div className="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
                                     <img src={jiku} />
                                 </div>
                             </div>
                             <div className="card-body text-justify">
                                 <h2 className="text-3xl font-bold text-center">Muhammad Azizul Haque Jiku</h2>
                                 <p className='text-lg font-bold text-center'>Jr. MERN Web Developer</p>
-                                <div class="divider"></div>
+                                <div className="divider"></div>
                                 <div className='flex justify-center'>
                                     <a href="https://www.facebook.com/azizul.azizulhoquejiku" target={'_blank'}><FaFacebookF className='mx-4 my-2' /></a>
                                     <a href="https://www.linkedin.com/in/muhammad-azizul-hoque-jiku-775057211/" target={'_blank'}><FaLinkedinIn className='mx-4 my-2' /></a>
@@ -108,15 +108,15 @@ const About = () => {
                     {/* Md. Neamul Haque Noman  */}
                     <div className="card lg:card-side bg-base-100 shadow-xl hover:bg-accent-focus">
                         <div className=''>
-                            <div class="avatar">
-                                <div class="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
+                            <div className="avatar">
+                                <div className="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
                                     <img src={noman} />
                                 </div>
                             </div>
                             <div className="card-body text-justify">
                                 <h2 className="text-3xl font-bold text-center">Md. Neamul Haque Noman</h2>
                                 <p className='text-lg font-bold text-center'>Jr. MERN Web Developer</p>
-                                <div class="divider"></div>
+                                <div className="divider"></div>
                                 <div className='flex justify-center'>
                                     <a href="https://web.facebook.com/neamul.haque.1614" target={'_blank'}><FaFacebookF className='mx-4 my-2' /></a>
                                     <a href="https://www.linkedin.com/in/neamul62/" target={'_blank'}><FaLinkedinIn className='mx-4 my-2' /></a>
@@ -131,15 +131,15 @@ const About = () => {
                     {/* Kaniz Fatima  */}
                     <div className="card lg:card-side bg-base-100 shadow-xl hover:bg-accent-focus">
                         <div className=''>
-                            <div class="avatar">
-                                <div class="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
+                            <div className="avatar">
+                                <div className="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
                                     <img src={kaniz} />
                                 </div>
                             </div>
                             <div className="card-body text-justify">
                                 <h2 className="text-3xl font-bold text-center">Kaniz Fatima</h2>
                                 <p className='text-lg font-bold text-center'>Jr. MERN Web Developer</p>
-                                <div class="divider"></div>
+                                <div className="divider"></div>
                                 <div className='flex justify-center'>
                                     <a href="https://www.facebook.com/kaniz.fatema.148116" target={'_blank'}><FaFacebookF className='mx-4 my-2' /></a>
                                     <a href="https://www.linkedin.com/in/kaniz-fatema-292927164" target={'_blank'}><FaLinkedinIn className='mx-4 my-2' /></a>
@@ -154,15 +154,15 @@ const About = () => {
                     {/* Md. Shohag  */}
                     <div className="card lg:card-side bg-base-100 shadow-xl hover:bg-accent-focus">
                         <div className=''>
-                            <div class="avatar">
-                                <div class="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
+                            <div className="avatar">
+                                <div className="w-1/5 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-6 items-center">
                                     <img src={shohag} />
                                 </div>
                             </div>
                             <div className="card-body text-justify">
                                 <h2 className="text-3xl font-bold text-center">Md. Shohag</h2>
                                 <p className='text-lg font-bold text-center'>Jr. MERN Web Developer</p>
-                                <div class="divider"></div>
+                                <div className="divider"></div>
                                 <div className='flex justify-center'>
                                     <a href="https://www.facebook.com/profile.php?id=100004130176262" target={'_blank'}><FaFacebookF className='mx-4 my-2' /></a>
                                     <a href="https://www.linkedin.com/in/md-shohag-034bb6190/" target={'_blank'}><FaLinkedinIn className='mx-4 my-2' /></a>
