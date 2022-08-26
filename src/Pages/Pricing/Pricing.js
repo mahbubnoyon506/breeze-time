@@ -21,7 +21,7 @@ const Pricing = () => {
       <div className="">
         <div className="lg:grid lg:grid-cols-3 gap-4 ">
             {
-              packages.map( (p) => <Package p={p}></Package>)
+              packages.map( (p) => <Package key={p._id} p={p}></Package>)
             }
         </div>
       </div>

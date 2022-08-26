@@ -8,7 +8,7 @@ import { HiOutlineDesktopComputer } from 'react-icons/hi';
 
 const Solutions = () => {
     return (
-        <div className='bg-blue-50 flex justify-center items-center font-sans '>
+        <div className='bg-blue-50 flex justify-center items-center font-sans'>
             <div className='my-12 md:my-32 container'>
                 <div>
                     <h2 className='text-center mb-2 md:mb-8 text-md uppercase font-semibold text-primary tracking-wide'>Solutions</h2>

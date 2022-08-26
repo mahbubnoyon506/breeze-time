@@ -6,7 +6,7 @@ import doMore3 from '../../assets/doMore3.jpg';
 const DoMore = () => {
     return (
         <>
-            <div className='bg-white'>
+            <div className='bg-white '>
                 <div className='lg:flex justify-between items-center mx-10 flex-row-reverse py-10'>
                     <div className='w-4/6 sm:mx-auto' data-aos="fade-left">
                         <img className=" mx-auto" src={doMore1} alt="Do More" />

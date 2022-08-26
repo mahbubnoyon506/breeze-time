@@ -6,7 +6,7 @@ import Usertable from './Usertable';
 const ManageUser = () => {
 
     const { data, isLoading,  refetch } = useQuery(['users'], () =>
-    fetch('http://localhost:5000/users', {
+    fetch('https://floating-basin-72615.herokuapp.com/users', {
         method : 'GET',
         headers : {
             'authorization' : `Bearer ${localStorage.getItem('accessToken')}`

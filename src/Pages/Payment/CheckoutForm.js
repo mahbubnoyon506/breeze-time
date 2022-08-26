@@ -18,9 +18,9 @@ const CheckoutForm = ({ pack }) => {
     useEffect(() => {
         const data = { name, price }
         if(price){
-            console.log(price)
+       
             fetch(
-                "http://localhost:5000/create-payment-intent",
+                "https://floating-basin-72615.herokuapp.com/create-payment-intent",
                 {
                     method: "POST",
                     headers: {
@@ -87,7 +87,7 @@ const CheckoutForm = ({ pack }) => {
             status: 'professional',
             transactionId: paymentIntent.id
         };
-        fetch(`http://localhost:5000/users/professional`, {
+        fetch(`https://floating-basin-72615.herokuapp.com/users/professional`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -98,10 +98,10 @@ const CheckoutForm = ({ pack }) => {
             .then((res) => res.json())
             .then((data) => {
                 setProcessing(false);
-                console.log(data);
+            
             });
         // give user a professional status
-        const url = `http://localhost:5000/users/professional/${user.email}`;
+        const url = `https://floating-basin-72615.herokuapp.com/users/professional/${user.email}`;
         fetch(url, {
             method: 'PUT',
             headers: {

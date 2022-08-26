@@ -8,7 +8,7 @@ const UpdatePack = ({ updatePackage, setUpdatePackage, refetch, _id }) => {
 
     // console.log(updatePackage)
     const onSubmit = async data => {
-        axios.put(`http://localhost:5000/packages/${_id}`, data)
+        axios.put(`https://floating-basin-72615.herokuapp.com/packages/${_id}`, data)
             .then(function (response) {
                 if (response.status === 200) {
                     toast.success('Package updated Successfully ')
@@ -23,13 +23,13 @@ const UpdatePack = ({ updatePackage, setUpdatePackage, refetch, _id }) => {
 
     return (
         <div>
-            <input type="checkbox" id="updatePackage" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box relative">
+            <input type="checkbox" id="updatePackage" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <h2 className="text-3xl text-primary font-bold text-center mb-4">Update Package <span>{updatePackage.name}</span></h2>
                         {/* accessType */}
-                        <label onClick={handleCancelUpdate}  class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                        <label onClick={handleCancelUpdate}  className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                         <div>
                             <lable className="text-sm font-medium leading-none text-gray-800 relative">accessType </lable>
                             <input {...register("accessType")} aria-label="enter accessType" type="text" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />

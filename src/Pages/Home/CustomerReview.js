@@ -10,7 +10,7 @@ const CustomerReview = () => {
 
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
-    console.log(user);
+
 
     const handleAdmin = () => {
         toast.error("Admin can't give review");
@@ -22,13 +22,13 @@ const CustomerReview = () => {
         const imageUrl = event.target.imageUrl.value;
         const rating = parseInt(event.target.rating.value);
         const review = event.target.review.value;
-        console.log(rating, name, email, imageUrl, review);
+
 
         const customerReviews = { rating, name, email, imageUrl, review }
-        axios.post('http://localhost:5000/reviews', customerReviews)
+        axios.post('https://floating-basin-72615.herokuapp.com/reviews', customerReviews)
             .then(function (response) {
             })
-        console.log(customerReviews)
+       
         toast.success('Review added Successfully ')
 
         // event.target.name.value = '';
@@ -50,7 +50,7 @@ const CustomerReview = () => {
                     <input type="checkbox" id="my-modal-6" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">
                         <div className="modal-box relative">
-                            <label for="my-modal-6" class="btn btn-sm btn-circle border-0 text-white bg-primary hover:bg-accent hover:text-black absolute right-2 top-2">✕</label>
+                            <label for="my-modal-6" className="btn btn-sm btn-circle border-0 text-white bg-primary hover:bg-accent hover:text-black absolute right-2 top-2">✕</label>
                             <form onSubmit={handleReview}>
                                 <input type="text" name='name' placeholder="Type your name here" className="input input-bordered input-accent w-full max-w-xs mt-5" value={user?.displayName} />
                                 <input type="email" name='email' placeholder="Type your email here" className="input input-bordered input-accent w-full max-w-xs mt-5" value={user?.email} disabled />
