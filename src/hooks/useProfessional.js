@@ -7,7 +7,7 @@ const useProfessional = (user) => {
     const email = user?.email;
     if (email) {
       fetch(
-        `https://floating-basin-72615.herokuapp.com/professional/${email}`,
+        `http://localhost:5000/professional/${email}`,
         {
           method: 'GET',
           headers: {

@@ -11,7 +11,7 @@ const ManagePackages = () => {
   const [addPackage, setAddPackage] = useState(null);
 
   const { data, isLoading, refetch } = useQuery(['packages'], () =>
-    fetch('https://floating-basin-72615.herokuapp.com/packages', {
+    fetch('http://localhost:5000/packages', {
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem('accessToken')}`,

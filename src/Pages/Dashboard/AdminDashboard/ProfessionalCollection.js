@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const ProfessionalCollection = () => {
   const [professional, setProfessional] = useState([]);
   useEffect(() => {
-    fetch('https://floating-basin-72615.herokuapp.com/professional')
+    fetch('http://localhost:5000/professional')
       .then((res) => res.json())
       .then((data) => setProfessional(data));
   }, []);
@@ -11,7 +11,7 @@ const ProfessionalCollection = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm('Are you sure you want to delete?');
     if (proceed) {
-      const url = `https://floating-basin-72615.herokuapp.com/professional/${id}`;
+      const url = `http://localhost:5000/professional/${id}`;
       fetch(url, {
         method: 'DELETE',
       })
@@ -32,6 +32,7 @@ const ProfessionalCollection = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Status</th>
+              <th>Issued Date</th>
               <th>Remove</th>
             </tr>
           </thead>
@@ -41,7 +42,8 @@ const ProfessionalCollection = () => {
                 <th>{index + 1}</th>
                 <td>{data.name}</td>
                 <td>{data.email}</td>
-                <td>{data.status}</td>
+                <td>{data.package}</td>
+                <td>{data.issuedDate}</td>
                 <td>
                   <button onClick={() => handleDelete(data._id)}>Delete</button>
                 </td>

@@ -20,7 +20,7 @@ const DashHome = () => {
   const [startCall, setStartCall] = useState(null);
 
 
-  const url = `https://floating-basin-72615.herokuapp.com/event?host=${user.email}`
+  const url = `http://localhost:5000/event?host=${user.email}`
   const { data: events, isLoading, refetch } = useQuery(['events'], () =>
     fetch(url, {
       method: 'GET',

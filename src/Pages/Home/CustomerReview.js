@@ -26,7 +26,7 @@ const CustomerReview = () => {
     const customerReviews = { rating, name, email, imageUrl, review };
     axios
       .post(
-        'https://floating-basin-72615.herokuapp.com/reviews',
+        'http://localhost:5000/reviews',
         customerReviews
       )
       .then(function (response) {});
