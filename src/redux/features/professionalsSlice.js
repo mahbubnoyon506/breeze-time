@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+
 
 export const getProfessionals = createAsyncThunk('professionals/getProfessionals', async () => {
     return fetch('http://localhost:5000/professional')

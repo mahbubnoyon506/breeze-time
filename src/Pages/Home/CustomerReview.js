@@ -9,11 +9,7 @@ import useAdmin from '../../hooks/useAdmin';
 const CustomerReview = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
-  console.log(user);
 
-  const handleAdmin = () => {
-    toast.error("Admin can't give review");
-  };
   const handleReview = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -21,7 +17,6 @@ const CustomerReview = () => {
     const imageUrl = event.target.imageUrl.value;
     const rating = parseInt(event.target.rating.value);
     const review = event.target.review.value;
-    console.log(rating, name, email, imageUrl, review);
 
     const customerReviews = { rating, name, email, imageUrl, review };
     axios
@@ -30,7 +25,6 @@ const CustomerReview = () => {
         customerReviews
       )
       .then(function (response) {});
-    console.log(customerReviews);
     toast.success('Review added Successfully ');
 
     // event.target.name.value = '';
