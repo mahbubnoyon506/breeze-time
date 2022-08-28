@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Loader from '../../../Components/Loader.js';
+import {getProfessionals} from '../../../redux/features/professionalsSlice.js';
+import ProfTable from './ProfTable.js';
+import DeleteProf from './DeleteProf.js';
+
 
 const ProfessionalCollection = () => {
-  const [professional, setProfessional] = useState([]);
-  useEffect(() => {
-    fetch('http://localhost:5000/professional')
-      .then((res) => res.json())
-      .then((data) => setProfessional(data));
-  }, []);
+  const [deleteProfessional, setDeleteProfessional] = useState('');
 
-  const handleDelete = (id) => {
-    const proceed = window.confirm('Are you sure you want to delete?');
-    if (proceed) {
-      const url = `http://localhost:5000/professional/${id}`;
-      fetch(url, {
-        method: 'DELETE',
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          const remaining = professional.filter((item) => item._id !== id);
-          setProfessional(remaining);
-        });
-    }
-  };
+  const {professionals, isLoading} = useSelector((state) => state.professionals);
+  const dispatch = useDispatch()
+
+  useEffect(() =>{
+    dispatch(getProfessionals())
+  }, [dispatch])
+
+  if(isLoading){
+    return <Loader/>
+  }
+
   return (
     <div>
       <div className="overflow-x-auto">
@@ -37,20 +35,13 @@ const ProfessionalCollection = () => {
             </tr>
           </thead>
           <tbody>
-            {professional.map((data, index) => (
-              <tr>
-                <th>{index + 1}</th>
-                <td>{data.name}</td>
-                <td>{data.email}</td>
-                <td>{data.package}</td>
-                <td>{data.issuedDate}</td>
-                <td>
-                  <button onClick={() => handleDelete(data._id)}>Delete</button>
-                </td>
-              </tr>
-            ))}
+            {professionals.map((professional, index) => <ProfTable key={professional._id} professional={professional} setDeleteProfessional={setDeleteProfessional} index={index}></ProfTable>
+            )}
           </tbody>
         </table>
+        {
+          deleteProfessional && <DeleteProf deleteProfessional={deleteProfessional} setDeleteProfessional={setDeleteProfessional}></DeleteProf>
+        }
       </div>
     </div>
   );

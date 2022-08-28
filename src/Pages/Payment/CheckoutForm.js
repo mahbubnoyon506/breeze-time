@@ -89,7 +89,7 @@ const CheckoutForm = ({ pack }) => {
       email: user.email,
       status: 'professional',
       transactionId: paymentIntent.id,
-      package: pack.name,
+      pack: pack.name,
       issuedDate
     };
 

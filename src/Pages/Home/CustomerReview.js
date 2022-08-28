@@ -46,12 +46,7 @@ const CustomerReview = () => {
         {/* review modal */}
         <div>
           {admin ? (
-            <label
-              onClick={handleAdmin}
-              className="btn rounded-lg border-none bg-primary text-white hover:bg-accent"
-            >
-              Give Review
-            </label>
+            ''
           ) : (
             <label
               for="my-modal-6"
