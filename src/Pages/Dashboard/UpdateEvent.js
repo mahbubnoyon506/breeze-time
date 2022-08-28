@@ -22,7 +22,7 @@ const UpdateEvent = ({ updateEvent, setUpdateEvent, refetch }) => {
     };
     axios
       .put(
-        `https://floating-basin-72615.herokuapp.com/event/${_id}`,
+        `http://localhost:5000/event/${_id}`,
         eventValue
       )
       .then(function (response) {

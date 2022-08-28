@@ -9,7 +9,7 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
   // console.log(updatePackage)
   const onSubmit = async (data) => {
     axios
-      .post(`https://floating-basin-72615.herokuapp.com/packages`, data)
+      .post(`http://localhost:5000/packages`, data)
       .then(function (response) {
         if (response.status === 200) {
           toast.success('Package updated Successfully ');

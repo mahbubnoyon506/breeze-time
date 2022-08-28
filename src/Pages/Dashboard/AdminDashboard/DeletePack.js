@@ -8,7 +8,7 @@ const DeletePack = ({ deletePackage, setDeletePackage, refetch, _id }) => {
 
   const handleDeletePackage = () => {
     axios
-      .delete(`https://floating-basin-72615.herokuapp.com/packages/${_id}`)
+      .delete(`http://localhost:5000/packages/${_id}`)
       .then(function (response) {
         if (response.status === 200) {
           toast.success('Package Deleted Successfully ');

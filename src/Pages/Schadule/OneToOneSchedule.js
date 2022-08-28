@@ -26,13 +26,13 @@ const OneToOneSchedule = () => {
       host: user.email,
     };
     axios
-      .post('https://floating-basin-72615.herokuapp.com/events', eventValue)
+      .post('http://localhost:5000/events', eventValue)
       .then(function (response) {});
     toast.success('Event created Successfully ');
     reset();
   };
   //   axios
-  //     .post('https://floating-basin-72615.herokuapp.com/', eventValue)
+  //     .post('http://localhost:5000/', eventValue)
   //     .then(function (response) {
   //       console.log(response);
   //     });

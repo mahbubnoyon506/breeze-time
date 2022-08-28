@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 const Navbar = () => {
   const [notifications, setNotifications] = useState([]);
   useEffect(() => {
-    fetch('https://floating-basin-72615.herokuapp.com/notifications')
+    fetch('http://localhost:5000/notifications')
       .then((res) => res.json())
       .then((data) => setNotifications(data));
   }, []);
