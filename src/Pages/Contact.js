@@ -1,5 +1,6 @@
 import React from "react";
 import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 const Contact = () => {
   const sendEmail = (e) => {
@@ -9,7 +10,11 @@ const Contact = () => {
       .sendForm("gmail", "template_0e678w6", e.target, "Aw1U_DTBP_DYYuB0S")
       .then(
         (result) => {
-          console.log(result.text);
+          if (result.text === "OK") {
+            toast.success("Email sent successfully");
+          } else {
+            toast.error("Email not sent");
+          } // console.log(result.text);
         },
         (error) => {
           console.log(error.text);
@@ -114,27 +119,6 @@ const Contact = () => {
                   />
                 </div>
 
-                {/* <div className="mb-6">
-                  <input
-                    inputMode="numeric"
-                    placeholder="Your Phone"
-                    className="
-                                w-full
-                                rounded
-                                p-3
-                                text-gray-800
-                                dark:text-gray-50
-                                dark:bg-slate-700
-                                border-gray-500
-                                dark:border-slate-600
-                                outline-none
-                                focus-visible:shadow-none
-                                focus:border-primary
-                                "
-                    name="phone_number"
-                    id="phone_number"
-                  />
-                </div> */}
                 <div className="mb-6">
                   <textarea
                     rows="6"
