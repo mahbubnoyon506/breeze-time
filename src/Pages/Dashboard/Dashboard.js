@@ -13,7 +13,6 @@ const Dashboard = () => {
   const [admin] = useAdmin(user);
   const [professional] = useProfessional(user);
 
-
   const adminMenu = (
     <>
       <li>
@@ -223,9 +222,7 @@ const Dashboard = () => {
       <div className="drawer-side bg-slate-50">
         <label for="dashboard-drawyer" className="drawer-overlay"></label>
         <ul className="menu p-4 overflow-y-auto w-80  text-base-content bg-slate-50 lg:bg-transparent ">
-          {
-            admin ? adminMenu : (professional ? professionalMenu : userMenu)
-          }
+          {admin ? adminMenu : professional ? professionalMenu : userMenu}
         </ul>
       </div>
     </div>
