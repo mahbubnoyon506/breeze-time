@@ -1,12 +1,13 @@
-import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, NavLink, Outlet } from "react-router-dom";
-import auth from "../../firebase.init";
-import useAdmin from "../../hooks/useAdmin";
-import useProfessional from "../../hooks/useProfessional";
-import { HiMenu } from "react-icons/hi";
-import { FaHouseUser } from "react-icons/fa";
-import "../../App.css";
+import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import auth from '../../firebase.init';
+import useAdmin from '../../hooks/useAdmin';
+import useProfessional from '../../hooks/useProfessional';
+import { HiMenu } from 'react-icons/hi';
+import { FaHouseUser } from 'react-icons/fa';
+import '../../App.css';
+
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
@@ -18,7 +19,7 @@ const Dashboard = () => {
       <li>
         <Link className="bg-transparent " to="/dashboard">
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <FaHouseUser className="mr-2 text-5xl text-[#F96669] "></FaHouseUser>
           </p>
         </Link>
@@ -26,11 +27,11 @@ const Dashboard = () => {
 
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active" : "in-active")}
+          className={({ isActive }) => (isActive ? 'active' : 'in-active')}
           to="/dashboard/profile"
         >
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <HiMenu className="mr-2"></HiMenu>
             Admin Profile
           </p>
@@ -39,11 +40,11 @@ const Dashboard = () => {
 
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active" : "in-active")}
+          className={({ isActive }) => (isActive ? 'active' : 'in-active')}
           to="/dashboard/manageUser"
         >
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <HiMenu className="mr-2"></HiMenu>
             Manage User
           </p>
@@ -52,11 +53,11 @@ const Dashboard = () => {
 
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active" : "in-active")}
+          className={({ isActive }) => (isActive ? 'active' : 'in-active')}
           to="/dashboard/manageEvent"
         >
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <HiMenu className="mr-2"></HiMenu>
             Manage Event
           </p>
@@ -65,11 +66,11 @@ const Dashboard = () => {
 
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active" : "in-active")}
+          className={({ isActive }) => (isActive ? 'active' : 'in-active')}
           to="/dashboard/scheduledEvents"
         >
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <HiMenu className="mr-2"></HiMenu>
             Scheduled Events
           </p>
@@ -78,11 +79,11 @@ const Dashboard = () => {
 
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active" : "in-active")}
+          className={({ isActive }) => (isActive ? 'active' : 'in-active')}
           to="/dashboard/packages"
         >
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <HiMenu className="mr-2"></HiMenu>
             Packages
           </p>
@@ -97,11 +98,11 @@ const Dashboard = () => {
 
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active" : "in-active")}
+          className={({ isActive }) => (isActive ? 'active' : 'in-active')}
           to="/dashboard/professionalCollections"
         >
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <HiMenu className="mr-2"></HiMenu>
             Professional Collections
           </p>
@@ -115,7 +116,7 @@ const Dashboard = () => {
       <li>
         <Link className="bg-transparent " to="/dashboard">
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <FaHouseUser className="mr-2 text-5xl text-[#F96669] "></FaHouseUser>
           </p>
         </Link>
@@ -123,11 +124,11 @@ const Dashboard = () => {
 
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active" : "in-active")}
+          className={({ isActive }) => (isActive ? 'active' : 'in-active')}
           to="/dashboard/profile"
         >
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <HiMenu className="mr-2"></HiMenu>
             Profile
           </p>
@@ -136,11 +137,11 @@ const Dashboard = () => {
 
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active" : "in-active")}
+          className={({ isActive }) => (isActive ? 'active' : 'in-active')}
           to="/dashboard/eventTypes"
         >
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <HiMenu className="mr-2"></HiMenu>
             Event Types
           </p>
@@ -153,7 +154,7 @@ const Dashboard = () => {
       <li>
         <Link className="bg-transparent " to="/dashboard">
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <FaHouseUser className="mr-2 text-5xl text-[#F96669] "></FaHouseUser>
           </p>
         </Link>
@@ -161,11 +162,11 @@ const Dashboard = () => {
 
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active" : "in-active")}
+          className={({ isActive }) => (isActive ? 'active' : 'in-active')}
           to="/dashboard/profile"
         >
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <HiMenu className="mr-2"></HiMenu>
             Profile
           </p>
@@ -174,11 +175,11 @@ const Dashboard = () => {
 
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active" : "in-active")}
+          className={({ isActive }) => (isActive ? 'active' : 'in-active')}
           to="/dashboard/eventTypes"
         >
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <HiMenu className="mr-2"></HiMenu>
             Event Types
           </p>
@@ -187,11 +188,11 @@ const Dashboard = () => {
 
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active" : "in-active")}
+          className={({ isActive }) => (isActive ? 'active' : 'in-active')}
           to="/dashboard/scheduledEvents"
         >
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <HiMenu className="mr-2"></HiMenu>
             Scheduled Events
           </p>
@@ -200,11 +201,11 @@ const Dashboard = () => {
 
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active" : "in-active")}
+          className={({ isActive }) => (isActive ? 'active' : 'in-active')}
           to="/dashboard/workFlow"
         >
           <p className="flex items-center ">
-            {" "}
+            {' '}
             <HiMenu className="mr-2"></HiMenu>
             Workflows
           </p>
@@ -217,7 +218,7 @@ const Dashboard = () => {
     <div className="drawer drawer-mobile">
       <input id="dashboard-drawyer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content ">
-        <Outlet></Outlet>
+        <Outlet></Outlet>      
       </div>
       <div className="drawer-side bg-slate-50">
         <label for="dashboard-drawyer" className="drawer-overlay"></label>

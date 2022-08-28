@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Event = ({ event, setDeleteEvent, setUpdateEvent, setStartCall }) => {
   const { eventName, eventType, dateTime, description } = event;
@@ -27,9 +27,9 @@ const Event = ({ event, setDeleteEvent, setUpdateEvent, setStartCall }) => {
             <label
               onClick={setStartCall(event)}
               for="meetingOpen"
-              class="btn btn-xs btn-outline btn-primary"
+              className="btn btn-xs btn-outline btn-primary"
             >
-              open modal
+              Join Meeting
             </label>
             <label
               onClick={setDeleteEvent(event)}

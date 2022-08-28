@@ -1,5 +1,5 @@
-import React from "react";
-import { FaCheckCircle } from "react-icons/fa";
+import React from 'react';
+import { FaCheckCircle } from 'react-icons/fa';
 
 const GetStarted = () => {
   return (
@@ -9,8 +9,11 @@ const GetStarted = () => {
       </h1>
       <div className="cards">
         <div className="card grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
-          <div className="card w-96 bg-accent-focus mx-auto" data-aos="fade-right">
-            <div className="card-body" >
+          <div
+            className="card w-96 bg-accent-focus mx-auto"
+            data-aos="fade-right"
+          >
+            <div className="card-body">
               <div className="flex items-center">
                 <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
                 <h1 className="card-title my-4"> Create simple rules</h1>
@@ -22,7 +25,7 @@ const GetStarted = () => {
             </div>
           </div>
           <div className="card w-96 bg-accent-focus mx-auto" data-aos="zoom-in">
-            <div className="card-body" >
+            <div className="card-body">
               <div className="flex items-center">
                 <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
                 <h1 className="card-title my-4"> Share your link</h1>
@@ -33,8 +36,11 @@ const GetStarted = () => {
               </p>
             </div>
           </div>
-          <div className="card w-96 bg-accent-focus mx-auto" data-aos="fade-left">
-            <div className="card-body" >
+          <div
+            className="card w-96 bg-accent-focus mx-auto"
+            data-aos="fade-left"
+          >
+            <div className="card-body">
               <div className="flex items-center">
                 <FaCheckCircle className="mr-3 text-xl text-primary-focus" />
                 <h1 className="card-title my-4"> Get booked</h1>

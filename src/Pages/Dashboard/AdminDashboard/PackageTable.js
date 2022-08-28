@@ -10,7 +10,7 @@ const PackageTable = ({ memberPackage, index, refetch }) => {
 
   return (
     <>
-      <tr class="hover">
+      <tr className="hover">
         <th>{index + 1}</th>
         <th>{name}</th>
         <td>{isNaN(price) ? `${price}` : `$${price}/month`}</td>
@@ -18,7 +18,7 @@ const PackageTable = ({ memberPackage, index, refetch }) => {
           <label
             onClick={() => setUpdatePackage(memberPackage)}
             for="updatePackage"
-            class="btn btn-outline btn-sm btn-primary"
+            className="btn btn-outline btn-sm btn-primary"
           >
             Update
           </label>
@@ -27,7 +27,7 @@ const PackageTable = ({ memberPackage, index, refetch }) => {
           <label
             onClick={() => setDeletePackage(memberPackage)}
             for="deletePackage"
-            class="btn btn-outline btn-sm btn-primary"
+            className="btn btn-outline btn-sm btn-primary"
           >
             Delete
           </label>

@@ -1,7 +1,7 @@
-import axios from "axios";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import axios from 'axios';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
   const { register, handleSubmit } = useForm();
@@ -12,7 +12,7 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
       .post(`http://localhost:5000/packages`, data)
       .then(function (response) {
         if (response.status === 200) {
-          toast.success("Package updated Successfully ");
+          toast.success('Package updated Successfully ');
         }
       });
     addPackageRefetch();
@@ -24,9 +24,9 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
 
   return (
     <div>
-      <input type="checkbox" id="addPackage" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box relative">
+      <input type="checkbox" id="addPackage" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative">
           <form onSubmit={handleSubmit(onSubmit)}>
             <h2 className="text-3xl text-primary font-bold text-center mb-4">
               Add Package
@@ -34,10 +34,10 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
             {/* accessType */}
             <div>
               <lable className="text-sm font-medium leading-none text-gray-800 relative">
-                accessType{" "}
+                accessType{' '}
               </lable>
               <input
-                {...register("accessType")}
+                {...register('accessType')}
                 aria-label="enter accessType"
                 type="text"
                 className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
@@ -46,10 +46,10 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
             {/* activeEvent */}
             <div>
               <lable className="text-sm font-medium leading-none text-gray-800 relative">
-                activeEvent{" "}
+                activeEvent{' '}
               </lable>
               <input
-                {...register("activeEvent")}
+                {...register('activeEvent')}
                 aria-label="enter activeEvent"
                 type="text"
                 className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
@@ -58,10 +58,10 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
             {/* calender */}
             <div>
               <lable className="text-sm font-medium leading-none text-gray-800 relative">
-                Calender{" "}
+                Calender{' '}
               </lable>
               <input
-                {...register("calender")}
+                {...register('calender')}
                 aria-label="enter calender number"
                 type="number"
                 className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
@@ -70,10 +70,10 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
             {/* goupEvent */}
             <div>
               <lable className="text-sm font-medium leading-none text-gray-800 relative">
-                goupEvent{" "}
+                goupEvent{' '}
               </lable>
               <input
-                {...register("goupEvent")}
+                {...register('goupEvent')}
                 aria-label="enter goupEvent"
                 type="text"
                 className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
@@ -82,10 +82,10 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
             {/* name */}
             <div>
               <lable className="text-sm font-medium leading-none text-gray-800 relative">
-                name{" "}
+                name{' '}
               </lable>
               <input
-                {...register("name")}
+                {...register('name')}
                 aria-label="enter name"
                 type="text"
                 className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
@@ -94,10 +94,10 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
             {/* notificationStatus */}
             <div>
               <lable className="text-sm font-medium leading-none text-gray-800 relative">
-                notificationStatus{" "}
+                notificationStatus{' '}
               </lable>
               <input
-                {...register("notificationStatus")}
+                {...register('notificationStatus')}
                 aria-label="enter notificationStatus adress"
                 type="text"
                 className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
@@ -106,10 +106,10 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
             {/* oneToOne */}
             <div>
               <lable className="text-sm font-medium leading-none text-gray-800 relative">
-                oneToOne{" "}
+                oneToOne{' '}
               </lable>
               <input
-                {...register("oneToOne")}
+                {...register('oneToOne')}
                 aria-label="enter oneToOne adress"
                 type="text"
                 className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
@@ -118,10 +118,10 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
             {/* price */}
             <div>
               <lable className="text-sm font-medium leading-none text-gray-800 relative">
-                price{" "}
+                price{' '}
               </lable>
               <input
-                {...register("price")}
+                {...register('price')}
                 aria-label="enter price adress"
                 type="number"
                 className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
@@ -129,10 +129,10 @@ const AddPackage = ({ addPackageRefetch, setAddPackage }) => {
             </div>
             <div className="mt-8 flex justify-between">
               <input
-                type={"submit"}
+                type={'submit'}
                 aria-label="create my account"
                 className=" btn focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-md font-semibold leading-none text-white focus:outline-none bg-primary border rounded hover:bg-indigo-600 py-4 cursor-pointer"
-                value={"Add"}
+                value={'Add'}
               />
               <button
                 onClick={handleCancelAddPackage}

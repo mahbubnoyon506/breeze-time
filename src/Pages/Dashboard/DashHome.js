@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaPlus } from "react-icons/fa";
-import Loader from "../../Components/Loader";
-import Event from "./Event";
-import DeleteModal from "./DeleteEvent";
-import UpdateEvent from "./UpdateEvent";
-import { useQuery } from '@tanstack/react-query'
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
-import useProfessional from "../../hooks/useProfessional";
-import { toast } from "react-toastify";
-import StartMeetingModal from "./StartMeetingModal";
-
-
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaPlus } from 'react-icons/fa';
+import Loader from '../../Components/Loader';
+import Event from './Event';
+import DeleteModal from './DeleteEvent';
+import UpdateEvent from './UpdateEvent';
+import { useQuery } from '@tanstack/react-query';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import useProfessional from '../../hooks/useProfessional';
+import { toast } from 'react-toastify';
+import StartMeetingModal from './StartMeetingModal';
 
 const DashHome = () => {
   const [user] = useAuthState(auth);
@@ -27,23 +25,21 @@ const DashHome = () => {
     fetch(url, {
       method: 'GET',
       headers: {
-        'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-      }
-    }).then(res =>
-      res.json()
-    )
-  )
-
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+    }).then((res) => res.json())
+  );
 
   if (isLoading) {
     return <Loader></Loader>;
   }
 
-  console.log(events)
 
   const handleEventCreate = () => {
-    toast.error('You reached the maximum event creation limit !! Teke a package.')
-  }
+    toast.error(
+      'You reached the maximum event creation limit !! Teke a package.'
+    );
+  };
 
   return (
     <div className="px-10">
@@ -54,12 +50,13 @@ const DashHome = () => {
           <span className="mr-2">
             <FaPlus></FaPlus>
           </span>
-          {
-            events?.length >= 5 && !professional ?
-              <Link onClick={handleEventCreate} to="/pricing">Create New Event</Link>
-              :
-              <Link to="/eventtype">Create New Event</Link>
-          }
+          {events?.length >= 5 && !professional ? (
+            <Link onClick={handleEventCreate} to="/pricing">
+              Create New Event
+            </Link>
+          ) : (
+            <Link to="/eventtype">Create New Event</Link>
+          )}
         </div>
       </div>
       <hr />
@@ -74,27 +71,27 @@ const DashHome = () => {
           ></Event>
         ))}
       </div>
-      {deleteEvent &&
+      {deleteEvent && (
         <DeleteModal
           deleteEvent={deleteEvent}
           setDeleteEvent={setDeleteEvent}
-          refetch={refetch}>
-        </DeleteModal>}
+          refetch={refetch}
+        ></DeleteModal>
+      )}
 
-      {updateEvent &&
+      {updateEvent && (
         <UpdateEvent
           updateEvent={updateEvent}
           setUpdateEvent={setUpdateEvent}
           refetch={refetch}
         ></UpdateEvent>
-      }
-      {
-        startCall &&
+      )}
+      {startCall && (
         <StartMeetingModal
           startCall={startCall}
           setStartCall={setStartCall}
         ></StartMeetingModal>
-      }
+      )}
     </div>
   );
 };
