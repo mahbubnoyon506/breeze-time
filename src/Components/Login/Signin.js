@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loader from '../Loader';
@@ -14,7 +13,6 @@ import SocialLogin from './SocialLogin';
 const Signin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [show, setShow] = useState(false);
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [
         signInWithEmailAndPassword,
         createUser,
@@ -24,7 +22,7 @@ const Signin = () => {
 
 
     // for jwt
-    const [token] = useToken(user || createUser)
+    const [token] = useToken(createUser)
     // for jwt
 
     const navigate = useNavigate();
@@ -34,9 +32,6 @@ const Signin = () => {
     const onSubmit = async data => {
         await signInWithEmailAndPassword(data.email, data.password)
     };
-    const handleGoogleSignIn = () => {
-        signInWithGoogle();
-    }
 
     useEffect(() => {
         if (token) {
@@ -45,12 +40,12 @@ const Signin = () => {
         }
     }, [token, navigate, from])
 
-    if (createLoading || loading) {
+    if (createLoading) {
         return <Loader></Loader>
 
     };
-    if (createError || error) {
-        toast.error(error.message)
+    if (createError) {
+        toast.error(createError.message)
     }
 
     return (
