@@ -9,11 +9,7 @@ import useAdmin from '../../hooks/useAdmin';
 const CustomerReview = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
-  console.log(user);
 
-  const handleAdmin = () => {
-    toast.error("Admin can't give review");
-  };
   const handleReview = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -21,7 +17,6 @@ const CustomerReview = () => {
     const imageUrl = event.target.imageUrl.value;
     const rating = parseInt(event.target.rating.value);
     const review = event.target.review.value;
-    console.log(rating, name, email, imageUrl, review);
 
     const customerReviews = { rating, name, email, imageUrl, review };
     axios
@@ -30,7 +25,6 @@ const CustomerReview = () => {
         customerReviews
       )
       .then(function (response) {});
-    console.log(customerReviews);
     toast.success('Review added Successfully ');
 
     // event.target.name.value = '';
@@ -46,12 +40,7 @@ const CustomerReview = () => {
         {/* review modal */}
         <div>
           {admin ? (
-            <label
-              onClick={handleAdmin}
-              className="btn rounded-lg border-none bg-primary text-white hover:bg-accent"
-            >
-              Give Review
-            </label>
+            ''
           ) : (
             <label
               for="my-modal-6"
@@ -66,7 +55,7 @@ const CustomerReview = () => {
             <div className="modal-box relative">
               <label
                 for="my-modal-6"
-                class="btn btn-sm btn-circle border-0 text-white bg-primary hover:bg-accent hover:text-black absolute right-2 top-2"
+                className="btn btn-sm btn-circle border-0 text-white bg-primary hover:bg-accent hover:text-black absolute right-2 top-2"
               >
                 ✕
               </label>

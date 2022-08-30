@@ -18,7 +18,7 @@ const Solutions = () => {
                 </div>
                 <div className='w-full'>
                     <div className="mx-8 px-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 items-center justify-center gap-x-4 gap-y-8">
-                        <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full " data-aos="fade-right">
+                        <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full " data-aos="zoom-in">
                             <GiOnTarget className='text-4xl text-primary' />
                             <div className="card-title my-4">Sales</div>
                             <p className="text-gray-600 font-normal leading-7">
@@ -38,7 +38,7 @@ const Solutions = () => {
                                 Learn more <IoIosArrowForward className='ml-2 w-4' />
                             </p>
                         </div>
-                        <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full" data-aos="fade-left">
+                        <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full" data-aos="zoom-in">
 
                             <RiCustomerService2Line className='text-4xl text-primary' />
                             <div className="card-title my-4">Customer Success</div>
@@ -49,7 +49,7 @@ const Solutions = () => {
                                 Learn more <IoIosArrowForward className='ml-2 w-4' />
                             </p>
                         </div>
-                        <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full" data-aos="fade-right">
+                        <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full" data-aos="zoom-in">
 
                             <AiOutlineLineChart className='text-4xl text-primary' />
                             <div className="card-title my-4">Revenue Operations</div>
@@ -70,7 +70,7 @@ const Solutions = () => {
                                 Learn more <IoIosArrowForward className='ml-2 w-4' />
                             </p>
                         </div>
-                        <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full" data-aos="fade-left">
+                        <div className="card rounded-lg bg-white p-8 shadow-md max-w-sm h-full" data-aos="zoom-in">
 
                             <HiOutlineDesktopComputer className='text-4xl text-primary' />
                             <div className="card-title my-4">Information Technology</div>

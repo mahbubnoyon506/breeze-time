@@ -24,9 +24,9 @@ const UpdatePack = ({ updatePackage, setUpdatePackage, refetch, _id }) => {
 
   return (
     <div>
-      <input type="checkbox" id="updatePackage" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box relative">
+      <input type="checkbox" id="updatePackage" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative">
           <form onSubmit={handleSubmit(onSubmit)}>
             <h2 className="text-3xl text-primary font-bold text-center mb-4">
               Update Package <span>{updatePackage.name}</span>
@@ -34,7 +34,7 @@ const UpdatePack = ({ updatePackage, setUpdatePackage, refetch, _id }) => {
             {/* accessType */}
             <label
               onClick={handleCancelUpdate}
-              class="btn btn-sm btn-circle absolute right-2 top-2"
+              className="btn btn-sm btn-circle absolute right-2 top-2"
             >
               ✕
             </label>

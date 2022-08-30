@@ -6,6 +6,7 @@ import Loader from '../../Components/Loader';
 
 const CheckoutForm = ({ pack }) => {
   const [user] = useAuthState(auth);
+
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState('');
@@ -15,8 +16,10 @@ const CheckoutForm = ({ pack }) => {
   const [clientSecret, setClientSecret] = useState('');
   const { name, price } = pack;
 
+  const issuedDate =new Date().toLocaleString();;
+  
   useEffect(() => {
-    const data = { name, price };
+    const data = { name, price};
     if (price) {
       console.log(price);
       fetch(
@@ -39,7 +42,7 @@ const CheckoutForm = ({ pack }) => {
     }
   }, [name, price]);
 
-  console.log(clientSecret);
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -86,7 +89,10 @@ const CheckoutForm = ({ pack }) => {
       email: user.email,
       status: 'professional',
       transactionId: paymentIntent.id,
+      pack: pack.name,
+      issuedDate
     };
+
     fetch(`https://floating-basin-72615.herokuapp.com/users/professional`, {
       method: 'POST',
       headers: {
@@ -98,7 +104,6 @@ const CheckoutForm = ({ pack }) => {
       .then((res) => res.json())
       .then((data) => {
         setProcessing(false);
-        console.log(data);
       });
     // give user a professional status
     const url = `https://floating-basin-72615.herokuapp.com/users/professional/${user.email}`;

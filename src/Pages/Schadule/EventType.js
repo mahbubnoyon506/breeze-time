@@ -11,7 +11,7 @@ const EventType = () => {
             <div className='flex flex-col container'>
                 <div className="mb-12 mt-6 rounded">
                     <div className='flex justify-between px-40'>
-                    <Link to='/dash-home' className="btn btn-ghost btn-sm btn-outline btn-primary text-primary">Back</Link>
+                    <Link to='/dashboard' className="btn btn-ghost btn-sm btn-outline btn-primary text-primary">Back</Link>
                     <h2 className='text-2xl text-primary'>New Event Type</h2>
                     </div>
                     <div className="flex flex-wrap sm:flex-no-wrap items-center justify-center w-full h-32  mt-8">

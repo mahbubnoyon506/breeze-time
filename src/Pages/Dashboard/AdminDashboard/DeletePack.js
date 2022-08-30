@@ -24,16 +24,16 @@ const DeletePack = ({ deletePackage, setDeletePackage, refetch, _id }) => {
 
   return (
     <div>
-      <input type="checkbox" id="deletePackage" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box relative">
+      <input type="checkbox" id="deletePackage" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative">
           <div>
-            <h3 class="text-lg font-bold">
+            <h3 className="text-lg font-bold">
               Do you want to delete{' '}
               <span className="text-bold text-red-500 text-xl ">"{name}"</span>{' '}
               package ?
             </h3>
-            <p class="py-4">
+            <p className="py-4">
               If you delete it will completely delete from database.
             </p>
           </div>
