@@ -39,7 +39,7 @@ const CustomerReview = () => {
         <ReviewSlider />
         {/* review modal */}
         <div>
-          {admin ? (
+          {(!user || admin) ? (
             ''
           ) : (
             <label
