@@ -7,7 +7,7 @@ const deleteProf = ({ deleteProfessional, setDeleteProfessional }) => {
 
     const handleDelete = () => {
 
-        const url = `http://localhost:5000/professional/${_id}`;
+        const url = `https://floating-basin-72615.herokuapp.com/professional/${_id}`;
         fetch(url, {
             method: 'DELETE',
             headers: {
@@ -28,16 +28,16 @@ const deleteProf = ({ deleteProfessional, setDeleteProfessional }) => {
     }
     return (
         <div>
-            <input type="checkbox" id="profDelete" class="modal-toggle" />
-            <label for="profDelete" class="modal cursor-pointer">
-                <label class="modal-box relative" for="">
+            <input type="checkbox" id="profDelete" className="modal-toggle" />
+            <label for="profDelete" className="modal cursor-pointer">
+                <label className="modal-box relative" for="">
                     <div className='flex justify-start items-center'>
                         <FiAlertCircle className='text-4xl text-error' />
                         <span className='ml-2'>Are you sure to delete {name}?</span>
                     </div>
-                    <div class="flex justify-end mt-5">
-                        <button onClick={handleCancel} class="btn btn-sm btn-accent hover:bg-accent mr-2">Cancel</button>
-                        <button onClick={handleDelete} class="btn btn-sm btn-primary">Detele</button>
+                    <div className="flex justify-end mt-5">
+                        <button onClick={handleCancel} className="btn btn-sm btn-accent hover:bg-accent mr-2">Cancel</button>
+                        <button onClick={handleDelete} className="btn btn-sm btn-primary">Detele</button>
                     </div>
                 </label>
             </label>

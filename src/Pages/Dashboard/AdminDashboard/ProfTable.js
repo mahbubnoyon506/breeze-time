@@ -12,7 +12,7 @@ const ProfTable = ({ professional, index, setDeleteProfessional }) => {
             <td>{pack}</td>
             <td>{issuedDate}</td>
             <td>
-                <label onClick={setDeleteProfessional(professional)} for="profDelete" class="text-primary cursor-pointer hover:text-accent"><FaTrashAlt/></label>
+                <label onClick={setDeleteProfessional(professional)} for="profDelete" className="text-primary cursor-pointer hover:text-accent"><FaTrashAlt/></label>
             </td>
         </tr>
     );

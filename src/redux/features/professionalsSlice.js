@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 
 export const getProfessionals = createAsyncThunk('professionals/getProfessionals', async () => {
-    return fetch('http://localhost:5000/professional')
+    return fetch('https://floating-basin-72615.herokuapp.com/professional')
     .then( res => res.json());
 });
 

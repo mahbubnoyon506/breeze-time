@@ -7,7 +7,7 @@ const DeleteModal = ({ deleteEvent }) => {
 
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:5000/event/${_id}`)
+      .delete(`https://floating-basin-72615.herokuapp.com/event/${_id}`)
       .then(function (response) {
         return response;
       });
