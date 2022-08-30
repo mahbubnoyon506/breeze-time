@@ -7,19 +7,19 @@ const StartMeetingModal = () => {
   const [user] = useAuthState(auth);
   return (
     <div>
-      <input type="checkbox" id="meetingOpen" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box relative">
+      <input type="checkbox" id="meetingOpen" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative">
           <label
             for="meetingOpen"
-            class="btn btn-sm btn-circle absolute right-2 top-2"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
           </label>
-          <h3 class="text-lg font-bold">
+          <h3 className="text-lg font-bold">
             Hello <span className="text-error">{user?.displayName}</span> !
           </h3>
-          <p class="py-4">
+          <p className="py-4">
             Congratulations! You chose to join one-on-one meeting with the
             specialist. Your meeting about to start!
           </p>

@@ -21,7 +21,7 @@ const CustomerReview = () => {
     const customerReviews = { rating, name, email, imageUrl, review };
     axios
       .post(
-        'http://localhost:5000/reviews',
+        'https://floating-basin-72615.herokuapp.com/reviews',
         customerReviews
       )
       .then(function (response) {});
@@ -55,7 +55,7 @@ const CustomerReview = () => {
             <div className="modal-box relative">
               <label
                 for="my-modal-6"
-                class="btn btn-sm btn-circle border-0 text-white bg-primary hover:bg-accent hover:text-black absolute right-2 top-2"
+                className="btn btn-sm btn-circle border-0 text-white bg-primary hover:bg-accent hover:text-black absolute right-2 top-2"
               >
                 ✕
               </label>

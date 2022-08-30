@@ -6,7 +6,7 @@ const Usertable = ({ user, index, refetch }) => {
 
   // make admin
   const makeAdmin = () => {
-    const url = `http://localhost:5000/users/admin/${email}`;
+    const url = `https://floating-basin-72615.herokuapp.com/users/admin/${email}`;
     fetch(url, {
       method: 'PUT',
       headers: {
@@ -31,7 +31,7 @@ const Usertable = ({ user, index, refetch }) => {
   // remove admin
 
   const removeAdmin = () => {
-    const url = `http://localhost:5000/users/user/${email}`;
+    const url = `https://floating-basin-72615.herokuapp.com/users/user/${email}`;
 
     fetch(url, {
       method: 'PUT',
