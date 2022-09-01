@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
-const OneToOneSchedule = () => {
+const GroupSchedule = () => {
   const [user] = useAuthState(auth);
   const [value, onChange] = useState(new Date());
   const {
@@ -20,9 +20,14 @@ const OneToOneSchedule = () => {
     const eventValue = {
       eventName: data.eventname,
       eventType: data.event,
-      eventWith: 'One-to-One',
+      eventWith: 'Group',
       description: data.description,
-      targetedEmail: data.targetedEmail,
+      targetedEmail: {
+        email1: data.email1,
+        email2: data.email2,
+        email3: data.email3,
+        email4: data.email4
+      },
       dateTime: value,
       host: user.email,
     };
@@ -31,7 +36,6 @@ const OneToOneSchedule = () => {
       .then(function (response) {});
     toast.success('Event created Successfully ');
     reset();
-
   };
 
   return (
@@ -81,12 +85,33 @@ const OneToOneSchedule = () => {
             <label className="label">
               <span className="label-text">Targeted Email</span>
             </label>
+            <div className='lg:grid grid-cols-4 gap-4'>
+
             <input
-              {...register('targetedEmail', { required: true })}
+              {...register('email1', { required: true })}
               type="email"
               placeholder="Type targeted Email"
               className="input input-bordered w-full"
             />
+            <input
+              {...register('email2')}
+              type="email"
+              placeholder="Type targeted Email"
+              className="input input-bordered w-full"
+            />
+            <input
+              {...register('email3')}
+              type="email"
+              placeholder="Type targeted Email"
+              className="input input-bordered w-full"
+            />
+            <input
+              {...register('email4')}
+              type="email"
+              placeholder="Type targeted Email"
+              className="input input-bordered w-full"
+            />
+            </div>
             {errors.eventname && (
               <p className="text-error text-xs">Targeted email is required.</p>
             )}
@@ -126,4 +151,4 @@ const OneToOneSchedule = () => {
   );
 };
 
-export default OneToOneSchedule;
+export default GroupSchedule;

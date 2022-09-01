@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+
 import Loader from '../../../Components/Loader';
 import Usertable from './Usertable';
 
 const ManageUser = () => {
+
   const { data, isLoading, refetch } = useQuery(['users'], () =>
     fetch('https://floating-basin-72615.herokuapp.com/users', {
       method: 'GET',
@@ -11,6 +13,7 @@ const ManageUser = () => {
         authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
     }).then((res) => res.json())
+
   );
   if (isLoading) {
     return <Loader></Loader>;

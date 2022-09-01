@@ -4,11 +4,13 @@ import { useState } from 'react';
 import Loader from '../../../Components/Loader';
 import AddPackage from './AddPackage';
 import PackageTable from './PackageTable';
-
 import { BsPlusLg } from 'react-icons/bs';
+
+
 
 const ManagePackages = () => {
   const [addPackage, setAddPackage] = useState(null);
+
 
   const { data, isLoading, refetch } = useQuery(['packages'], () =>
     fetch('https://floating-basin-72615.herokuapp.com/packages', {
@@ -18,6 +20,7 @@ const ManagePackages = () => {
       },
     }).then((res) => res.json())
   );
+
   if (isLoading) {
     return <Loader></Loader>;
   }
