@@ -23,7 +23,6 @@ const EventType = () => {
                             <p className='text-sm'>Let an invitee pick a time to meet with you.</p>
                         </div>
                         <div className="flex justify-end items-center w-full sm:w-1/3 rounded-b sm:rounded-b-none" >
-                            
                             <Link to='/one-to-one' className="btn btn-primary rounded-full btn-sm">Create</Link>
                         </div>
                     </div>
@@ -37,7 +36,7 @@ const EventType = () => {
                             <p className='text-sm'>Let multiple invitees meet with you at one time.</p>
                         </div>
                         <div className="flex justify-end items-center w-full sm:w-1/3 rounded-b sm:rounded-b-none" >
-                        <button className="btn btn-primary rounded-full btn-sm">Create</button>
+                        <Link to='/group-meeting' className="btn btn-primary rounded-full btn-sm">Create</Link>
                         </div>
                     </div>
                     {/* collective meeting  */}
@@ -50,7 +49,7 @@ const EventType = () => {
                             <p className='text-sm'>Host an event with another person and let invitees pick a time when you’re all available.</p>
                         </div>
                         <div className="flex justify-end items-center w-full sm:w-1/3 rounded-b sm:rounded-b-none" >
-                            <button className="btn btn-primary rounded-full btn-sm">Create</button>
+                            <button className="btn btn-primary rounded-full btn-sm disabled:">Create</button>
                         </div>
                     </div>
                     {/* round robin meeting  */}
@@ -63,7 +62,7 @@ const EventType = () => {
                             <p className='text-sm'>Create an event that cycles between multiple hosts.</p>
                         </div>
                         <div className="flex justify-end items-center w-full sm:w-1/3 rounded-b sm:rounded-b-none" >
-                            <button className="btn btn-primary rounded-full btn-sm">Create</button>
+                            <button className="btn btn-primary rounded-full btn-sm disabled:">Create</button>
                         </div>
                     </div>
                 </div>

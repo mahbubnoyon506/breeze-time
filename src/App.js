@@ -9,6 +9,7 @@ import TimeZone from './Components/TimeZone';
 import EventType from './Pages/Schadule/EventType';
 import DashHome from './Pages/Dashboard/DashHome';
 import OneToOneSchedule from './Pages/Schadule/OneToOneSchedule';
+import GroupSchedule from './Pages/Schadule/GroupSchedule';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Teams from './Pages/Teams/Teams';
@@ -143,6 +144,14 @@ function App() {
           element={
             <RequireAuth>
               <OneToOneSchedule />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/group-meeting"
+          element={
+            <RequireAuth>
+              <GroupSchedule />
             </RequireAuth>
           }
         ></Route>
