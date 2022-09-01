@@ -20,6 +20,7 @@ const OneToOneSchedule = () => {
     const eventValue = {
       eventName: data.eventname,
       eventType: data.event,
+      eventWith: 'One-to-One',
       description: data.description,
       targetedEmail: data.targetedEmail,
       dateTime: value,
@@ -30,6 +31,7 @@ const OneToOneSchedule = () => {
       .then(function (response) {});
     toast.success('Event created Successfully ');
     reset();
+
   };
 
   return (
@@ -46,10 +48,10 @@ const OneToOneSchedule = () => {
       <div className="border-2 mx-20 p-5">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full ">
+            {/* Event name */}
             <label className="label">
               <span className="label-text">Event Name</span>
             </label>
-
             <input
               {...register('eventname', { required: true })}
               type="text"
@@ -59,6 +61,7 @@ const OneToOneSchedule = () => {
             {errors.eventname && (
               <p className="text-error text-xs">Event type is required.</p>
             )}
+            {/* Event option */}
             <label className="label">
               <span className="label-text">Event Options</span>
             </label>
@@ -74,6 +77,20 @@ const OneToOneSchedule = () => {
               <option>Google Meet</option>
             </select>
             {errors.event && <p>Event type is required.</p>}
+            {/* Targeted email */}
+            <label className="label">
+              <span className="label-text">Targeted Email</span>
+            </label>
+            <input
+              {...register('targetedEmail', { required: true })}
+              type="email"
+              placeholder="Type targeted Email"
+              className="input input-bordered w-full"
+            />
+            {errors.eventname && (
+              <p className="text-error text-xs">Targeted email is required.</p>
+            )}
+            {/* Event description */}
             <label className="label">
               <span className="label-text">Type Event Description</span>
             </label>
@@ -85,6 +102,7 @@ const OneToOneSchedule = () => {
               placeholder="Description"
             ></textarea>
             <p className="text-error text-xs">{errors.description?.message}</p>
+            {/* Date time picker */}
             <label className="label">
               <span className="label-text">Select Date</span>
             </label>
@@ -101,7 +119,6 @@ const OneToOneSchedule = () => {
                 value="Create Event"
               />
             </div>
-
           </div>
         </form>
       </div>

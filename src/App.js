@@ -9,6 +9,7 @@ import TimeZone from './Components/TimeZone';
 import EventType from './Pages/Schadule/EventType';
 import DashHome from './Pages/Dashboard/DashHome';
 import OneToOneSchedule from './Pages/Schadule/OneToOneSchedule';
+import GroupSchedule from './Pages/Schadule/GroupSchedule';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Teams from './Pages/Teams/Teams';
@@ -87,54 +88,6 @@ function App() {
           }
         >
           <Route
-            path="manageUser"
-            element={
-              <RequiredAdmin>
-                <ManageUser></ManageUser>
-              </RequiredAdmin>
-            }
-          ></Route>
-          <Route
-            path="manageEvent"
-            element={
-              <RequiredAdmin>
-                <ManageEvent></ManageEvent>
-              </RequiredAdmin>
-            }
-          ></Route>
-          <Route
-            path="scheduledEvents"
-            element={
-              <RequiredAdmin>
-                <ScheduledEvents></ScheduledEvents>
-              </RequiredAdmin>
-            }
-          ></Route>
-          <Route
-            path="manageUser"
-            element={
-              <RequiredAdmin>
-                <ManageUser />
-              </RequiredAdmin>
-            }
-          ></Route>
-          <Route
-            path="manageEvent"
-            element={
-              <RequiredAdmin>
-                <ManageEvent />
-              </RequiredAdmin>
-            }
-          ></Route>
-          <Route
-            path="scheduledEvents"
-            element={
-              <RequiredAdmin>
-                <ScheduledEvents />
-              </RequiredAdmin>
-            }
-          ></Route>
-          <Route
             path="professionalCollections"
             element={
               <RequiredAdmin>
@@ -191,6 +144,14 @@ function App() {
           element={
             <RequireAuth>
               <OneToOneSchedule />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/group-meeting"
+          element={
+            <RequireAuth>
+              <GroupSchedule />
             </RequireAuth>
           }
         ></Route>

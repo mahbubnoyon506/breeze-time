@@ -50,7 +50,7 @@ const DashHome = () => {
           <span className="mr-2">
             <FaPlus></FaPlus>
           </span>
-          {events?.length >= 5 && !professional ? (
+          {events?.length >= 3 && !professional ? (
             <Link onClick={handleEventCreate} to="/pricing">
               Create New Event
             </Link>
