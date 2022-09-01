@@ -2,7 +2,6 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
-
 const StartMeetingModal = () => {
   const [user] = useAuthState(auth);
   return (
@@ -24,7 +23,7 @@ const StartMeetingModal = () => {
             specialist. Your meeting about to start!
           </p>
           <a
-            href={`https://breeze-time-conference-room.netlify.app/?meetingId=breezeTimeConferenceRoom&webcamEnabled=true&micEnabled=true&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiI2NjEzZjhmMS1iY2Y3LTRkNTEtYTA0Yi1lYmU2NWY5NTJhOGYiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIl0sImlhdCI6MTY2MTQxMzQzMiwiZXhwIjoxNjYyMDE4MjMyfQ.vccrcMw2Jde_nzDc3ESx3U_GUrneuZBQDCr9_JmXzrY&name=${user?.displayName}`}
+            href={`https://breeze-time-conference-room.web.app/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiIzMmY3ZjlkZC1hMTA2LTQ3NjktOWVmNi1jMzgwMDI1YTAyOWUiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIl0sImlhdCI6MTY2MjA0MTAwMSwiZXhwIjoxNjYyNjQ1ODAxfQ.xxFPXDjg43YEQ87owaa8DwLVeqX6WxZoc90LIl91-UY&meetingId=breezeTimeConferenceRoom&webcamEnabled=true&micEnabled=true&name=${user?.displayName}`}
           >
             <button className="w-full btn  btn-primary"> Join Now</button>
           </a>
