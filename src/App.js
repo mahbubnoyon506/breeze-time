@@ -5,7 +5,7 @@ import Navbar from './Components/Navbar';
 import Footer from './Components/Footer/Footer';
 import Signin from './Components/Login/Signin';
 import SignUp from './Components/Login/SignUp';
-import TimeZone from './Components/TimeZone';
+// import TimeZone from './Components/TimeZone';
 import EventType from './Pages/Schadule/EventType';
 import DashHome from './Pages/Dashboard/DashHome';
 import OneToOneSchedule from './Pages/Schadule/OneToOneSchedule';
@@ -166,7 +166,7 @@ function App() {
         ></Route>
 
         {/* timezone route just for checking */}
-        <Route path="/timeZone" element={<TimeZone />}></Route>
+        {/* <Route path="/timeZone" element={<TimeZone />}></Route> */}
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
 
