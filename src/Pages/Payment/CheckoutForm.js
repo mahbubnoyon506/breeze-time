@@ -42,7 +42,7 @@ const CheckoutForm = ({ pack }) => {
     }
   }, [name, price]);
 
-
+console.log(clientSecret)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
