@@ -42,7 +42,7 @@ const CheckoutForm = ({ pack }) => {
     }
   }, [name, price]);
 
-
+console.log(clientSecret)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -110,7 +110,6 @@ const CheckoutForm = ({ pack }) => {
     fetch(url, {
       method: 'PUT',
       headers: {
-        'content-type': 'application/json',
         authorization: `Bearer ${localStorage.getItem('accessToken')}`,
       },
     })
