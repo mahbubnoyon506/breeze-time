@@ -67,7 +67,7 @@ console.log(clientSecret)
     setProcessing(true);
 
     const { paymentIntent, error: intentError } =
-      await stripe.confirmCardPayment(clientSecret, {
+      await stripe?.confirmCardPayment(clientSecret, {
         payment_method: {
           card: card,
           billing_details: {
