@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import image from '../../assets/calanderimg.jpg';
+import team from '../../assets/teams.gif';
 const Teams = () => {
   return (
     <div>
-      <div className="hero  bg-white py-5 lg:max-h-screen">
+      <div className="hero py-5 lg:max-h-screen">
         <div className="hero-content flex-col  lg:flex-row-reverse md:flex-row-reverse">
           <div className="flex-shrink-0 w-full max-w-lg " data-aos="fade-left">
-            <img src={image} alt="" className="rounded" />
+            <img src={team} alt="" className="rounded" />
           </div>
           <div
-            className="text-center text-lg px-5 lg:text-left md:my-5"
+            className="text-center text-lg px-16 lg:text-left md:my-5"
             data-aos="fade-right"
           >
             <h1 className="text-5xl font-bold">Schedule for your teams</h1>
