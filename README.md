@@ -6,21 +6,29 @@ This site is live on [Breeze Time](https://breeze-time.netlify.app).
 
 The name of this project is Breeze Time. This project is used to maintain a schedule. Users can use this site to set any schedule for the event. They can maintain their events and can invite anyone to their event. The total overview of this project is given below:
 
-## Header: From this part, the user can know about all page info. In the navbar, we have a Home page, Teams page, Pricing page, About page, Contact page, and user Sign In page.
+## Header: 
+From this part, the user can know about all page info. In the navbar, we have a Home page, Teams page, Pricing page, About page, Contact page, and user Sign In page.
 
-## Home: From the home page users can get the details of our site. Event creation, our features info, all clients whom we work with, and reviews of our valuable clients are showcased here.
+## Home: 
+From the home page users can get the details of our site. Event creation, our features info, all clients whom we work with, and reviews of our valuable clients are showcased here.
 
-## Teams page: From this page, a user can directly go to the event creation page for their teams.
+## Teams page: 
+From this page, a user can directly go to the event creation page for their teams.
 
-## Pricing: From this page, the user can take any package for the schedule management system. Currently, we have three different packages. 
+## Pricing: 
+From this page, the user can take any package for the schedule management system. Currently, we have three different packages. 
 
-## About page: Users can get info about the Breeze Time management and also the Breeze Time Developers from this page.
+## About page: 
+Users can get info about the Breeze Time management and also the Breeze Time Developers from this page.
 
-## Contact Page: If users have any queries they can share them with our support unit via the contact form. They need to fill up the form and write any queries with details.
+## Contact Page: 
+If users have any queries they can share them with our support unit via the contact form. They need to fill up the form and write any queries with details.
 
-## Sign In page: Users can create an account from this page or sign in with their Google account. After Sign In with their account, they will get access to creating an event and will get dashboard access to manage their events.
+## Sign In page: 
+Users can create an account from this page or sign in with their Google account. After Sign In with their account, they will get access to creating an event and will get dashboard access to manage their events.
 
-## Footer: Footer is a short overview of the site. Any short link to the site is shown here. Breeze Time info and its social media information will show there.
+## Footer: 
+Footer is a short overview of the site. Any short link to the site is shown here. Breeze Time info and its social media information will show there.
 
 ## Features:
 * Authentication System: Users have to create an account to get premium access. To make this feature we have used firebase authentication and react firebase authentication. Users' login access will secure with a secret key. After a sudden period, their key will expire, and they have to log in again to access their account.
@@ -45,4 +53,5 @@ The name of this project is Breeze Time. This project is used to maintain a sche
 
 * Video Chat: This is the main feature of our site. All events will show in the dashboard and users can start the meeting by clicking the start meeting button. To create the video chat we have used video SDK documentation to implement this video chat system, and also used some of the technology like material-UI, compressors, emoji-mart, fabric, hls.js, not stack, react-color, react-device-detect, react-emoji-render, react-lines-ellipsis, react-linkify, react-Lottie, react-motion, react-player, react-responsive, react-router-dom, react-use-clipboard, react-virtualized, react-visibility-sensor.
 
-## Technologies: To give the users a good experience there used some libraries. These are:- React, React-Router-Dom, EmailJs, Reduxjs, React-Redux, Stripe, React-Query, Aos, Axios, Daisy UI, DayJs, Firebase, React, React-Datetime-Picker, React-Fast-Marquee, React-Firebase-Hooks, React-Rook-Form, React-Icons, React-Loader-Spinner, React-Timezone-Select, React-Toastify, Socket.io, Node, Express, MongoDB, Heroku, etc.
+## Technologies: 
+To give the users a good experience there used some libraries. These are:- React, React-Router-Dom, EmailJs, Reduxjs, React-Redux, Stripe, React-Query, Aos, Axios, Daisy UI, DayJs, Firebase, React, React-Datetime-Picker, React-Fast-Marquee, React-Firebase-Hooks, React-Rook-Form, React-Icons, React-Loader-Spinner, React-Timezone-Select, React-Toastify, Socket.io, Node, Express, MongoDB, Heroku, etc.
