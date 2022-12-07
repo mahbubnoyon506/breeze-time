@@ -22,7 +22,7 @@ const UpdateEvent = ({ updateEvent, setUpdateEvent, refetch }) => {
     };
     axios
       .put(
-        `https://floating-basin-72615.herokuapp.com/event/${_id}`,
+        `https://breeze-time-server.vercel.app/event/${_id}`,
         eventValue
       )
       .then(function (response) {

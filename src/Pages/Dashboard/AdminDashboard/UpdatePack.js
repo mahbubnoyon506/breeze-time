@@ -9,7 +9,7 @@ const UpdatePack = ({ updatePackage, setUpdatePackage, refetch, _id }) => {
   // console.log(updatePackage)
   const onSubmit = async (data) => {
     axios
-      .put(`https://floating-basin-72615.herokuapp.com/packages/${_id}`, data)
+      .put(`https://breeze-time-server.vercel.app/packages/${_id}`, data)
       .then(function (response) {
         if (response.status === 200) {
           toast.success('Package updated Successfully ');

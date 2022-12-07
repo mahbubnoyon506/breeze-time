@@ -7,7 +7,7 @@ const deleteProf = ({ deleteProfessional, setDeleteProfessional }) => {
 
     const handleDelete = () => {
 
-        const url = `https://floating-basin-72615.herokuapp.com/professional/${_id}`;
+        const url = `https://breeze-time-server.vercel.app/professional/${_id}`;
         fetch(url, {
             method: 'DELETE',
             headers: {

@@ -7,7 +7,7 @@ import Usertable from './Usertable';
 const ManageUser = () => {
 
   const { data, isLoading, refetch } = useQuery(['users'], () =>
-    fetch('https://floating-basin-72615.herokuapp.com/users', {
+    fetch('https://breeze-time-server.vercel.app/users', {
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem('accessToken')}`,

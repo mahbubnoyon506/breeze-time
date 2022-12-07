@@ -13,7 +13,7 @@ const ManagePackages = () => {
 
 
   const { data, isLoading, refetch } = useQuery(['packages'], () =>
-    fetch('https://floating-basin-72615.herokuapp.com/packages', {
+    fetch('https://breeze-time-server.vercel.app/packages', {
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem('accessToken')}`,

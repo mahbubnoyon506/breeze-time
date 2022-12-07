@@ -23,7 +23,7 @@ const CheckoutForm = ({ pack }) => {
     if (price) {
       console.log(price);
       fetch(
-        'https://floating-basin-72615.herokuapp.com/create-payment-intent',
+        'https://breeze-time-server.vercel.app/create-payment-intent',
         {
           method: 'POST',
           headers: {
@@ -67,7 +67,7 @@ console.log(clientSecret)
     setProcessing(true);
 
     const { paymentIntent, error: intentError } =
-      await stripe.confirmCardPayment(clientSecret, {
+      await stripe?.confirmCardPayment(clientSecret, {
         payment_method: {
           card: card,
           billing_details: {
@@ -93,7 +93,7 @@ console.log(clientSecret)
       issuedDate
     };
 
-    fetch(`https://floating-basin-72615.herokuapp.com/users/professional`, {
+    fetch(`https://breeze-time-server.vercel.app/users/professional`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -106,7 +106,7 @@ console.log(clientSecret)
         setProcessing(false);
       });
     // give user a professional status
-    const url = `https://floating-basin-72615.herokuapp.com/users/professional/${user.email}`;
+    const url = `https://breeze-time-server.vercel.app/users/professional/${user.email}`;
     fetch(url, {
       method: 'PUT',
       headers: {

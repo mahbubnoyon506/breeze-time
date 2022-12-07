@@ -5,7 +5,7 @@ const usePackageId = () => {
   const { id } = useParams();
   const [pack, setPack] = useState(id);
   useEffect(() => {
-    const url = `https://floating-basin-72615.herokuapp.com/packages/${id}`;
+    const url = `https://breeze-time-server.vercel.app/packages/${id}`;
     fetch(url, {
       method: 'GET',
       headers: {
