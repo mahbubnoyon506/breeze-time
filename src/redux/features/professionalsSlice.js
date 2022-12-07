@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 
 export const getProfessionals = createAsyncThunk('professionals/getProfessionals', async () => {
-    return fetch('https://floating-basin-72615.herokuapp.com/professional')
+    return fetch('https://breeze-time-server.vercel.app/professional')
     .then( res => res.json());
 });
 

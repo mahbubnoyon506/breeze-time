@@ -57,7 +57,7 @@ const Package = ({ p }) => {
                 :
                 <>
                   <Link to={`/payment/${_id}`} className='m-auto'><button className=' my-3 btn btn-sm bg-transparent border-black text-black rounded-lg hover:bg-secondary-focus hover:border-secondary-focus  hover:text-white'>Get started</button></Link>
-                  <p className='m-auto'>No credit card needed</p>
+                  
                 </>
             )
         }

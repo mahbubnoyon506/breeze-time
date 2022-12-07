@@ -6,7 +6,7 @@ const Usertable = ({ user, index, refetch }) => {
 
   // make admin
   const makeAdmin = () => {
-    const url = `https://floating-basin-72615.herokuapp.com/users/admin/${email}`;
+    const url = `https://breeze-time-server.vercel.app/users/admin/${email}`;
     fetch(url, {
       method: 'PUT',
       headers: {
@@ -31,7 +31,7 @@ const Usertable = ({ user, index, refetch }) => {
   // remove admin
 
   const removeAdmin = () => {
-    const url = `https://floating-basin-72615.herokuapp.com/users/user/${email}`;
+    const url = `https://breeze-time-server.vercel.app/users/user/${email}`;
 
     fetch(url, {
       method: 'PUT',

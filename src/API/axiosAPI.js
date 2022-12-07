@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosAPI = axios.create({
-    baseURL : 'https://floating-basin-72615.herokuapp.com'
+    baseURL : 'https://breeze-time-server.vercel.app'
 })
 
 axiosAPI.interceptors.request.use(function (config) {

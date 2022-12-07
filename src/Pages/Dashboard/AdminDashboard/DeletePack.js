@@ -8,7 +8,7 @@ const DeletePack = ({ deletePackage, setDeletePackage, refetch, _id }) => {
 
   const handleDeletePackage = () => {
     axios
-      .delete(`https://floating-basin-72615.herokuapp.com/packages/${_id}`)
+      .delete(`https://breeze-time-server.vercel.app/packages/${_id}`)
       .then(function (response) {
         if (response.status === 200) {
           toast.success('Package Deleted Successfully ');

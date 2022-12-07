@@ -7,7 +7,7 @@ const DeleteModal = ({ deleteEvent, setDeleteEvent, refetch }) => {
 
   const handleDelete = () => {
     axios
-      .delete(`https://floating-basin-72615.herokuapp.com/event/${_id}`)
+      .delete(`https://breeze-time-server.vercel.app/event/${_id}`)
       .then(function (response) {
         return response;
       });

@@ -32,7 +32,7 @@ const GroupSchedule = () => {
       host: user.email,
     };
     axios
-      .post('https://floating-basin-72615.herokuapp.com/events', eventValue)
+      .post('https://breeze-time-server.vercel.app/events', eventValue)
       .then(function (response) {});
     toast.success('Event created Successfully ');
     reset();

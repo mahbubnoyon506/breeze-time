@@ -21,7 +21,7 @@ const CustomerReview = () => {
     const customerReviews = { rating, name, email, imageUrl, review };
     axios
       .post(
-        'https://floating-basin-72615.herokuapp.com/reviews',
+        'https://breeze-time-server.vercel.app/reviews',
         customerReviews
       )
       .then(function (response) {});
